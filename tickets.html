@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ATALIAN — Mijn meldingen</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <span class="logo">ATALIAN.</span>
+      <span class="client-selector">Vlaeminck Logistics ▾</span>
+      <div class="topbar-actions"><span>NL</span><span>🔔</span><span>DS ▾</span></div>
+    </header>
+    <nav class="sidebar" id="sidebar"></nav>
+    <main class="main-content">
+      <div class="page-header">
+        <h1 class="page-title">Mijn meldingen</h1>
+        <p class="page-desc">Alle meldingen (interventies, klachten, vragen) — gesynchroniseerd met Ultimo Work Orders.</p>
+      </div>
+      <div class="filter-bar">
+        <a href="tickets-nieuw.html" class="btn btn-primary">+ Nieuwe melding</a>
+        <input type="text" placeholder="Zoeken op omschrijving, nummer…">
+        <select><option>Alle sites</option><option>Gent — Dok-Noord</option><option>Antwerpen — Haven</option><option>Brussel — Evere</option></select>
+        <select><option>Alle statussen</option><option>Open</option><option>In uitvoering</option><option>Afgehandeld</option></select>
+        <select><option>Alle diensten</option><option>Schoonmaak</option><option>Glaswas</option><option>Hard Services</option></select>
+      </div>
+      <div class="card" style="padding:0">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Nr</th><th>Type</th><th>Dienst</th><th>Omschrijving</th><th>Site</th><th>Status</th><th>Datum</th><th>WO</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>#1042</strong></td>
+              <td>Melding</td>
+              <td>Hard Services</td>
+              <td>Lekkage sanitair — bureau 3e verd.</td>
+              <td>Gent</td>
+              <td><span class="badge badge-open">Open</span></td>
+              <td>24/05/2026</td>
+              <td style="color:var(--color-text-2);font-size:12px">WO-8821</td>
+            </tr>
+            <tr>
+              <td><strong>#1041</strong></td>
+              <td>Klacht</td>
+              <td>Schoonmaak</td>
+              <td>Toiletten niet proper — verdieping 2</td>
+              <td>Antwerpen</td>
+              <td><span class="badge badge-progress">In uitvoering</span></td>
+              <td>20/05/2026</td>
+              <td style="color:var(--color-text-2);font-size:12px">WO-8819</td>
+            </tr>
+            <tr>
+              <td><strong>#1038</strong></td>
+              <td>Melding</td>
+              <td>Hard Services</td>
+              <td>Verlichting defect — hal B</td>
+              <td>Gent</td>
+              <td><span class="badge badge-progress">In uitvoering</span></td>
+              <td>18/05/2026</td>
+              <td style="color:var(--color-text-2);font-size:12px">WO-8810</td>
+            </tr>
+            <tr>
+              <td><strong>#1031</strong></td>
+              <td>Vraag</td>
+              <td>Glaswas</td>
+              <td>Extra beurt gevelramen gevraagd</td>
+              <td>Brussel</td>
+              <td><span class="badge badge-done">Afgehandeld</span></td>
+              <td>02/05/2026</td>
+              <td style="color:var(--color-text-2);font-size:12px">WO-8798</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+  <script src="nav.js"></script>
+</body>
+</html>

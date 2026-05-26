@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ATALIAN — Nieuwe melding</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <span class="logo">ATALIAN.</span>
+      <span class="client-selector">Vlaeminck Logistics ▾</span>
+      <div class="topbar-actions"><span>NL</span><span>🔔</span><span>DS ▾</span></div>
+    </header>
+    <nav class="sidebar" id="sidebar"></nav>
+    <main class="main-content">
+      <div class="page-header">
+        <h1 class="page-title">Nieuwe melding</h1>
+        <p class="page-desc">Registreer een melding, klacht of vraag. Na indiening wordt automatisch een Work Order aangemaakt in Ultimo.</p>
+      </div>
+      <div class="card" style="max-width:640px">
+        <div class="form-group">
+          <label>Dienst *</label>
+          <select>
+            <option value="">— Selecteer dienst —</option>
+            <option>Schoonmaak</option>
+            <option>Glaswas</option>
+            <option>Hard Services</option>
+          </select>
+          <div class="form-note">Gefilterd op uw gecontracteerde diensten.</div>
+        </div>
+        <div class="form-group">
+          <label>Type *</label>
+          <select>
+            <option>Melding</option>
+            <option>Klacht</option>
+            <option>Vraag</option>
+            <option>Preventief</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Site *</label>
+          <select>
+            <option value="">— Selecteer site —</option>
+            <option>Gent — Dok-Noord</option>
+            <option>Antwerpen — Haven</option>
+            <option>Brussel — Evere</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Locatie / zone</label>
+          <input type="text" placeholder="Bijv. Bureau 3e verdieping, Hal B…">
+        </div>
+        <div class="form-group">
+          <label>Omschrijving *</label>
+          <textarea placeholder="Beschrijf het probleem of de vraag zo concreet mogelijk…"></textarea>
+        </div>
+        <div class="form-group">
+          <label>Foto of bijlage</label>
+          <input type="file">
+          <div class="form-note">Max. 10 MB · JPG, PNG, PDF</div>
+        </div>
+        <div style="display:flex;gap:12px;margin-top:8px">
+          <button class="btn btn-primary">Melding indienen</button>
+          <a href="tickets.html" class="btn btn-secondary">Annuleren</a>
+        </div>
+      </div>
+      <div class="placeholder" style="max-width:640px;margin-top:16px">
+        <strong>[QR-code koppeling]</strong>
+        Via QR-scan worden site, zone en asset automatisch ingevuld.
+      </div>
+    </main>
+  </div>
+  <script src="nav.js"></script>
+</body>
+</html>
