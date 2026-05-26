@@ -5,11 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ATALIAN — Home</title>
   <link rel="stylesheet" href="styles.css">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 </head>
 <body>
   <div class="app-shell">
     <header class="topbar">
-      <span class="logo">ATALIAN.</span>
+      <span class="logo">
+        <svg width="28" height="28" viewBox="0 0 28 28" style="vertical-align:middle;margin-right:8px;flex-shrink:0">
+          <rect x="0"  y="0"  width="12" height="12" rx="2" fill="#4A90D9"/>
+          <rect x="16" y="0"  width="12" height="12" rx="2" fill="#74AE25"/>
+          <rect x="0"  y="16" width="12" height="12" rx="2" fill="#F4A300"/>
+          <rect x="16" y="16" width="12" height="12" rx="2" fill="#D93025"/>
+        </svg>ATALIAN.
+      </span>
       <span class="client-selector">Vlaeminck Logistics ▾</span>
       <div class="topbar-actions"><span>NL</span><span>🔔</span><span>DS ▾</span></div>
     </header>
@@ -22,21 +30,41 @@
 
       <!-- KPI rij -->
       <div class="kpi-row">
-        <div class="kpi-card warning">
-          <div class="kpi-value">4</div>
-          <div class="kpi-label">Openstaande meldingen</div>
-        </div>
         <div class="kpi-card">
-          <div class="kpi-value">12</div>
-          <div class="kpi-label">Geplande taken deze week</div>
+          <div class="kpi-label-top">OPEN TICKETS</div>
+          <div class="kpi-value">14</div>
+          <div class="kpi-trend trend-down">▼ -3 vs. vorige week</div>
         </div>
-        <div class="kpi-card">
-          <div class="kpi-value">96%</div>
-          <div class="kpi-label">SLA naleving (MTD)</div>
+
+        <div class="kpi-card kpi-success">
+          <div class="kpi-top">
+            <div>
+              <div class="kpi-label-top">SLA-NALEVING</div>
+              <div class="kpi-value">97,2%</div>
+              <div class="kpi-trend trend-up">▲ +1,4pt deze maand</div>
+            </div>
+            <!-- Gauge: rood <85% · oranje 85-95% · groen 95-100% · wijzer @ 97,2% -->
+            <svg class="gauge-dial" viewBox="0 0 90 52">
+              <path d="M7,50 A38,38 0 0,1 83,50"          fill="none" stroke="#E6E8EB" stroke-width="7" stroke-linecap="butt"/>
+              <path d="M7,50 A38,38 0 0,1 78.9,32.7"      fill="none" stroke="#D93025" stroke-width="7" stroke-linecap="butt"/>
+              <path d="M78.9,32.7 A38,38 0 0,1 82.5,44.1" fill="none" stroke="#F4A300" stroke-width="7" stroke-linecap="butt"/>
+              <path d="M82.5,44.1 A38,38 0 0,1 83,50"     fill="none" stroke="#74AE25" stroke-width="7" stroke-linecap="butt"/>
+              <line x1="45" y1="50" x2="74.9" y2="47.4" stroke="#1A2024" stroke-width="2.5" stroke-linecap="round"/>
+              <circle cx="45" cy="50" r="4" fill="#1A2024"/>
+            </svg>
+          </div>
         </div>
-        <div class="kpi-card danger">
-          <div class="kpi-value">2</div>
-          <div class="kpi-label">Te ondertekenen</div>
+
+        <div class="kpi-card kpi-warning">
+          <div class="kpi-label-top">OPENSTAAND SALDO</div>
+          <div class="kpi-value">€ 40 384</div>
+          <div class="kpi-trend trend-neutral">3 facturen · 1 vervallen</div>
+        </div>
+
+        <div class="kpi-card kpi-danger">
+          <div class="kpi-label-top">ACTIES VOOR JOU</div>
+          <div class="kpi-value">3</div>
+          <div class="kpi-trend trend-alert">1 urgent · vervalt vrijdag</div>
         </div>
       </div>
 
@@ -76,9 +104,24 @@
             <div class="card-title">Ons team</div>
             <table class="data-table">
               <tbody>
-                <tr><td style="font-weight:600">Jan Peeters</td><td style="color:var(--color-text-2)">KAM / FM</td><td style="color:var(--color-accent);font-size:12px">j.peeters@atalian.be</td></tr>
-                <tr><td style="font-weight:600">Marie Claes</td><td style="color:var(--color-text-2)">DM</td><td style="color:var(--color-accent);font-size:12px">m.claes@atalian.be</td></tr>
-                <tr><td style="font-weight:600">Tom Wouters</td><td style="color:var(--color-text-2)">SHEQ</td><td style="color:var(--color-accent);font-size:12px">t.wouters@atalian.be</td></tr>
+                <tr>
+                  <td style="font-weight:600">Jan Peeters</td>
+                  <td style="color:var(--color-text-2)">KAM / FM</td>
+                  <td><a href="mailto:j.peeters@atalian.be" class="contact-link"><i data-lucide="mail" class="contact-icon"></i>j.peeters@atalian.be</a></td>
+                  <td><a href="tel:+32471001001" class="contact-link"><i data-lucide="phone" class="contact-icon"></i>+32 471 00 10 01</a></td>
+                </tr>
+                <tr>
+                  <td style="font-weight:600">Marie Claes</td>
+                  <td style="color:var(--color-text-2)">DM</td>
+                  <td><a href="mailto:m.claes@atalian.be" class="contact-link"><i data-lucide="mail" class="contact-icon"></i>m.claes@atalian.be</a></td>
+                  <td><a href="tel:+32471002002" class="contact-link"><i data-lucide="phone" class="contact-icon"></i>+32 471 00 20 02</a></td>
+                </tr>
+                <tr>
+                  <td style="font-weight:600">Tom Wouters</td>
+                  <td style="color:var(--color-text-2)">SHEQ</td>
+                  <td><a href="mailto:t.wouters@atalian.be" class="contact-link"><i data-lucide="mail" class="contact-icon"></i>t.wouters@atalian.be</a></td>
+                  <td><a href="tel:+32471003003" class="contact-link"><i data-lucide="phone" class="contact-icon"></i>+32 471 00 30 03</a></td>
+                </tr>
               </tbody>
             </table>
           </div>
@@ -99,5 +142,6 @@
     </main>
   </div>
   <script src="nav.js"></script>
+  <script>lucide.createIcons();</script>
 </body>
 </html>
