@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ATALIAN — Werkdossiers</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <span class="logo">ATALIAN.</span>
+      <span class="client-selector">Vlaeminck Logistics ▾</span>
+      <div class="topbar-actions"><span>NL</span><span>🔔</span><span>DS ▾</span></div>
+    </header>
+    <nav class="sidebar" id="sidebar"></nav>
+    <main class="main-content">
+      <div class="page-header">
+        <h1 class="page-title">Werkdossiers</h1>
+        <p class="page-desc">Operationele afspraken per site — werktijden, producten, SDS-fiches, werkprogramma's en safetyprocedures.</p>
+      </div>
+      <div class="filter-bar">
+        <select><option>Alle sites</option><option>Gent</option><option>Antwerpen</option><option>Brussel</option></select>
+      </div>
+      <div class="grid-3">
+        <div class="card" style="border-top:3px solid var(--color-accent)">
+          <div class="card-title">Gent — Dok-Noord</div>
+          <table class="data-table"><tbody>
+            <tr><td style="color:var(--color-text-2);font-size:12px">Werktijden</td><td>Ma–Vr 06:00–18:00</td></tr>
+            <tr><td style="color:var(--color-text-2);font-size:12px">Diensten</td><td>Schoonmaak · Glaswas · HS</td></tr>
+          </tbody></table>
+          <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
+            <a href="#" class="btn btn-secondary" style="font-size:12px">Werkprogramma</a>
+            <a href="#" class="btn btn-secondary" style="font-size:12px">SDS-fiches</a>
+            <a href="#" class="btn btn-secondary" style="font-size:12px">Safety</a>
+          </div>
+        </div>
+        <div class="card" style="border-top:3px solid var(--color-accent)">
+          <div class="card-title">Antwerpen — Haven</div>
+          <table class="data-table"><tbody>
+            <tr><td style="color:var(--color-text-2);font-size:12px">Werktijden</td><td>Ma–Za 07:00–17:00</td></tr>
+            <tr><td style="color:var(--color-text-2);font-size:12px">Diensten</td><td>Schoonmaak · Hard Services</td></tr>
+          </tbody></table>
+          <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
+            <a href="#" class="btn btn-secondary" style="font-size:12px">Werkprogramma</a>
+            <a href="#" class="btn btn-secondary" style="font-size:12px">SDS-fiches</a>
+          </div>
+        </div>
+        <div class="card" style="border-top:3px solid var(--color-accent)">
+          <div class="card-title">Brussel — Evere</div>
+          <table class="data-table"><tbody>
+            <tr><td style="color:var(--color-text-2);font-size:12px">Werktijden</td><td>Ma–Vr 06:30–16:30</td></tr>
+            <tr><td style="color:var(--color-text-2);font-size:12px">Diensten</td><td>Schoonmaak · Glaswas</td></tr>
+          </tbody></table>
+          <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
+            <a href="#" class="btn btn-secondary" style="font-size:12px">Werkprogramma</a>
+            <a href="#" class="btn btn-secondary" style="font-size:12px">SDS-fiches</a>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="nav.js"></script>
+</body>
+</html>

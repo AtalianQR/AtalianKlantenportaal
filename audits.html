@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ATALIAN — Keuringen & inspecties</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <span class="logo">ATALIAN.</span>
+      <span class="client-selector">Vlaeminck Logistics ▾</span>
+      <div class="topbar-actions"><span>NL</span><span>🔔</span><span>DS ▾</span></div>
+    </header>
+    <nav class="sidebar" id="sidebar"></nav>
+    <main class="main-content">
+      <div class="page-header">
+        <h1 class="page-title">Keuringen & inspecties</h1>
+        <p class="page-desc">Compliance-overzicht per asset en site — wettelijke keuringen, frequenties en rapportageverplichtingen.</p>
+      </div>
+      <div class="kpi-row">
+        <div class="kpi-card"><div class="kpi-value">14</div><div class="kpi-label">In orde</div></div>
+        <div class="kpi-card warning"><div class="kpi-value">3</div><div class="kpi-label">Vervalt binnenkort</div></div>
+        <div class="kpi-card danger"><div class="kpi-value">1</div><div class="kpi-label">Vervallen</div></div>
+      </div>
+      <div class="card" style="padding:0">
+        <table class="data-table">
+          <thead><tr><th>Keuring</th><th>Asset</th><th>Site</th><th>Laatste keuring</th><th>Volgende</th><th>Rapport</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td>Jaarlijkse liftkeuring</td><td>AST-0441</td><td>Gent</td><td>15/07/2025</td><td>15/07/2026</td><td><a href="#" style="color:var(--color-accent)">PDF</a></td><td><span class="badge badge-done">In orde</span></td></tr>
+            <tr><td>HVAC-controle</td><td>AST-0501</td><td>Antwerpen</td><td>01/06/2025</td><td>01/06/2026</td><td><a href="#" style="color:var(--color-accent)">PDF</a></td><td><span class="badge badge-open">Gepland</span></td></tr>
+            <tr><td>Brandcentrale inspectie</td><td>AST-0612</td><td>Brussel</td><td>10/05/2025</td><td>10/05/2026</td><td>—</td><td><span class="badge badge-alert">Vervallen</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="placeholder" style="margin-top:16px"><strong>[Compliance dashboard — Power BI]</strong>Geaggregeerde compliance-score per site, type keuring en wettelijke verplichting.</div>
+    </main>
+  </div>
+  <script src="nav.js"></script>
+</body>
+</html>
