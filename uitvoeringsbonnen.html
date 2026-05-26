@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ATALIAN — Uitvoeringsbonnen</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <span class="logo">ATALIAN.</span>
+      <span class="client-selector">Vlaeminck Logistics ▾</span>
+      <div class="topbar-actions"><span>NL</span><span>🔔</span><span>DS ▾</span></div>
+    </header>
+    <nav class="sidebar" id="sidebar"></nav>
+    <main class="main-content">
+      <div class="page-header">
+        <h1 class="page-title">Uitvoeringsbonnen</h1>
+        <p class="page-desc">Digitale uitvoeringsbonnen — doorzoekbaar, downloadbaar, gekoppeld aan planning, Work Orders en facturen.</p>
+      </div>
+      <div class="filter-bar">
+        <input type="text" placeholder="Zoeken op bonnummer, dienst…">
+        <select><option>Alle sites</option><option>Gent</option><option>Antwerpen</option><option>Brussel</option></select>
+        <select><option>Alle diensten</option><option>Schoonmaak</option><option>Glaswas</option><option>Hard Services</option></select>
+        <select><option>Alle periodes</option><option>Mei 2026</option><option>April 2026</option></select>
+      </div>
+      <div class="card" style="padding:0">
+        <table class="data-table">
+          <thead><tr><th>Bon nr</th><th>Datum</th><th>Dienst</th><th>Site</th><th>Uitgevoerd door</th><th>WO</th><th>Factuur</th><th>Download</th></tr></thead>
+          <tbody>
+            <tr><td><strong>UB-2026-0412</strong></td><td>01/05/2026</td><td>Schoonmaak</td><td>Gent</td><td>Ploeg Gent-A</td><td style="font-size:12px;color:var(--color-text-2)">WO-8820</td><td style="font-size:12px;color:var(--color-text-2)">2026-0412</td><td><a href="#" style="color:var(--color-accent)">PDF</a></td></tr>
+            <tr><td><strong>UB-2026-0398</strong></td><td>15/04/2026</td><td>Glaswas</td><td>Brussel</td><td>Ploeg Brussel-B</td><td style="font-size:12px;color:var(--color-text-2)">WO-8805</td><td style="font-size:12px;color:var(--color-text-2)">—</td><td><a href="#" style="color:var(--color-accent)">PDF</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+  <script src="nav.js"></script>
+</body>
+</html>

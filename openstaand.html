@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ATALIAN — Openstaande bedragen</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <span class="logo">ATALIAN.</span>
+      <span class="client-selector">Vlaeminck Logistics ▾</span>
+      <div class="topbar-actions"><span>NL</span><span>🔔</span><span>DS ▾</span></div>
+    </header>
+    <nav class="sidebar" id="sidebar"></nav>
+    <main class="main-content">
+      <div class="page-header">
+        <h1 class="page-title">Openstaande bedragen</h1>
+        <p class="page-desc">Overzicht van openstaande en vervallen facturen met online betaalmogelijkheid.</p>
+      </div>
+      <div class="kpi-row">
+        <div class="kpi-card warning"><div class="kpi-value">€ 4.970</div><div class="kpi-label">Openstaand</div></div>
+        <div class="kpi-card danger"><div class="kpi-value">€ 1.820</div><div class="kpi-label">Vervallen</div></div>
+        <div class="kpi-card"><div class="kpi-value">€ 6.790</div><div class="kpi-label">Totaal te betalen</div></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Openstaande facturen</div>
+        <table class="data-table">
+          <thead><tr><th>Factuurnr</th><th>Vervaldag</th><th>Bedrag</th><th>Status</th><th>Actie</th></tr></thead>
+          <tbody>
+            <tr><td>2026-0389</td><td>31/05/2026</td><td>€ 3.150</td><td><span class="badge badge-open">Openstaand</span></td><td><button class="btn btn-primary" style="font-size:12px;padding:6px 12px">Online betalen</button></td></tr>
+            <tr><td>2026-0361</td><td>31/03/2026</td><td>€ 1.820</td><td><span class="badge badge-alert">Vervallen</span></td><td><button class="btn btn-primary" style="font-size:12px;padding:6px 12px">Online betalen</button></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="placeholder"><strong>[Online betalingsmodule — Peppol/Nymus integratie]</strong>Betaling verloopt via de geconfigureerde betaalgateway.</div>
+    </main>
+  </div>
+  <script src="nav.js"></script>
+</body>
+</html>
