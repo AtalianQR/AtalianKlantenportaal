@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ATALIAN — Bestelportaal</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .product-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:16px; }
+    .product-card { background:var(--color-card); border-radius:var(--radius); box-shadow:var(--shadow); padding:16px; }
+    .product-img { width:100%; height:100px; background:var(--color-bg); border-radius:4px; display:flex; align-items:center; justify-content:center; color:var(--color-text-2); font-size:12px; margin-bottom:12px; }
+    .product-name { font-weight:600; font-size:14px; }
+    .product-price { color:var(--color-text-2); font-size:13px; margin-top:4px; }
+    .product-action { margin-top:12px; }
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <span class="logo">ATALIAN.</span>
+      <span class="client-selector">Vlaeminck Logistics ▾</span>
+      <div class="topbar-actions"><span>NL</span><span>🔔</span><span>DS ▾</span></div>
+    </header>
+    <nav class="sidebar" id="sidebar"></nav>
+    <main class="main-content">
+      <div class="page-header">
+        <h1 class="page-title">Bestelportaal</h1>
+        <p class="page-desc">Productbestellingen (verbruiksartikelen, catering, …) — aparte flow van meldingen, met optionele goedkeuringsflow.</p>
+      </div>
+      <div class="filter-bar">
+        <input type="text" placeholder="Zoeken op product…">
+        <select><option>Alle categorieën</option><option>Sanitair</option><option>Catering</option><option>Kantoor</option><option>Reiniging</option></select>
+      </div>
+      <div class="product-grid">
+        <div class="product-card"><div class="product-img">[Productfoto]</div><div class="product-name">Handzeepdispenser navulling</div><div class="product-price">€ 4,50 / stuk</div><div class="product-action"><button class="btn btn-primary" style="font-size:12px;width:100%">+ Bestellen</button></div></div>
+        <div class="product-card"><div class="product-img">[Productfoto]</div><div class="product-name">Papieren handdoeken (rol)</div><div class="product-price">€ 2,80 / rol</div><div class="product-action"><button class="btn btn-primary" style="font-size:12px;width:100%">+ Bestellen</button></div></div>
+        <div class="product-card"><div class="product-img">[Productfoto]</div><div class="product-name">Koffiepads (pak 100)</div><div class="product-price">€ 12,00 / pak</div><div class="product-action"><button class="btn btn-primary" style="font-size:12px;width:100%">+ Bestellen</button></div></div>
+        <div class="product-card"><div class="product-img">[Productfoto]</div><div class="product-name">Reinigingsdoekjes — SDS beschikbaar</div><div class="product-price">€ 6,20 / doos</div><div class="product-action"><button class="btn btn-primary" style="font-size:12px;width:100%">+ Bestellen</button></div></div>
+      </div>
+      <div class="placeholder" style="margin-top:24px"><strong>[Productcatalogus — ERP/bestelplatform]</strong>Productprijzen en beschikbaarheid worden geladen vanuit het gecontracteerde bestelplatform. SDS-fiches zijn per product downloadbaar.</div>
+    </main>
+  </div>
+  <script src="nav.js"></script>
+</body>
+</html>
