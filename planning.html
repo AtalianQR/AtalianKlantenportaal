@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ATALIAN — Planning</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .cal-grid { display:grid; grid-template-columns:repeat(7,1fr); gap:4px; }
+    .cal-day-header { text-align:center; font-size:11px; font-weight:700; color:var(--color-text-2); padding:6px 0; text-transform:uppercase; }
+    .cal-day { background:var(--color-card); border-radius:4px; min-height:80px; padding:6px; font-size:12px; }
+    .cal-day.today { border:2px solid var(--color-accent); }
+    .cal-day-nr { font-weight:600; font-size:13px; margin-bottom:4px; }
+    .cal-event { background:var(--color-accent); color:#fff; border-radius:3px; padding:2px 6px; font-size:11px; margin-bottom:2px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+    .cal-event.blue { background:#1A5276; }
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <span class="logo">ATALIAN.</span>
+      <span class="client-selector">Vlaeminck Logistics ▾</span>
+      <div class="topbar-actions"><span>NL</span><span>🔔</span><span>DS ▾</span></div>
+    </header>
+    <nav class="sidebar" id="sidebar"></nav>
+    <main class="main-content">
+      <div class="page-header">
+        <h1 class="page-title">Planning</h1>
+        <p class="page-desc">Geplande activiteiten per site en dienst — gekoppeld aan Work Orders en uitvoeringsbonnen.</p>
+      </div>
+      <div class="filter-bar">
+        <button class="btn btn-secondary">◀ Mei 2026</button>
+        <strong style="margin:0 12px">Juni 2026</strong>
+        <button class="btn btn-secondary">Juli 2026 ▶</button>
+        <select style="margin-left:auto"><option>Alle sites</option><option>Gent</option><option>Antwerpen</option><option>Brussel</option></select>
+        <select><option>Alle diensten</option><option>Schoonmaak</option><option>Hard Services</option><option>Glaswas</option></select>
+      </div>
+      <div class="card" style="padding:16px">
+        <div class="cal-grid">
+          <div class="cal-day-header">Ma</div><div class="cal-day-header">Di</div><div class="cal-day-header">Wo</div>
+          <div class="cal-day-header">Do</div><div class="cal-day-header">Vr</div><div class="cal-day-header">Za</div><div class="cal-day-header">Zo</div>
+          <div class="cal-day"><div class="cal-day-nr">2</div></div>
+          <div class="cal-day"><div class="cal-day-nr">3</div><div class="cal-event">Glaswas — Gent</div></div>
+          <div class="cal-day"><div class="cal-day-nr">4</div></div>
+          <div class="cal-day"><div class="cal-day-nr">5</div></div>
+          <div class="cal-day"><div class="cal-day-nr">6</div></div>
+          <div class="cal-day"><div class="cal-day-nr">7</div></div>
+          <div class="cal-day"><div class="cal-day-nr">8</div></div>
+          <div class="cal-day"><div class="cal-day-nr">9</div></div>
+          <div class="cal-day"><div class="cal-day-nr">10</div><div class="cal-event blue">Preventief onderhoud lift</div></div>
+          <div class="cal-day today"><div class="cal-day-nr">11</div><div class="cal-event">Schoonmaak extra — Ant.</div></div>
+          <div class="cal-day"><div class="cal-day-nr">12</div></div>
+          <div class="cal-day"><div class="cal-day-nr">13</div></div>
+          <div class="cal-day"><div class="cal-day-nr">14</div></div>
+          <div class="cal-day"><div class="cal-day-nr">15</div></div>
+          <div class="cal-day"><div class="cal-day-nr">16</div></div>
+          <div class="cal-day"><div class="cal-day-nr">17</div><div class="cal-event">Glaswas — Brussel</div></div>
+          <div class="cal-day"><div class="cal-day-nr">18</div></div>
+          <div class="cal-day"><div class="cal-day-nr">19</div></div>
+          <div class="cal-day"><div class="cal-day-nr">20</div></div>
+          <div class="cal-day"><div class="cal-day-nr">21</div></div>
+        </div>
+      </div>
+      <div class="placeholder" style="margin-top:4px"><strong>[Kalender data — Ultimo + Outlook]</strong>Activiteiten worden geladen uit Ultimo (Work Orders) en Outlook (klantmeetings).</div>
+    </main>
+  </div>
+  <script src="nav.js"></script>
+</body>
+</html>

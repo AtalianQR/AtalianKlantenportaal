@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ATALIAN — Te ondertekenen</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <span class="logo">ATALIAN.</span>
+      <span class="client-selector">Vlaeminck Logistics ▾</span>
+      <div class="topbar-actions"><span>NL</span><span>🔔</span><span>DS ▾</span></div>
+    </header>
+    <nav class="sidebar" id="sidebar"></nav>
+    <main class="main-content">
+      <div class="page-header">
+        <h1 class="page-title">Te ondertekenen</h1>
+        <p class="page-desc">Offertes voor meerwerken en acties die uw goedkeuring vereisen — gekoppeld aan Work Orders en facturatie.</p>
+      </div>
+      <div class="card" style="border-left:4px solid var(--color-warning);margin-bottom:24px">
+        <strong>⚠ 2 items wachten op uw handtekening</strong>
+      </div>
+      <div class="card">
+        <div class="card-title">Offertes ter goedkeuring</div>
+        <table class="data-table">
+          <thead><tr><th>Nr</th><th>Omschrijving</th><th>Bedrag</th><th>Site</th><th>Gekoppeld aan</th><th>Deadline</th><th>Actie</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>OFF-2026-089</strong></td>
+              <td>Herstelling dakgoot — Noord gevel</td>
+              <td><strong>€ 3.450</strong></td>
+              <td>Brussel</td>
+              <td style="font-size:12px;color:var(--color-text-2)">WO-8801</td>
+              <td style="color:var(--color-danger)"><strong>30/05/2026</strong></td>
+              <td>
+                <button class="btn btn-primary" style="font-size:12px;padding:6px 12px">✓ Goedkeuren</button>
+                <button class="btn btn-secondary" style="font-size:12px;padding:6px 12px;margin-left:4px">✗ Weigeren</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="card">
+        <div class="card-title">Openstaande acties</div>
+        <table class="data-table">
+          <thead><tr><th>Omschrijving</th><th>Prioriteit</th><th>Deadline</th><th>Verantwoordelijke</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>Ondertekening addendum extra schoonmaakbeurt</td>
+              <td><span class="badge badge-open">Hoog</span></td>
+              <td>01/06/2026</td>
+              <td>Dirk Smeyers</td>
+              <td><span class="badge badge-sign">Wacht op klant</span></td>
+            </tr>
+            <tr>
+              <td>Feedback veiligheidsinspectie Q1</td>
+              <td><span class="badge badge-progress">Normaal</span></td>
+              <td>15/06/2026</td>
+              <td>Dirk Smeyers</td>
+              <td><span class="badge badge-open">Open</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+  <script src="nav.js"></script>
+</body>
+</html>
