@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ATALIAN Klantenportaal — Prototype Overzicht</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .index-hero { background: var(--color-dark); color: #fff; padding: 48px 32px; margin: -28px -32px 32px; }
+    .index-hero h1 { font-size: 28px; font-weight: 700; }
+    .index-hero p  { color: #aaa; margin-top: 8px; font-size: 14px; }
+    .screen-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; margin-bottom: 24px; }
+    .screen-link { background: var(--color-card); border-radius: var(--radius); box-shadow: var(--shadow); padding: 16px 20px; display: block; border-left: 3px solid var(--color-accent); }
+    .screen-link:hover { box-shadow: 0 3px 8px rgba(0,0,0,.15); transform: translateY(-1px); }
+    .screen-link .nr { font-size: 11px; color: var(--color-text-2); }
+    .screen-link .name { font-weight: 600; font-size: 14px; margin-top: 2px; }
+    .section-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--color-text-2); margin: 24px 0 8px; }
+  </style>
+</head>
+<body>
+  <div class="app-shell" style="grid-template-columns:1fr">
+    <header class="topbar" style="grid-column:1">
+      <span class="logo">ATALIAN.</span>
+      <span style="color:#aaa;font-size:13px">Klantenportaal — Prototype overzicht</span>
+    </header>
+    <main class="main-content" style="grid-column:1">
+      <div class="index-hero">
+        <h1>ATALIAN Klantenportaal</h1>
+        <p>Prototype — 17 schermen — Vlaeminck Logistics (demo-klant)</p>
+      </div>
+
+      <div class="section-label">HOME</div>
+      <div class="screen-grid">
+        <a href="home.html" class="screen-link"><div class="nr">01</div><div class="name">Dashboard</div></a>
+      </div>
+
+      <div class="section-label">Mijn Contract</div>
+      <div class="screen-grid">
+        <a href="contract.html"        class="screen-link"><div class="nr">02</div><div class="name">Contractdetails</div></a>
+        <a href="contactpersonen.html" class="screen-link"><div class="nr">03</div><div class="name">Ons team</div></a>
+        <a href="services.html"        class="screen-link"><div class="nr">04</div><div class="name">Diensten</div></a>
+      </div>
+
+      <div class="section-label">Meldingen & Opvolging</div>
+      <div class="screen-grid">
+        <a href="tickets-nieuw.html" class="screen-link"><div class="nr">05</div><div class="name">Nieuwe melding</div></a>
+        <a href="tickets.html"       class="screen-link"><div class="nr">06</div><div class="name">Mijn meldingen</div></a>
+        <a href="planning.html"      class="screen-link"><div class="nr">07</div><div class="name">Planning</div></a>
+        <a href="actions.html"       class="screen-link"><div class="nr">08</div><div class="name">Te ondertekenen</div></a>
+      </div>
+
+      <div class="section-label">Installaties & Keuringen</div>
+      <div class="screen-grid">
+        <a href="assets.html"        class="screen-link"><div class="nr">09</div><div class="name">Installaties</div></a>
+        <a href="audits.html"        class="screen-link"><div class="nr">10</div><div class="name">Keuringen & inspecties</div></a>
+        <a href="projectfiches.html" class="screen-link"><div class="nr">11</div><div class="name">Werkdossiers</div></a>
+      </div>
+
+      <div class="section-label">Financieel</div>
+      <div class="screen-grid">
+        <a href="invoices.html"  class="screen-link"><div class="nr">12</div><div class="name">Facturen</div></a>
+        <a href="openstaand.html"class="screen-link"><div class="nr">13</div><div class="name">Openstaande bedragen</div></a>
+      </div>
+
+      <div class="section-label">Documenten</div>
+      <div class="screen-grid">
+        <a href="documenten.html"       class="screen-link"><div class="nr">14</div><div class="name">Alle documenten</div></a>
+        <a href="uitvoeringsbonnen.html"class="screen-link"><div class="nr">15</div><div class="name">Uitvoeringsbonnen</div></a>
+      </div>
+
+      <div class="section-label">Overige</div>
+      <div class="screen-grid">
+        <a href="bestelportaal.html"class="screen-link"><div class="nr">16</div><div class="name">Bestelportaal</div></a>
+        <a href="communicatie.html" class="screen-link"><div class="nr">17</div><div class="name">Nieuws & Updates</div></a>
+      </div>
+
+    </main>
+  </div>
+</body>
+</html>

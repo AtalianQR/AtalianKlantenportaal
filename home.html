@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ATALIAN — Home</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <span class="logo">ATALIAN.</span>
+      <span class="client-selector">Vlaeminck Logistics ▾</span>
+      <div class="topbar-actions"><span>NL</span><span>🔔</span><span>DS ▾</span></div>
+    </header>
+    <nav class="sidebar" id="sidebar"></nav>
+    <main class="main-content">
+      <div class="page-header">
+        <h1 class="page-title">Goedemorgen, Dirk</h1>
+        <p class="page-desc">Overzicht van Vlaeminck Logistics — 3 sites</p>
+      </div>
+
+      <!-- KPI rij -->
+      <div class="kpi-row">
+        <div class="kpi-card warning">
+          <div class="kpi-value">4</div>
+          <div class="kpi-label">Openstaande meldingen</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-value">12</div>
+          <div class="kpi-label">Geplande taken deze week</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-value">96%</div>
+          <div class="kpi-label">SLA naleving (MTD)</div>
+        </div>
+        <div class="kpi-card danger">
+          <div class="kpi-value">2</div>
+          <div class="kpi-label">Te ondertekenen</div>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <!-- Recente activiteit -->
+        <div class="card">
+          <div class="card-title">Recente activiteit</div>
+          <table class="data-table">
+            <tbody>
+              <tr>
+                <td><span class="badge badge-open">Open</span></td>
+                <td>Melding #1042 — Lekkage sanitair Gent</td>
+                <td style="color:var(--color-text-2);font-size:12px">24/05</td>
+              </tr>
+              <tr>
+                <td><span class="badge badge-progress">In uitvoering</span></td>
+                <td>Melding #1038 — Verlichting hal B</td>
+                <td style="color:var(--color-text-2);font-size:12px">18/05</td>
+              </tr>
+              <tr>
+                <td><span class="badge badge-done">Afgehandeld</span></td>
+                <td>Keuring lift — Antwerpen</td>
+                <td style="color:var(--color-text-2);font-size:12px">14/05</td>
+              </tr>
+              <tr>
+                <td><span class="badge badge-sign">Te tekenen</span></td>
+                <td>Offerte meerwerk dakgoot — Brussel</td>
+                <td style="color:var(--color-text-2);font-size:12px">10/05</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Ons team -->
+        <div>
+          <div class="card">
+            <div class="card-title">Ons team</div>
+            <table class="data-table">
+              <tbody>
+                <tr><td style="font-weight:600">Jan Peeters</td><td style="color:var(--color-text-2)">KAM / FM</td><td style="color:var(--color-accent);font-size:12px">j.peeters@atalian.be</td></tr>
+                <tr><td style="font-weight:600">Marie Claes</td><td style="color:var(--color-text-2)">DM</td><td style="color:var(--color-accent);font-size:12px">m.claes@atalian.be</td></tr>
+                <tr><td style="font-weight:600">Tom Wouters</td><td style="color:var(--color-text-2)">SHEQ</td><td style="color:var(--color-accent);font-size:12px">t.wouters@atalian.be</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Te ondertekenen banner -->
+          <div class="card" style="border-left:4px solid var(--color-warning);padding:16px 20px">
+            <div style="display:flex;align-items:center;justify-content:space-between">
+              <div>
+                <div style="font-weight:600;font-size:14px">⚠ 2 items wachten op uw handtekening</div>
+                <div style="font-size:12px;color:var(--color-text-2);margin-top:2px">1 offerte · 1 actie</div>
+              </div>
+              <a href="actions.html" class="btn btn-primary">Bekijken</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+  <script src="nav.js"></script>
+</body>
+</html>
