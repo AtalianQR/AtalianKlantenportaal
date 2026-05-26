@@ -1,0 +1,331 @@
+/* styles.css — ATALIAN Klantenportaal global stylesheet */
+
+/* ─── CSS Variables ─────────────────────────────────────────────────────── */
+:root {
+  --color-dark:    #1A2024;
+  --color-accent:  #74AE25;
+  --color-text-2:  #4B555C;
+  --color-border:  #D5D9DD;
+  --color-bg:      #E6E8EB;
+  --color-card:    #FFFFFF;
+  --color-success: #2DC653;
+  --color-warning: #F4A300;
+  --color-danger:  #D93025;
+  --sidebar-w:     240px;
+  --topbar-h:      60px;
+  --radius:        6px;
+  --shadow:        0 1px 3px rgba(0,0,0,.10);
+}
+
+/* ─── Reset ─────────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 14px;
+  background: var(--color-bg);
+  color: var(--color-dark);
+  line-height: 1.5;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ─── App Shell ─────────────────────────────────────────────────────────── */
+.app-shell {
+  display: grid;
+  grid-template-rows: var(--topbar-h) 1fr;
+  grid-template-columns: var(--sidebar-w) 1fr;
+  min-height: 100vh;
+}
+
+/* ─── Topbar ─────────────────────────────────────────────────────────────── */
+.topbar {
+  grid-column: 1 / -1;
+  background: var(--color-dark);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  gap: 16px;
+  border-bottom: 2px solid var(--color-accent);
+}
+.topbar .logo {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  color: #fff;
+  margin-right: auto;
+}
+.topbar .client-selector {
+  font-size: 13px;
+  color: #aaa;
+  cursor: pointer;
+}
+.topbar .topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 13px;
+  color: #ccc;
+}
+.topbar .topbar-actions span { cursor: pointer; }
+
+/* ─── Sidebar ────────────────────────────────────────────────────────────── */
+.sidebar {
+  background: var(--color-dark);
+  overflow-y: auto;
+  padding: 8px 0 24px;
+}
+
+/* ─── Sidebar Navigation ─────────────────────────────────────────────────── */
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  color: #ccc;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background .15s, color .15s;
+}
+.nav-item:hover { background: rgba(255,255,255,.07); color: #fff; }
+.nav-item.active { color: var(--color-accent); background: rgba(116,174,37,.10); }
+
+.nav-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px 6px;
+  color: #888;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  user-select: none;
+}
+.nav-section-header:hover { color: #aaa; }
+.nav-chevron { font-size: 10px; transition: transform .2s; }
+.nav-section.open .nav-chevron { transform: rotate(180deg); }
+
+.nav-section-children { display: none; }
+.nav-section.open .nav-section-children { display: block; }
+
+.nav-child {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 20px 8px 32px;
+  color: #aaa;
+  font-size: 13px;
+  transition: background .15s, color .15s;
+}
+.nav-child:hover { background: rgba(255,255,255,.05); color: #fff; }
+.nav-child.active { color: var(--color-accent); }
+
+.nav-badge {
+  background: var(--color-accent);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  border-radius: 10px;
+  padding: 1px 6px;
+  min-width: 18px;
+  text-align: center;
+}
+
+.nav-divider {
+  border: none;
+  border-top: 1px solid rgba(255,255,255,.08);
+  margin: 8px 20px;
+}
+
+/* ─── Main Content ───────────────────────────────────────────────────────── */
+.main-content {
+  padding: 28px 32px;
+  overflow-y: auto;
+}
+
+.page-header { margin-bottom: 24px; }
+.page-title { font-size: 22px; font-weight: 700; color: var(--color-dark); }
+.page-desc  { font-size: 13px; color: var(--color-text-2); margin-top: 4px; }
+
+/* ─── Cards ──────────────────────────────────────────────────────────────── */
+.card {
+  background: var(--color-card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 20px 24px;
+  margin-bottom: 20px;
+}
+.card-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-dark);
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* ─── KPI Widgets ────────────────────────────────────────────────────────── */
+.kpi-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.kpi-card {
+  background: var(--color-card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 20px 24px;
+  border-left: 4px solid var(--color-accent);
+}
+.kpi-card .kpi-value { font-size: 32px; font-weight: 700; color: var(--color-dark); }
+.kpi-card .kpi-label { font-size: 12px; color: var(--color-text-2); margin-top: 4px; }
+.kpi-card.warning { border-left-color: var(--color-warning); }
+.kpi-card.danger  { border-left-color: var(--color-danger); }
+
+/* ─── Tables ─────────────────────────────────────────────────────────────── */
+.data-table { width: 100%; border-collapse: collapse; }
+.data-table th {
+  text-align: left;
+  padding: 10px 12px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  color: var(--color-text-2);
+  border-bottom: 2px solid var(--color-border);
+}
+.data-table td {
+  padding: 12px 12px;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 13px;
+}
+.data-table tr:last-child td { border-bottom: none; }
+.data-table tr:hover td { background: #f7f8fa; }
+
+/* ─── Status Badges ──────────────────────────────────────────────────────── */
+.badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+}
+.badge-open    { background: #FEF3CD; color: #7D5A00; }
+.badge-progress{ background: #D6EAF8; color: #1A5276; }
+.badge-done    { background: #D5F5E3; color: #1E8449; }
+.badge-alert   { background: #FADBD8; color: #922B21; }
+.badge-sign    { background: #EBF5FB; color: #1B4F72; }
+
+/* ─── Buttons ────────────────────────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: var(--radius);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+}
+.btn-primary   { background: var(--color-accent); color: #fff; }
+.btn-secondary { background: var(--color-card); color: var(--color-dark); border: 1px solid var(--color-border); }
+.btn-primary:hover   { background: #689e20; }
+.btn-secondary:hover { background: #f0f1f3; }
+
+/* ─── Filter Bar ─────────────────────────────────────────────────────────── */
+.filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+.filter-bar input[type="text"] {
+  flex: 1;
+  min-width: 200px;
+  padding: 8px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  font-size: 13px;
+  background: var(--color-card);
+}
+.filter-bar select {
+  padding: 8px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  font-size: 13px;
+  background: var(--color-card);
+  cursor: pointer;
+}
+
+/* ─── Forms ──────────────────────────────────────────────────────────────── */
+.form-group { margin-bottom: 18px; }
+.form-group label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-text-2);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  font-size: 13px;
+  background: var(--color-card);
+}
+.form-group textarea { min-height: 80px; resize: vertical; }
+.form-note { font-size: 11px; color: var(--color-text-2); margin-top: 4px; font-style: italic; }
+
+/* ─── Placeholder Blocks ─────────────────────────────────────────────────── */
+.placeholder {
+  background: #f0f1f3;
+  border: 2px dashed var(--color-border);
+  border-radius: var(--radius);
+  padding: 32px;
+  text-align: center;
+  color: var(--color-text-2);
+  font-size: 13px;
+  font-style: italic;
+}
+.placeholder strong { display: block; font-size: 14px; margin-bottom: 4px; color: #555; }
+
+/* ─── Grid Layouts ───────────────────────────────────────────────────────── */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+
+/* ─── Team Cards ─────────────────────────────────────────────────────────── */
+.team-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
+.team-card {
+  background: var(--color-card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 20px;
+  text-align: center;
+}
+.team-avatar {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 12px;
+}
+.team-name  { font-weight: 600; font-size: 14px; }
+.team-role  { font-size: 12px; color: var(--color-text-2); margin-top: 2px; }
+.team-email { font-size: 12px; color: var(--color-accent); margin-top: 8px; }
