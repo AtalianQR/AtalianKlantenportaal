@@ -26,6 +26,7 @@
       </div>
       <div class="filter-bar">
         <input type="text" id="global-search" placeholder="Zoeken op naam, type, locatie…">
+        <button id="clear-filters" class="btn btn-secondary" style="white-space:nowrap">✕ Wis filters</button>
       </div>
       <div class="card" style="padding:0;overflow-x:auto">
         <table class="data-table" id="main-table">
@@ -69,6 +70,11 @@
     }
     filters.forEach(function(f){ f.addEventListener('input', applyFilters); });
     global.addEventListener('input', applyFilters);
+    document.getElementById('clear-filters').addEventListener('click', function() {
+      global.value = '';
+      filters.forEach(function(f){ f.value = ''; });
+      applyFilters();
+    });
   </script>
 </body>
 </html>

@@ -38,6 +38,7 @@
       <!-- Globale zoekbalk -->
       <div class="filter-bar">
         <input type="text" id="global-search" placeholder="Zoeken op bonnummer, dienst, ploeg…">
+        <button id="clear-filters" class="btn btn-secondary" style="white-space:nowrap">✕ Wis filters</button>
       </div>
 
       <!-- Tabel met kolomfilters in de header -->
@@ -106,6 +107,11 @@
 
     filters.forEach(function(f){ f.addEventListener('input', applyFilters); });
     global.addEventListener('input', applyFilters);
+    document.getElementById('clear-filters').addEventListener('click', function() {
+      global.value = '';
+      filters.forEach(function(f){ f.value = ''; });
+      applyFilters();
+    });
   </script>
 </body>
 </html>
