@@ -8,6 +8,15 @@
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 </head>
 <body>
+  <!-- Netlify detecteert dit formulier bij deployment -->
+  <form name="feedback" netlify netlify-honeypot="bot-field" hidden>
+    <input type="text" name="pagina">
+    <input type="text" name="naam">
+    <textarea name="opmerking"></textarea>
+    <input type="number" name="beoordeling">
+    <input type="text" name="bot-field">
+  </form>
+
   <div class="app-shell">
     <header class="topbar">
       <span class="logo">
@@ -24,7 +33,7 @@
     <nav class="sidebar" id="sidebar"></nav>
     <main class="main-content">
       <div class="page-header">
-        <h1 class="page-title">Goedemorgen, Dirk</h1>
+        <h1 class="page-title" id="greeting"></h1>
         <p class="page-desc">Overzicht van Vlaeminck Logistics — 3 sites</p>
       </div>
 
@@ -142,6 +151,12 @@
     </main>
   </div>
   <script src="nav.js"></script>
-  <script>lucide.createIcons();</script>
+  <script src="feedback.js"></script>
+  <script>
+    const h = new Date().getHours();
+    const groet = h < 12 ? 'Goedemorgen' : h < 18 ? 'Goedemiddag' : 'Goedenavond';
+    document.getElementById('greeting').textContent = groet + ', Dirk';
+    lucide.createIcons();
+  </script>
 </body>
 </html>
