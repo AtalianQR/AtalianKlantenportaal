@@ -49,7 +49,7 @@
           icon(item.icon) + '<span>' + item.label + '</span></a>';
       }
       if (item.type === 'section') {
-        var isOpen = item.children.some(function (c) { return c.href === current; }) || true;
+        var isOpen = item.children.some(function (c) { return c.href === current; });
         var children = item.children.map(function (c) {
           var active = current === c.href ? ' active' : '';
           var badge  = c.badge ? '<span class="nav-badge">' + c.badge + '</span>' : '';
@@ -78,6 +78,18 @@
     s.src = 'https://unpkg.com/lucide@latest/dist/umd/lucide.min.js';
     s.onload = function () { window.lucide.createIcons(); };
     document.head.appendChild(s);
+  }
+
+  // Logo met gekleurde blokjes op alle pagina's
+  var logoEl = document.querySelector('.topbar .logo');
+  if (logoEl && !logoEl.querySelector('svg')) {
+    logoEl.innerHTML =
+      '<svg width="26" height="26" viewBox="0 0 28 28" style="vertical-align:middle;margin-right:7px;flex-shrink:0">' +
+        '<rect x="0"  y="0"  width="12" height="12" rx="2" fill="#4A90D9"/>' +
+        '<rect x="16" y="0"  width="12" height="12" rx="2" fill="#74AE25"/>' +
+        '<rect x="0"  y="16" width="12" height="12" rx="2" fill="#F4A300"/>' +
+        '<rect x="16" y="16" width="12" height="12" rx="2" fill="#D93025"/>' +
+      '</svg>ATALIAN.';
   }
 
   var sidebar = document.getElementById('sidebar');
