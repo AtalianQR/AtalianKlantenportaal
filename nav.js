@@ -3,57 +3,64 @@
   var current = window.location.pathname.split('/').pop() || 'index.html';
 
   var NAV = [
-    { type: 'link', label: 'HOME', href: 'home.html' },
+    { type: 'link', label: 'Dashboard', href: 'home.html', icon: 'layout-dashboard' },
     { type: 'divider' },
-    { type: 'section', label: 'Mijn Contract', children: [
-      { label: 'Contractdetails', href: 'contract.html' },
-      { label: 'Ons team',        href: 'contactpersonen.html' },
-      { label: 'Diensten',        href: 'services.html' },
+    { type: 'section', label: 'Mijn Contract', icon: 'file-text', children: [
+      { label: 'Contractdetails', href: 'contract.html',       icon: 'file-text' },
+      { label: 'Ons team',        href: 'contactpersonen.html',icon: 'users' },
+      { label: 'Diensten',        href: 'services.html',       icon: 'settings-2' },
     ]},
-    { type: 'section', label: 'Meldingen & Opvolging', children: [
-      { label: 'Nieuwe melding',  href: 'tickets-nieuw.html', accent: true },
-      { label: 'Mijn meldingen',  href: 'tickets.html' },
-      { label: 'Planning',        href: 'planning.html' },
-      { label: 'Te ondertekenen', href: 'actions.html', badge: 2 },
+    { type: 'section', label: 'Meldingen & Opvolging', icon: 'bell', children: [
+      { label: 'Nieuwe melding',  href: 'tickets-nieuw.html', icon: 'plus-circle', accent: true },
+      { label: 'Mijn meldingen',  href: 'tickets.html',       icon: 'message-circle' },
+      { label: 'Planning',        href: 'planning.html',       icon: 'calendar' },
+      { label: 'Te ondertekenen', href: 'actions.html',        icon: 'pen-line', badge: 2 },
     ]},
-    { type: 'section', label: 'Installaties & Keuringen', children: [
-      { label: 'Installaties',          href: 'assets.html' },
-      { label: 'Keuringen & inspecties',href: 'audits.html' },
-      { label: 'Werkdossiers',          href: 'projectfiches.html' },
+    { type: 'section', label: 'Installaties & Keuringen', icon: 'wrench', children: [
+      { label: 'Installaties',           href: 'assets.html',       icon: 'cpu' },
+      { label: 'Keuringen & inspecties', href: 'audits.html',        icon: 'clipboard-check' },
+      { label: 'Werkdossiers',           href: 'projectfiches.html', icon: 'folder-open' },
     ]},
-    { type: 'section', label: 'Financieel', children: [
-      { label: 'Facturen',            href: 'invoices.html' },
-      { label: 'Openstaande bedragen',href: 'openstaand.html' },
+    { type: 'section', label: 'Financieel', icon: 'euro', children: [
+      { label: 'Facturen',             href: 'invoices.html',  icon: 'receipt' },
+      { label: 'Openstaande bedragen', href: 'openstaand.html',icon: 'alert-circle' },
     ]},
-    { type: 'section', label: 'Documenten', children: [
-      { label: 'Alle documenten',    href: 'documenten.html' },
-      { label: 'Uitvoeringsbonnen',  href: 'uitvoeringsbonnen.html' },
+    { type: 'section', label: 'Documenten', icon: 'files', children: [
+      { label: 'Alle documenten',   href: 'documenten.html',      icon: 'files' },
+      { label: 'Uitvoeringsbonnen', href: 'uitvoeringsbonnen.html',icon: 'clipboard-list' },
     ]},
     { type: 'divider' },
-    { type: 'section', label: 'Nieuws & Updates', children: [
-      { label: 'Updates & aankondigingen', href: 'communicatie.html' },
+    { type: 'section', label: 'Nieuws & Updates', icon: 'megaphone', children: [
+      { label: 'Updates & aankondigingen', href: 'communicatie.html', icon: 'megaphone' },
     ]},
   ];
+
+  function icon(name, size) {
+    size = size || 16;
+    return '<i data-lucide="' + name + '" style="width:' + size + 'px;height:' + size + 'px;flex-shrink:0"></i>';
+  }
 
   function renderNav(items) {
     return items.map(function (item) {
       if (item.type === 'divider') return '<hr class="nav-divider">';
       if (item.type === 'link') {
         var active = current === item.href ? ' active' : '';
-        return '<a href="' + item.href + '" class="nav-item' + active + '">' + item.label + '</a>';
+        return '<a href="' + item.href + '" class="nav-item' + active + '">' +
+          icon(item.icon) + '<span>' + item.label + '</span></a>';
       }
       if (item.type === 'section') {
-        var isOpen = item.children.some(function (c) { return c.href === current; });
+        var isOpen = item.children.some(function (c) { return c.href === current; }) || true;
         var children = item.children.map(function (c) {
           var active = current === c.href ? ' active' : '';
           var badge  = c.badge ? '<span class="nav-badge">' + c.badge + '</span>' : '';
-          var style  = c.accent ? ' style="color:var(--color-accent);font-weight:600"' : '';
-          return '<a href="' + c.href + '" class="nav-child' + active + '"' + style + '>' + c.label + badge + '</a>';
+          var accentStyle = c.accent ? ' style="color:var(--color-accent);font-weight:700"' : '';
+          return '<a href="' + c.href + '" class="nav-child' + active + '"' + accentStyle + '>' +
+            icon(c.icon, 14) + '<span>' + c.label + '</span>' + badge + '</a>';
         }).join('');
         return (
           '<div class="nav-section' + (isOpen ? ' open' : '') + '">' +
             '<div class="nav-section-header" onclick="this.parentElement.classList.toggle(\'open\')">' +
-              '<span>' + item.label + '</span>' +
+              '<span class="nav-section-label">' + icon(item.icon, 13) + item.label + '</span>' +
               '<span class="nav-chevron">▾</span>' +
             '</div>' +
             '<div class="nav-section-children">' + children + '</div>' +
@@ -64,6 +71,18 @@
     }).join('');
   }
 
+  // Lucide laden als nog niet aanwezig
+  function initLucide() {
+    if (window.lucide) { window.lucide.createIcons(); return; }
+    var s = document.createElement('script');
+    s.src = 'https://unpkg.com/lucide@latest/dist/umd/lucide.min.js';
+    s.onload = function () { window.lucide.createIcons(); };
+    document.head.appendChild(s);
+  }
+
   var sidebar = document.getElementById('sidebar');
-  if (sidebar) sidebar.innerHTML = renderNav(NAV);
+  if (sidebar) {
+    sidebar.innerHTML = renderNav(NAV);
+    initLucide();
+  }
 })();
