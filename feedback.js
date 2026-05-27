@@ -157,7 +157,7 @@
     btn.disabled = true;
     btn.textContent = 'Versturen…';
 
-    fetch('/', {
+    fetch('/home', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encode({

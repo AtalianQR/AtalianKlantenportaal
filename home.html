@@ -9,7 +9,7 @@
 </head>
 <body>
   <!-- Netlify detecteert dit formulier bij deployment -->
-  <form name="feedback" netlify netlify-honeypot="bot-field" hidden>
+  <form name="feedback" data-netlify="true" netlify-honeypot="bot-field" hidden>
     <input type="text" name="pagina">
     <input type="text" name="naam">
     <textarea name="opmerking"></textarea>
