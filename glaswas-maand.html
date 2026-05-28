@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ATALIAN — Glaswas per maand</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .col-filter {
+      width: 100%; padding: 4px 6px; font-size: 11px;
+      border: 1px solid var(--color-border); border-radius: 4px;
+      background: #f9fafb; color: var(--color-dark);
+      margin-top: 4px; box-sizing: border-box;
+    }
+    .col-filter:focus { outline: 2px solid var(--color-accent); border-color: var(--color-accent); }
+    .data-table th { vertical-align: top; padding-bottom: 8px; }
+    .data-table tbody tr.hidden { display: none; }
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <span class="logo">ATALIAN.</span>
+      <span class="client-selector">Vlaeminck Logistics ▾</span>
+      <div class="topbar-actions"><span>NL</span><span>🔔</span><span>DS ▾</span></div>
+    </header>
+    <nav class="sidebar" id="sidebar"></nav>
+    <main class="main-content">
+      <div class="page-header">
+        <h1 class="page-title">Glaswas — per maand</h1>
+        <p class="page-desc">Maandelijkse glaswasplanning per site — uitvoeringsdatum, ploeg en verslag.</p>
+      </div>
+
+      <div class="filter-bar">
+        <input type="text" id="global-search" placeholder="Zoeken op site, ploeg, maand…">
+        <button id="clear-filters" class="btn btn-secondary" style="white-space:nowrap">✕ Wis filters</button>
+      </div>
+
+      <div class="card" style="padding:0;overflow-x:auto">
+        <table class="data-table" id="gw-table">
+          <thead>
+            <tr>
+              <th>Maand<br>
+                <select class="col-filter" data-col="0">
+                  <option value="">Alle</option>
+                  <option>Januari</option><option>Februari</option><option>Maart</option>
+                  <option>April</option><option>Mei</option><option>Juni</option>
+                  <option>Juli</option><option>Augustus</option><option>September</option>
+                  <option>Oktober</option><option>November</option><option>December</option>
+                </select>
+              </th>
+              <th>Datum<br><input class="col-filter" data-col="1" placeholder="filter…"></th>
+              <th>Site<br>
+                <select class="col-filter" data-col="2">
+                  <option value="">Alle</option>
+                  <option>Gent</option><option>Brussel</option>
+                </select>
+              </th>
+              <th>Ploeg<br><input class="col-filter" data-col="3" placeholder="filter…"></th>
+              <th>Status<br>
+                <select class="col-filter" data-col="4">
+                  <option value="">Alle</option>
+                  <option>Uitgevoerd</option><option>Gepland</option><option>Uitgesteld</option>
+                </select>
+              </th>
+              <th>Verslag</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Mei</td><td>05/05/2026</td><td>Gent</td><td>Ploeg Gent-A</td>
+              <td><span class="badge badge-done">Uitgevoerd</span></td>
+              <td><a href="#" style="color:var(--color-accent);font-weight:600">PDF ↓</a></td>
+            </tr>
+            <tr>
+              <td>Mei</td><td>12/05/2026</td><td>Brussel</td><td>Ploeg BXL-C</td>
+              <td><span class="badge badge-done">Uitgevoerd</span></td>
+              <td><a href="#" style="color:var(--color-accent);font-weight:600">PDF ↓</a></td>
+            </tr>
+            <tr>
+              <td>Juni</td><td>02/06/2026</td><td>Gent</td><td>Ploeg Gent-A</td>
+              <td><span class="badge badge-progress">Gepland</span></td>
+              <td style="color:var(--color-text-2);font-size:12px">—</td>
+            </tr>
+            <tr>
+              <td>Juni</td><td>09/06/2026</td><td>Brussel</td><td>Ploeg BXL-C</td>
+              <td><span class="badge badge-progress">Gepland</span></td>
+              <td style="color:var(--color-text-2);font-size:12px">—</td>
+            </tr>
+            <tr>
+              <td>April</td><td>07/04/2026</td><td>Gent</td><td>Ploeg Gent-A</td>
+              <td><span class="badge badge-done">Uitgevoerd</span></td>
+              <td><a href="#" style="color:var(--color-accent);font-weight:600">PDF ↓</a></td>
+            </tr>
+            <tr>
+              <td>April</td><td>22/04/2026</td><td>Brussel</td><td>Ploeg BXL-C</td>
+              <td><span class="badge badge-alert">Uitgesteld</span></td>
+              <td style="color:var(--color-text-2);font-size:12px">Herplanning mei</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+  <script src="auth.js"></script>
+  <script src="nav.js"></script>
+  <script src="feedback.js"></script>
+  <script>
+    var table = document.getElementById('gw-table');
+    var rows = Array.from(table.tBodies[0].rows);
+    var filters = Array.from(table.querySelectorAll('.col-filter'));
+    var global = document.getElementById('global-search');
+    function applyFilters() {
+      var colVals = filters.map(function(f){ return f.value.trim().toLowerCase(); });
+      var gVal = global.value.trim().toLowerCase();
+      rows.forEach(function(row) {
+        var cells = Array.from(row.cells);
+        var rowText = cells.map(function(c){ return c.textContent.toLowerCase(); }).join(' ');
+        var colMatch = colVals.every(function(v, i){ return !v || (cells[i] && cells[i].textContent.toLowerCase().includes(v)); });
+        var globMatch = !gVal || rowText.includes(gVal);
+        row.classList.toggle('hidden', !colMatch || !globMatch);
+      });
+    }
+    filters.forEach(function(f){ f.addEventListener('input', applyFilters); });
+    global.addEventListener('input', applyFilters);
+    document.getElementById('clear-filters').addEventListener('click', function() {
+      global.value = ''; filters.forEach(function(f){ f.value = ''; }); applyFilters();
+    });
+  </script>
+</body>
+</html>

@@ -6,32 +6,96 @@
   <title>ATALIAN Klantenportaal — Aanmelden</title>
   <link rel="stylesheet" href="styles.css">
   <style>
-    body { background: #f0f2f5; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; }
+    body {
+      background: #F2F2F2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      /* Atalian oranje streep bovenaan — consistent met topbar */
+      border-top: 4px solid #EC732C;
+    }
     .login-wrap { width: 100%; max-width: 380px; padding: 24px; }
-    .login-logo { display: flex; align-items: center; gap: 10px; justify-content: center; margin-bottom: 32px; }
-    .login-logo span { font-size: 22px; font-weight: 800; letter-spacing: -.5px; color: var(--color-dark); }
-    .login-card { background: #fff; border-radius: 12px; box-shadow: 0 4px 24px rgba(0,0,0,.10); padding: 36px 32px; }
-    .login-card h2 { font-size: 18px; font-weight: 700; color: var(--color-dark); margin: 0 0 6px; }
-    .login-card p { font-size: 13px; color: var(--color-text-2); margin: 0 0 28px; }
+    .login-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      justify-content: center;
+      margin-bottom: 36px;
+    }
+    .login-logo span {
+      font-family: 'Oswald', Arial, sans-serif;
+      font-size: 26px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #141414;
+    }
+    .login-card {
+      background: #fff;
+      border-radius: 4px;
+      box-shadow: 0 2px 16px rgba(0,0,0,.10);
+      padding: 36px 32px;
+    }
+    .login-card h2 {
+      font-family: 'Oswald', Arial, sans-serif;
+      font-size: 20px;
+      font-weight: 600;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+      color: #141414;
+      margin: 0 0 6px;
+    }
+    .login-card p { font-size: 13px; color: #6E7A81; margin: 0 0 28px; }
     .login-field { margin-bottom: 16px; }
-    .login-field label { display: block; font-size: 12px; font-weight: 600; color: var(--color-dark); margin-bottom: 6px; }
-    .login-field input { width: 100%; padding: 10px 12px; font-size: 14px; border: 1px solid var(--color-border); border-radius: 6px; box-sizing: border-box; color: var(--color-dark); background: #f9fafb; transition: border-color .15s; }
-    .login-field input:focus { outline: none; border-color: var(--color-accent); background: #fff; }
-    .login-btn { width: 100%; padding: 11px; font-size: 14px; font-weight: 600; background: var(--color-accent); color: #fff; border: none; border-radius: 6px; cursor: pointer; margin-top: 8px; transition: opacity .15s; }
-    .login-btn:hover { opacity: .88; }
-    .login-error { display: none; margin-top: 14px; padding: 10px 14px; background: #fef2f2; border: 1px solid #fca5a5; border-radius: 6px; font-size: 13px; color: #b91c1c; }
+    .login-field label {
+      display: block;
+      font-family: 'Oswald', Arial, sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: #6E7A81;
+      margin-bottom: 6px;
+    }
+    .login-field input {
+      width: 100%;
+      padding: 10px 12px;
+      font-family: 'Source Sans 3', Arial, sans-serif;
+      font-size: 14px;
+      border: 1px solid #D6D6D6;
+      border-radius: 4px;
+      box-sizing: border-box;
+      color: #141414;
+      background: #f9f9f9;
+      transition: border-color .15s;
+    }
+    .login-field input:focus { outline: none; border-color: #EC732C; background: #fff; }
+    .login-btn {
+      width: 100%;
+      padding: 12px;
+      font-family: 'Oswald', Arial, sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      background: #EC732C;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 8px;
+      transition: background .15s;
+    }
+    .login-btn:hover { background: #d05e1a; }
+    .login-error { display: none; margin-top: 14px; padding: 10px 14px; background: #fef2f2; border: 1px solid #fca5a5; border-radius: 4px; font-size: 13px; color: #b91c1c; }
   </style>
 </head>
 <body>
   <div class="login-wrap">
     <div class="login-logo">
-      <svg width="32" height="32" viewBox="0 0 28 28">
-        <rect x="0"  y="0"  width="12" height="12" rx="2" fill="#4A90D9"/>
-        <rect x="16" y="0"  width="12" height="12" rx="2" fill="#74AE25"/>
-        <rect x="0"  y="16" width="12" height="12" rx="2" fill="#F4A300"/>
-        <rect x="16" y="16" width="12" height="12" rx="2" fill="#D93025"/>
-      </svg>
-      <span>ATALIAN.</span>
+      <img src="atalian-logo.png" alt="ATALIAN Global Services" style="height:80px;">
     </div>
     <div class="login-card">
       <h2>Welkom terug</h2>

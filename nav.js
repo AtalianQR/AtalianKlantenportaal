@@ -23,6 +23,7 @@
     { type: 'section', label: 'Exploitatie', icon: 'layers', children: [
       { label: 'Uitvoeringsbonnen',    href: 'uitvoeringsbonnen.html', icon: 'clipboard-list' },
       { label: 'Schoonmaak',           href: 'projectfiches.html',     icon: 'sparkles' },
+      { label: 'Glaswas',              href: 'glaswas.html',           icon: 'droplets' },
       { label: 'Technisch onderhoud',  href: 'technisch.html',         icon: 'wrench' },
       { label: 'Groenonderhoud',       href: 'groen.html',             icon: 'leaf' },
     ]},
@@ -53,11 +54,29 @@
           icon(item.icon) + '<span>' + item.label + '</span></a>';
       }
       if (item.type === 'section') {
-        var isOpen = item.children.some(function (c) { return c.href === current; });
+        var isOpen = item.children.some(function (c) {
+          return c.href === current ||
+            (c.subchildren && c.subchildren.some(function (s) { return s.href === current; }));
+        });
         var children = item.children.map(function (c) {
-          var active = current === c.href ? ' active' : '';
           var badge  = c.badge ? '<span class="nav-badge">' + c.badge + '</span>' : '';
           var accentStyle = c.accent ? ' style="color:var(--color-accent);font-weight:700"' : '';
+          if (c.subchildren) {
+            var subOpen = c.subchildren.some(function (s) { return s.href === current; }) || c.href === current;
+            var grandchildren = c.subchildren.map(function (s) {
+              var sa = current === s.href ? ' active' : '';
+              return '<a href="' + s.href + '" class="nav-grandchild' + sa + '">' +
+                icon(s.icon, 12) + '<span>' + s.label + '</span></a>';
+            }).join('');
+            return '<div class="nav-subsection' + (subOpen ? ' open' : '') + '">' +
+              '<a href="' + c.href + '" class="nav-child nav-child-toggle' + (current === c.href ? ' active' : '') + '"' + accentStyle + '>' +
+                icon(c.icon, 14) + '<span>' + c.label + '</span>' +
+                '<span class="nav-sub-chevron" onclick="event.preventDefault();this.closest(\'.nav-subsection\').classList.toggle(\'open\')">▾</span>' +
+              '</a>' +
+              '<div class="nav-grandchildren">' + grandchildren + '</div>' +
+            '</div>';
+          }
+          var active = current === c.href ? ' active' : '';
           return '<a href="' + c.href + '" class="nav-child' + active + '"' + accentStyle + '>' +
             icon(c.icon, 14) + '<span>' + c.label + '</span>' + badge + '</a>';
         }).join('');
@@ -84,16 +103,10 @@
     document.head.appendChild(s);
   }
 
-  // Logo met gekleurde blokjes op alle pagina's
+  // Atalian logo — echte PNG afbeelding
   var logoEl = document.querySelector('.topbar .logo');
-  if (logoEl && !logoEl.querySelector('svg')) {
-    logoEl.innerHTML =
-      '<svg width="26" height="26" viewBox="0 0 28 28" style="vertical-align:middle;margin-right:7px;flex-shrink:0">' +
-        '<rect x="0"  y="0"  width="12" height="12" rx="2" fill="#4A90D9"/>' +
-        '<rect x="16" y="0"  width="12" height="12" rx="2" fill="#74AE25"/>' +
-        '<rect x="0"  y="16" width="12" height="12" rx="2" fill="#F4A300"/>' +
-        '<rect x="16" y="16" width="12" height="12" rx="2" fill="#D93025"/>' +
-      '</svg>ATALIAN.';
+  if (logoEl) {
+    logoEl.innerHTML = '<img src="atalian-logo.png" alt="ATALIAN Global Services">';
   }
 
   var sidebar = document.getElementById('sidebar');

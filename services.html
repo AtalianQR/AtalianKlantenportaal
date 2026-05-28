@@ -2,8 +2,24 @@
 <html lang="nl">
 <head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ATALIAN — Diensten</title>
+  <title>ATALIAN — Diensten per gebouw</title>
   <link rel="stylesheet" href="styles.css">
+  <style>
+    .col-filter {
+      width: 100%;
+      padding: 4px 6px;
+      font-size: 11px;
+      border: 1px solid var(--color-border);
+      border-radius: 4px;
+      background: #f9fafb;
+      color: var(--color-dark);
+      margin-top: 4px;
+      box-sizing: border-box;
+    }
+    .col-filter:focus { outline: 2px solid var(--color-accent); border-color: var(--color-accent); }
+    .data-table th { vertical-align: top; padding-bottom: 8px; }
+    .data-table tbody tr.hidden { display: none; }
+  </style>
 </head>
 <body>
   <div class="app-shell">
@@ -15,45 +31,216 @@
     <nav class="sidebar" id="sidebar"></nav>
     <main class="main-content">
       <div class="page-header">
-        <h1 class="page-title">Diensten</h1>
-        <p class="page-desc">Gecontracteerde diensten per site. Niet-actieve diensten zijn zichtbaar maar grijs — mogelijkheid tot activering via uw KAM.</p>
+        <h1 class="page-title">Diensten per gebouw</h1>
+        <p class="page-desc">Overzicht van alle gecontracteerde diensten per site — filterbaar op gebouw, diensttype en status.</p>
       </div>
-      <div class="grid-3">
-        <div class="card" style="border-top:3px solid var(--color-accent)">
-          <div class="card-title">Schoonmaak</div>
-          <span class="badge badge-done">Actief</span>
-          <p style="font-size:13px;color:var(--color-text-2);margin-top:12px">Dagelijkse schoonmaak — alle 3 sites</p>
-        </div>
-        <div class="card" style="border-top:3px solid var(--color-accent)">
-          <div class="card-title">Glaswas</div>
-          <span class="badge badge-done">Actief</span>
-          <p style="font-size:13px;color:var(--color-text-2);margin-top:12px">Maandelijks — Gent & Brussel</p>
-        </div>
-        <div class="card" style="border-top:3px solid var(--color-accent)">
-          <div class="card-title">Hard Services</div>
-          <span class="badge badge-done">Actief</span>
-          <p style="font-size:13px;color:var(--color-text-2);margin-top:12px">Preventief & curatief onderhoud</p>
-        </div>
-        <div class="card" style="border-top:3px solid var(--color-border);opacity:.6">
-          <div class="card-title">Soft FM</div>
-          <span class="badge badge-open">Niet actief</span>
-          <p style="font-size:13px;color:var(--color-text-2);margin-top:12px">Beschikbaar — contacteer uw KAM</p>
-        </div>
-        <div class="card" style="border-top:3px solid var(--color-border);opacity:.6">
-          <div class="card-title">Catering</div>
-          <span class="badge badge-open">Niet actief</span>
-          <p style="font-size:13px;color:var(--color-text-2);margin-top:12px">Beschikbaar — contacteer uw KAM</p>
-        </div>
-        <div class="card" style="border-top:3px solid var(--color-border);opacity:.6">
-          <div class="card-title">IFM</div>
-          <span class="badge badge-open">Niet actief</span>
-          <p style="font-size:13px;color:var(--color-text-2);margin-top:12px">Beschikbaar — contacteer uw KAM</p>
-        </div>
+
+      <!-- Globale zoekbalk -->
+      <div class="filter-bar">
+        <input type="text" id="global-search" placeholder="Zoeken op gebouw, dienst, frequentie…">
+        <button id="clear-filters" class="btn btn-secondary" style="white-space:nowrap">✕ Wis filters</button>
+      </div>
+
+      <!-- Tabel met kolomfilters -->
+      <div class="card" style="padding:0;overflow-x:auto">
+        <table class="data-table" id="svc-table">
+          <thead>
+            <tr>
+              <th>Gebouw / Site<br>
+                <select class="col-filter" data-col="0">
+                  <option value="">Alle</option>
+                  <option>Gent</option>
+                  <option>Antwerpen</option>
+                  <option>Brussel</option>
+                </select>
+              </th>
+              <th>Dienst<br>
+                <select class="col-filter" data-col="1">
+                  <option value="">Alle</option>
+                  <option>Schoonmaak</option>
+                  <option>Glaswas</option>
+                  <option>Hard Services</option>
+                  <option>Groenonderhoud</option>
+                  <option>Catering</option>
+                </select>
+              </th>
+              <th>Frequentie<br>
+                <select class="col-filter" data-col="2">
+                  <option value="">Alle</option>
+                  <option>Dagelijks</option>
+                  <option>Wekelijks</option>
+                  <option>Maandelijks</option>
+                  <option>Kwartaal</option>
+                  <option>Op afroep</option>
+                </select>
+              </th>
+              <th>Uren / week<br>
+                <input class="col-filter" data-col="3" placeholder="filter…">
+              </th>
+              <th>Status<br>
+                <select class="col-filter" data-col="4">
+                  <option value="">Alle</option>
+                  <option>Actief</option>
+                  <option>Niet actief</option>
+                </select>
+              </th>
+              <th>Opmerking<br>
+                <input class="col-filter" data-col="5" placeholder="filter…">
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Gent -->
+            <tr>
+              <td><strong>Gent</strong></td>
+              <td>Schoonmaak</td>
+              <td>Dagelijks</td>
+              <td>32 u</td>
+              <td><span class="badge badge-done">Actief</span></td>
+              <td style="font-size:12px;color:var(--color-text-2)">Ma–vr, ploeg Gent-A</td>
+            </tr>
+            <tr>
+              <td><strong>Gent</strong></td>
+              <td>Glaswas</td>
+              <td>Maandelijks</td>
+              <td>4 u</td>
+              <td><span class="badge badge-done">Actief</span></td>
+              <td style="font-size:12px;color:var(--color-text-2)">Eerste maandag van de maand</td>
+            </tr>
+            <tr>
+              <td><strong>Gent</strong></td>
+              <td>Hard Services</td>
+              <td>Op afroep</td>
+              <td>—</td>
+              <td><span class="badge badge-done">Actief</span></td>
+              <td style="font-size:12px;color:var(--color-text-2)">Preventief + curatief</td>
+            </tr>
+            <tr>
+              <td><strong>Gent</strong></td>
+              <td>Groenonderhoud</td>
+              <td>Wekelijks</td>
+              <td>3 u</td>
+              <td><span class="badge badge-done">Actief</span></td>
+              <td style="font-size:12px;color:var(--color-text-2)">Buiten: gras & hagen</td>
+            </tr>
+            <tr>
+              <td><strong>Gent</strong></td>
+              <td>Catering</td>
+              <td>—</td>
+              <td>—</td>
+              <td><span class="badge badge-open">Niet actief</span></td>
+              <td style="font-size:12px;color:var(--color-text-2)">Beschikbaar — contacteer uw KAM</td>
+            </tr>
+            <!-- Antwerpen -->
+            <tr>
+              <td><strong>Antwerpen</strong></td>
+              <td>Schoonmaak</td>
+              <td>Dagelijks</td>
+              <td>24 u</td>
+              <td><span class="badge badge-done">Actief</span></td>
+              <td style="font-size:12px;color:var(--color-text-2)">Ma–vr, ploeg ANT-B</td>
+            </tr>
+            <tr>
+              <td><strong>Antwerpen</strong></td>
+              <td>Hard Services</td>
+              <td>Kwartaal</td>
+              <td>8 u</td>
+              <td><span class="badge badge-done">Actief</span></td>
+              <td style="font-size:12px;color:var(--color-text-2)">Preventief onderhoud HVAC</td>
+            </tr>
+            <tr>
+              <td><strong>Antwerpen</strong></td>
+              <td>Glaswas</td>
+              <td>—</td>
+              <td>—</td>
+              <td><span class="badge badge-open">Niet actief</span></td>
+              <td style="font-size:12px;color:var(--color-text-2)">Beschikbaar — contacteer uw KAM</td>
+            </tr>
+            <tr>
+              <td><strong>Antwerpen</strong></td>
+              <td>Groenonderhoud</td>
+              <td>—</td>
+              <td>—</td>
+              <td><span class="badge badge-open">Niet actief</span></td>
+              <td style="font-size:12px;color:var(--color-text-2)">Beschikbaar — contacteer uw KAM</td>
+            </tr>
+            <!-- Brussel -->
+            <tr>
+              <td><strong>Brussel</strong></td>
+              <td>Schoonmaak</td>
+              <td>Dagelijks</td>
+              <td>40 u</td>
+              <td><span class="badge badge-done">Actief</span></td>
+              <td style="font-size:12px;color:var(--color-text-2)">Ma–za, ploeg BXL-C</td>
+            </tr>
+            <tr>
+              <td><strong>Brussel</strong></td>
+              <td>Glaswas</td>
+              <td>Maandelijks</td>
+              <td>6 u</td>
+              <td><span class="badge badge-done">Actief</span></td>
+              <td style="font-size:12px;color:var(--color-text-2)">Binnen- & buitenglas</td>
+            </tr>
+            <tr>
+              <td><strong>Brussel</strong></td>
+              <td>Hard Services</td>
+              <td>Op afroep</td>
+              <td>—</td>
+              <td><span class="badge badge-done">Actief</span></td>
+              <td style="font-size:12px;color:var(--color-text-2)">Curatief onderhoud</td>
+            </tr>
+            <tr>
+              <td><strong>Brussel</strong></td>
+              <td>Catering</td>
+              <td>Dagelijks</td>
+              <td>16 u</td>
+              <td><span class="badge badge-done">Actief</span></td>
+              <td style="font-size:12px;color:var(--color-text-2)">Koffiepauze & lunch</td>
+            </tr>
+            <tr>
+              <td><strong>Brussel</strong></td>
+              <td>Groenonderhoud</td>
+              <td>—</td>
+              <td>—</td>
+              <td><span class="badge badge-open">Niet actief</span></td>
+              <td style="font-size:12px;color:var(--color-text-2)">Beschikbaar — contacteer uw KAM</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </main>
   </div>
   <script src="auth.js"></script>
   <script src="nav.js"></script>
   <script src="feedback.js"></script>
+  <script>
+    var table   = document.getElementById('svc-table');
+    var rows    = Array.from(table.tBodies[0].rows);
+    var filters = Array.from(table.querySelectorAll('.col-filter'));
+    var global  = document.getElementById('global-search');
+
+    function applyFilters() {
+      var colVals = filters.map(function(f){ return f.value.trim().toLowerCase(); });
+      var gVal    = global.value.trim().toLowerCase();
+      rows.forEach(function(row) {
+        var cells = Array.from(row.cells);
+        var rowText = cells.map(function(c){ return c.textContent.toLowerCase(); }).join(' ');
+        var colMatch = colVals.every(function(v, i) {
+          if (!v) return true;
+          return cells[i] && cells[i].textContent.toLowerCase().includes(v);
+        });
+        var globMatch = !gVal || rowText.includes(gVal);
+        row.classList.toggle('hidden', !colMatch || !globMatch);
+      });
+    }
+
+    filters.forEach(function(f){ f.addEventListener('input', applyFilters); });
+    global.addEventListener('input', applyFilters);
+    document.getElementById('clear-filters').addEventListener('click', function() {
+      global.value = '';
+      filters.forEach(function(f){ f.value = ''; });
+      applyFilters();
+    });
+  </script>
 </body>
 </html>
