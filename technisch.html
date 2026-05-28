@@ -4,6 +4,12 @@
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ATALIAN — Technisch onderhoud</title>
   <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <style>
+    .site-tabs { display:flex; gap:4px; margin-bottom:16px; }
+    .site-tab  { padding:7px 16px; border-radius:20px; font-size:12px; font-weight:600; cursor:pointer; border:1px solid var(--color-border); background:#f9fafb; color:var(--color-text-2); transition:all .15s; }
+    .site-tab.active { background:var(--color-accent); color:#fff; border-color:var(--color-accent); }
+  </style>
 </head>
 <body>
   <div class="app-shell">
@@ -23,13 +29,111 @@
     <main class="main-content">
       <div class="page-header">
         <h1 class="page-title">Technisch onderhoud</h1>
-        <p class="page-desc">Werkdossiers technisch onderhoud per site — werktijden, producten, veiligheidsprocedures en werkprogramma's.</p>
+        <p class="page-desc">Overzicht gepland vs. uitgevoerd technisch onderhoud — lopend jaar 2026, per site.</p>
       </div>
-      <div class="placeholder"><strong>[Technisch onderhoud — werkdossiers]</strong>Inhoud volgt — per site worden werktijden, procedures en documenten ontsloten.</div>
+
+      <div class="site-tabs">
+        <div class="site-tab active" data-site="alle">Alle sites</div>
+        <div class="site-tab" data-site="gent">Gent</div>
+        <div class="site-tab" data-site="antwerpen">Antwerpen</div>
+        <div class="site-tab" data-site="brussel">Brussel</div>
+      </div>
+
+      <div class="kpi-row" id="kpi-row"></div>
+
+      <div class="card" style="margin-top:8px">
+        <div class="card-title" id="chart-title">Gepland vs. uitgevoerd — 2026 per maand (alle sites)</div>
+        <div style="position:relative;height:280px;margin-top:12px">
+          <canvas id="chart-technisch"></canvas>
+        </div>
+        <div style="display:flex;gap:20px;margin-top:12px;font-size:12px;color:var(--color-text-2)">
+          <span style="display:flex;align-items:center;gap:6px"><span style="width:12px;height:12px;border-radius:2px;background:#74AE25;display:inline-block"></span>Uitgevoerd</span>
+          <span style="display:flex;align-items:center;gap:6px"><span style="width:12px;height:12px;border-radius:2px;background:#D93025;display:inline-block"></span>Niet uitgevoerd</span>
+          <span style="display:flex;align-items:center;gap:6px"><span style="width:12px;height:12px;border-radius:2px;background:rgba(74,144,217,.35);border:1px solid #4A90D9;display:inline-block"></span>Gepland (toekomst)</span>
+        </div>
+      </div>
+
     </main>
   </div>
   <script src="auth.js"></script>
   <script src="nav.js"></script>
   <script src="feedback.js"></script>
+  <script>
+    var maanden = ['Jan','Feb','Mrt','Apr','Mei','Jun','Jul','Aug','Sep','Okt','Nov','Dec'];
+    var huidigeMaand = new Date().getMonth();
+
+    var DATA = {
+      alle:      { gepland:[8,8,8,8,8,8,8,8,8,8,8,8], uitgevoerd:[8,7,8,8,7,0,0,0,0,0,0,0], label:'alle sites' },
+      gent:      { gepland:[3,3,3,3,3,3,3,3,3,3,3,3], uitgevoerd:[3,3,3,3,3,0,0,0,0,0,0,0], label:'Gent' },
+      antwerpen: { gepland:[3,3,3,3,3,3,3,3,3,3,3,3], uitgevoerd:[3,2,3,3,2,0,0,0,0,0,0,0], label:'Antwerpen' },
+      brussel:   { gepland:[2,2,2,2,2,2,2,2,2,2,2,2], uitgevoerd:[2,2,2,2,2,0,0,0,0,0,0,0], label:'Brussel' }
+    };
+
+    function kpiHtml(d) {
+      var uitg = d.uitgevoerd.reduce(function(a,b){return a+b;},0);
+      var totaal = d.gepland.reduce(function(a,b){return a+b;},0);
+      var gemist = d.gepland.slice(0, huidigeMaand+1).reduce(function(a,g,i){return a+Math.max(0,g-d.uitgevoerd[i]);},0);
+      var resterend = totaal - uitg - gemist;
+      return '<div class="kpi-card kpi-success"><div class="kpi-label-top">UITGEVOERD</div><div class="kpi-value">' + uitg + '</div><div class="kpi-trend trend-up">t.e.m. mei 2026</div></div>' +
+        '<div class="kpi-card"><div class="kpi-label-top">GEPLAND (volledig jaar)</div><div class="kpi-value">' + totaal + '</div><div class="kpi-trend trend-neutral">jan – dec 2026</div></div>' +
+        '<div class="kpi-card kpi-warning"><div class="kpi-label-top">RESTEREND JAAR</div><div class="kpi-value">' + resterend + '</div><div class="kpi-trend trend-neutral">jun – dec 2026</div></div>' +
+        '<div class="kpi-card kpi-danger"><div class="kpi-label-top">NIET UITGEVOERD</div><div class="kpi-value">' + gemist + '</div><div class="kpi-trend trend-alert">inhaalbeurt vereist</div></div>';
+    }
+
+    var ctx = document.getElementById('chart-technisch').getContext('2d');
+    var chart = new Chart(ctx, {
+      type: 'bar',
+      data: { labels: maanden, datasets: [] },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { display: false }, tooltip: { mode: 'index' } },
+        scales: {
+          x: { grid: { display: false }, ticks: { font: { size: 11 } } },
+          y: { beginAtZero: true, ticks: { stepSize: 1, font: { size: 11 } }, grid: { color: '#f0f2f5' } }
+        }
+      }
+    });
+
+    function update(key) {
+      var d = DATA[key];
+      document.getElementById('kpi-row').innerHTML = kpiHtml(d);
+      document.getElementById('chart-title').textContent = 'Gepland vs. uitgevoerd — 2026 per maand (' + d.label + ')';
+      var gemist = d.gepland.map(function(g,i){ return i <= huidigeMaand && d.uitgevoerd[i] < g ? g - d.uitgevoerd[i] : 0; });
+      chart.data.datasets = [
+        {
+          label: 'Uitgevoerd',
+          data: d.uitgevoerd,
+          backgroundColor: '#74AE25',
+          borderRadius: 4
+        },
+        {
+          label: 'Niet uitgevoerd',
+          data: gemist,
+          backgroundColor: '#D93025',
+          borderRadius: 4
+        },
+        {
+          label: 'Gepland',
+          data: d.gepland.map(function(g,i){ return i > huidigeMaand ? g : 0; }),
+          backgroundColor: 'rgba(74,144,217,.35)',
+          borderColor: '#4A90D9',
+          borderWidth: 1,
+          borderRadius: 4
+        }
+      ];
+      chart.options.scales.y.max = Math.max.apply(null, d.gepland) + 1;
+      chart.update();
+    }
+
+    document.querySelectorAll('.site-tab').forEach(function(tab) {
+      tab.addEventListener('click', function() {
+        document.querySelectorAll('.site-tab').forEach(function(t){ t.classList.remove('active'); });
+        tab.classList.add('active');
+        update(tab.dataset.site);
+      });
+    });
+
+    update('alle');
+  </script>
 </body>
 </html>
