@@ -3,12 +3,6 @@
   var page = document.title.replace('ATALIAN — ', '') || window.location.pathname.split('/').pop();
   var rating = 0;
 
-  function encode(data) {
-    return Object.keys(data)
-      .map(function (k) { return encodeURIComponent(k) + '=' + encodeURIComponent(data[k]); })
-      .join('&');
-  }
-
   // ── HTML injecteren ────────────────────────────────────────────────────────
   var el = document.createElement('div');
   el.id = 'fb-root';
@@ -26,6 +20,14 @@
   <div id="fb-body">
     <label class="fb-label">Opmerking</label>
     <textarea id="fb-text" placeholder="Wat valt je op, wat ontbreekt, wat werkt goed…" rows="4"></textarea>
+
+    <label class="fb-label" style="margin-top:10px">Afbeelding(en) — optioneel</label>
+    <label id="fb-file-label">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+      Kies of sleep een afbeelding
+      <input id="fb-file" type="file" accept="image/*" multiple style="display:none">
+    </label>
+    <div id="fb-previews"></div>
 
     <div id="fb-rating-row">
       <span class="fb-label">Beoordeling pagina</span>
@@ -97,6 +99,34 @@
   outline:2px solid #74AE25; border-color:#74AE25;
 }
 
+#fb-file-label {
+  display:flex; align-items:center; gap:7px;
+  width:100%; padding:8px 10px; box-sizing:border-box;
+  border:1px dashed #aab; border-radius:5px;
+  font-size:12px; color:#555; cursor:pointer;
+  background:#f9fafb; transition:border-color .15s;
+}
+#fb-file-label:hover { border-color:#74AE25; color:#3a7010; }
+#fb-file-label.drag { border-color:#74AE25; background:#f0f9e4; }
+
+#fb-previews {
+  display:flex; flex-wrap:wrap; gap:6px; margin-top:6px;
+}
+.fb-thumb {
+  position:relative; width:58px; height:58px;
+}
+.fb-thumb img {
+  width:100%; height:100%; object-fit:cover;
+  border-radius:4px; border:1px solid #D5D9DD;
+}
+.fb-thumb-rm {
+  position:absolute; top:-5px; right:-5px;
+  width:16px; height:16px; border-radius:50%;
+  background:#c0392b; color:#fff; border:none;
+  font-size:10px; line-height:16px; text-align:center;
+  cursor:pointer; padding:0;
+}
+
 #fb-rating-row {
   display:flex; align-items:center; justify-content:space-between;
   margin-top:10px;
@@ -121,6 +151,46 @@
 #fb-msg.ok  { background:#e8f5d6; color:#3a7010; }
 #fb-msg.err { background:#fde8e8; color:#c0392b; }`;
   document.head.appendChild(style);
+
+  // ── Afbeeldingen ──────────────────────────────────────────────────────────
+  var selectedFiles = [];
+
+  function renderPreviews() {
+    var box = document.getElementById('fb-previews');
+    box.innerHTML = '';
+    selectedFiles.forEach(function (file, i) {
+      var url = URL.createObjectURL(file);
+      var wrap = document.createElement('div');
+      wrap.className = 'fb-thumb';
+      wrap.innerHTML = '<img src="' + url + '" alt=""><button class="fb-thumb-rm" title="Verwijder">✕</button>';
+      wrap.querySelector('.fb-thumb-rm').addEventListener('click', function () {
+        selectedFiles.splice(i, 1);
+        renderPreviews();
+      });
+      box.appendChild(wrap);
+    });
+  }
+
+  function addFiles(files) {
+    Array.from(files).forEach(function (f) {
+      if (f.type.startsWith('image/')) selectedFiles.push(f);
+    });
+    renderPreviews();
+  }
+
+  document.getElementById('fb-file').addEventListener('change', function () {
+    addFiles(this.files);
+    this.value = '';
+  });
+
+  var lbl = document.getElementById('fb-file-label');
+  lbl.addEventListener('dragover', function (e) { e.preventDefault(); lbl.classList.add('drag'); });
+  lbl.addEventListener('dragleave', function () { lbl.classList.remove('drag'); });
+  lbl.addEventListener('drop', function (e) {
+    e.preventDefault();
+    lbl.classList.remove('drag');
+    addFiles(e.dataTransfer.files);
+  });
 
   // ── Sterren ────────────────────────────────────────────────────────────────
   document.querySelectorAll('.fb-star').forEach(function (s) {
@@ -154,24 +224,24 @@
     btn.disabled = true;
     btn.textContent = 'Versturen…';
 
-    fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encode({
-        'form-name': 'feedback',
-        'bot-field': '',
-        'pagina':      page,
-        'naam':        sessionStorage.getItem('naam') || '',
-        'opmerking':   text,
-        'beoordeling': rating || ''
-      })
-    })
+    var fd = new FormData();
+    fd.append('form-name',  'feedback');
+    fd.append('bot-field',  '');
+    fd.append('pagina',     page);
+    fd.append('naam',       sessionStorage.getItem('naam') || '');
+    fd.append('opmerking',  text);
+    fd.append('beoordeling', rating || '');
+    selectedFiles.forEach(function (f) { fd.append('afbeelding', f, f.name); });
+
+    fetch('/', { method: 'POST', body: fd })
     .then(function (res) {
       var msg = document.getElementById('fb-msg');
       if (res.ok) {
         msg.textContent = '✓ Bedankt! Je feedback is ontvangen.';
         msg.className = 'ok';
         document.getElementById('fb-text').value = '';
+        selectedFiles = [];
+        renderPreviews();
         rating = 0;
         document.querySelectorAll('.fb-star').forEach(function (s) { s.classList.remove('on'); });
       } else {

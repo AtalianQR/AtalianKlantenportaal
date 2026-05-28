@@ -9,11 +9,12 @@
 </head>
 <body>
   <!-- Netlify detecteert dit formulier bij deployment -->
-  <form name="feedback" data-netlify="true" netlify-honeypot="bot-field" hidden>
+  <form name="feedback" data-netlify="true" netlify-honeypot="bot-field" enctype="multipart/form-data" hidden>
     <input type="text" name="pagina">
     <input type="text" name="naam">
     <textarea name="opmerking"></textarea>
     <input type="number" name="beoordeling">
+    <input type="file" name="afbeelding">
     <input type="text" name="bot-field">
   </form>
 
