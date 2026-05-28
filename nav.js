@@ -23,7 +23,7 @@
     { type: 'section', label: 'Exploitatie', icon: 'layers', children: [
       { label: 'Uitvoeringsbonnen',    href: 'uitvoeringsbonnen.html', icon: 'clipboard-list' },
       { label: 'Schoonmaak',           href: 'projectfiches.html',     icon: 'sparkles' },
-      { label: 'Technisch onderhoud',  href: 'technisch.html',         icon: 'tool' },
+      { label: 'Technisch onderhoud',  href: 'technisch.html',         icon: 'wrench' },
       { label: 'Groenonderhoud',       href: 'groen.html',             icon: 'leaf' },
     ]},
     { type: 'section', label: 'Financieel', icon: 'euro', children: [
