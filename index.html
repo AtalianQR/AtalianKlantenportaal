@@ -3,86 +3,65 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ATALIAN Klantenportaal — Prototype Overzicht</title>
+  <title>ATALIAN Klantenportaal — Aanmelden</title>
   <link rel="stylesheet" href="styles.css">
   <style>
-    .index-hero { background: var(--color-dark); color: #fff; padding: 48px 32px; margin: -28px -32px 32px; }
-    .index-hero h1 { font-size: 28px; font-weight: 700; }
-    .index-hero p  { color: #aaa; margin-top: 8px; font-size: 14px; }
-    .screen-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; margin-bottom: 24px; }
-    .screen-link { background: var(--color-card); border-radius: var(--radius); box-shadow: var(--shadow); padding: 16px 20px; display: block; border-left: 3px solid var(--color-accent); }
-    .screen-link:hover { box-shadow: 0 3px 8px rgba(0,0,0,.15); transform: translateY(-1px); }
-    .screen-link .nr { font-size: 11px; color: var(--color-text-2); }
-    .screen-link .name { font-weight: 600; font-size: 14px; margin-top: 2px; }
-    .section-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--color-text-2); margin: 24px 0 8px; }
+    body { background: #f0f2f5; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; }
+    .login-wrap { width: 100%; max-width: 380px; padding: 24px; }
+    .login-logo { display: flex; align-items: center; gap: 10px; justify-content: center; margin-bottom: 32px; }
+    .login-logo span { font-size: 22px; font-weight: 800; letter-spacing: -.5px; color: var(--color-dark); }
+    .login-card { background: #fff; border-radius: 12px; box-shadow: 0 4px 24px rgba(0,0,0,.10); padding: 36px 32px; }
+    .login-card h2 { font-size: 18px; font-weight: 700; color: var(--color-dark); margin: 0 0 6px; }
+    .login-card p { font-size: 13px; color: var(--color-text-2); margin: 0 0 28px; }
+    .login-field { margin-bottom: 16px; }
+    .login-field label { display: block; font-size: 12px; font-weight: 600; color: var(--color-dark); margin-bottom: 6px; }
+    .login-field input { width: 100%; padding: 10px 12px; font-size: 14px; border: 1px solid var(--color-border); border-radius: 6px; box-sizing: border-box; color: var(--color-dark); background: #f9fafb; transition: border-color .15s; }
+    .login-field input:focus { outline: none; border-color: var(--color-accent); background: #fff; }
+    .login-btn { width: 100%; padding: 11px; font-size: 14px; font-weight: 600; background: var(--color-accent); color: #fff; border: none; border-radius: 6px; cursor: pointer; margin-top: 8px; transition: opacity .15s; }
+    .login-btn:hover { opacity: .88; }
+    .login-error { display: none; margin-top: 14px; padding: 10px 14px; background: #fef2f2; border: 1px solid #fca5a5; border-radius: 6px; font-size: 13px; color: #b91c1c; }
   </style>
 </head>
 <body>
-  <form name="feedback" data-netlify="true" netlify-honeypot="bot-field" hidden>
-    <input type="text" name="pagina">
-    <input type="text" name="naam">
-    <textarea name="opmerking"></textarea>
-    <input type="number" name="beoordeling">
-    <input type="text" name="bot-field">
-  </form>
-
-  <div class="app-shell" style="grid-template-columns:1fr">
-    <header class="topbar" style="grid-column:1">
-      <span class="logo">ATALIAN.</span>
-      <span style="color:#aaa;font-size:13px">Klantenportaal — Prototype overzicht</span>
-    </header>
-    <main class="main-content" style="grid-column:1">
-      <div class="index-hero">
-        <h1>ATALIAN Klantenportaal</h1>
-        <p>Prototype — 17 schermen — Vlaeminck Logistics (demo-klant)</p>
-      </div>
-
-      <div class="section-label">HOME</div>
-      <div class="screen-grid">
-        <a href="home.html" class="screen-link"><div class="nr">01</div><div class="name">Dashboard</div></a>
-      </div>
-
-      <div class="section-label">Mijn Contract</div>
-      <div class="screen-grid">
-        <a href="contract.html"        class="screen-link"><div class="nr">02</div><div class="name">Contractdetails</div></a>
-        <a href="contactpersonen.html" class="screen-link"><div class="nr">03</div><div class="name">Ons team</div></a>
-        <a href="services.html"        class="screen-link"><div class="nr">04</div><div class="name">Diensten</div></a>
-      </div>
-
-      <div class="section-label">Meldingen & Opvolging</div>
-      <div class="screen-grid">
-        <a href="tickets-nieuw.html" class="screen-link"><div class="nr">05</div><div class="name">Nieuwe melding</div></a>
-        <a href="tickets.html"       class="screen-link"><div class="nr">06</div><div class="name">Mijn meldingen</div></a>
-        <a href="planning.html"      class="screen-link"><div class="nr">07</div><div class="name">Planning</div></a>
-        <a href="actions.html"       class="screen-link"><div class="nr">08</div><div class="name">Te ondertekenen</div></a>
-      </div>
-
-      <div class="section-label">Installaties & Keuringen</div>
-      <div class="screen-grid">
-        <a href="assets.html"        class="screen-link"><div class="nr">09</div><div class="name">Installaties</div></a>
-        <a href="audits.html"        class="screen-link"><div class="nr">10</div><div class="name">Keuringen & inspecties</div></a>
-        <a href="projectfiches.html" class="screen-link"><div class="nr">11</div><div class="name">Werkdossiers</div></a>
-      </div>
-
-      <div class="section-label">Financieel</div>
-      <div class="screen-grid">
-        <a href="invoices.html"  class="screen-link"><div class="nr">12</div><div class="name">Facturen</div></a>
-        <a href="openstaand.html"class="screen-link"><div class="nr">13</div><div class="name">Openstaande bedragen</div></a>
-      </div>
-
-      <div class="section-label">Documenten</div>
-      <div class="screen-grid">
-        <a href="documenten.html"       class="screen-link"><div class="nr">14</div><div class="name">Alle documenten</div></a>
-        <a href="uitvoeringsbonnen.html"class="screen-link"><div class="nr">15</div><div class="name">Uitvoeringsbonnen</div></a>
-      </div>
-
-      <div class="section-label">Overige</div>
-      <div class="screen-grid">
-        <a href="bestelportaal.html"class="screen-link"><div class="nr">16</div><div class="name">Bestelportaal</div></a>
-        <a href="communicatie.html" class="screen-link"><div class="nr">17</div><div class="name">Nieuws & Updates</div></a>
-      </div>
-
-    </main>
+  <div class="login-wrap">
+    <div class="login-logo">
+      <svg width="32" height="32" viewBox="0 0 28 28">
+        <rect x="0"  y="0"  width="12" height="12" rx="2" fill="#4A90D9"/>
+        <rect x="16" y="0"  width="12" height="12" rx="2" fill="#74AE25"/>
+        <rect x="0"  y="16" width="12" height="12" rx="2" fill="#F4A300"/>
+        <rect x="16" y="16" width="12" height="12" rx="2" fill="#D93025"/>
+      </svg>
+      <span>ATALIAN.</span>
+    </div>
+    <div class="login-card">
+      <h2>Welkom terug</h2>
+      <p>Meld u aan om uw klantenportaal te openen.</p>
+      <form id="login-form" autocomplete="off">
+        <div class="login-field">
+          <label for="voornaam">Voornaam</label>
+          <input type="text" id="voornaam" name="voornaam" placeholder="Uw voornaam" autocomplete="given-name" required>
+        </div>
+        <div class="login-field">
+          <label for="wachtwoord">Wachtwoord</label>
+          <input type="password" id="wachtwoord" name="wachtwoord" placeholder="••••••••" required>
+        </div>
+        <button type="submit" class="login-btn">Aanmelden</button>
+        <div class="login-error" id="login-error">Wachtwoord onjuist. Probeer opnieuw.</div>
+      </form>
+    </div>
   </div>
+  <script>
+    document.getElementById('login-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      var naam = document.getElementById('voornaam').value.trim();
+      var ww   = document.getElementById('wachtwoord').value;
+      if (ww === 'TryMe' && naam) {
+        sessionStorage.setItem('naam', naam);
+        window.location.href = 'home.html';
+      } else {
+        document.getElementById('login-error').style.display = 'block';
+      }
+    });
+  </script>
 </body>
 </html>

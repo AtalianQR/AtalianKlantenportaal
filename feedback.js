@@ -24,10 +24,7 @@
     <button id="fb-close">✕</button>
   </div>
   <div id="fb-body">
-    <label class="fb-label">Jouw naam</label>
-    <input id="fb-name" type="text" placeholder="bijv. Jan Peeters">
-
-    <label class="fb-label" style="margin-top:10px">Opmerking</label>
+    <label class="fb-label">Opmerking</label>
     <textarea id="fb-text" placeholder="Wat valt je op, wat ontbreekt, wat werkt goed…" rows="4"></textarea>
 
     <div id="fb-rating-row">
@@ -164,7 +161,7 @@
         'form-name': 'feedback',
         'bot-field': '',
         'pagina':      page,
-        'naam':        document.getElementById('fb-name').value.trim(),
+        'naam':        sessionStorage.getItem('naam') || '',
         'opmerking':   text,
         'beoordeling': rating || ''
       })
@@ -175,7 +172,6 @@
         msg.textContent = '✓ Bedankt! Je feedback is ontvangen.';
         msg.className = 'ok';
         document.getElementById('fb-text').value = '';
-        document.getElementById('fb-name').value = '';
         rating = 0;
         document.querySelectorAll('.fb-star').forEach(function (s) { s.classList.remove('on'); });
       } else {
