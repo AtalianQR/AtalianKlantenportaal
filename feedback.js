@@ -17,10 +17,10 @@
   </div>
   <div id="fb-body">
     <label class="fb-label">Wat zie ik</label>
-    <textarea id="fb-zien" placeholder="Beschrijf wat u ziet op deze pagina…" rows="2"></textarea>
+    <textarea id="fb-zien" placeholder="Beschrijf wat je ziet op deze pagina…" rows="2"></textarea>
 
     <label class="fb-label" style="margin-top:10px">Wat wens ik</label>
-    <textarea id="fb-text" placeholder="Wat verwacht u, wat ontbreekt, wat kan beter…" rows="2"></textarea>
+    <textarea id="fb-text" placeholder="Wat verwacht je, wat ontbreekt, wat kan beter…" rows="2"></textarea>
 
     <div id="fb-priority-row" style="margin-top:10px">
       <label class="fb-label">Prioriteit</label>
