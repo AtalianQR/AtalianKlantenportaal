@@ -16,8 +16,11 @@
     <button id="fb-close">✕</button>
   </div>
   <div id="fb-body">
-    <label class="fb-label">Opmerking</label>
-    <textarea id="fb-text" placeholder="Wat valt je op, wat ontbreekt, wat werkt goed…" rows="4"></textarea>
+    <label class="fb-label">Wat zie ik</label>
+    <textarea id="fb-zien" placeholder="Beschrijf wat u ziet op deze pagina…" rows="2"></textarea>
+
+    <label class="fb-label" style="margin-top:10px">Wat wens ik</label>
+    <textarea id="fb-text" placeholder="Wat verwacht u, wat ontbreekt, wat kan beter…" rows="2"></textarea>
 
     <div id="fb-priority-row" style="margin-top:10px">
       <label class="fb-label">Prioriteit</label>
@@ -90,13 +93,13 @@
   text-transform:uppercase; letter-spacing:.05em; margin-bottom:4px;
 }
 
-#fb-name, #fb-text {
+#fb-name, #fb-zien, #fb-text {
   width:100%; padding:8px 10px;
   border:1px solid #D5D9DD; border-radius:5px;
   font-size:13px; resize:vertical; box-sizing:border-box;
   font-family:inherit;
 }
-#fb-name:focus, #fb-text:focus {
+#fb-name:focus, #fb-zien:focus, #fb-text:focus {
   outline:2px solid #74AE25; border-color:#74AE25;
 }
 
@@ -217,6 +220,7 @@
 
   // ── Versturen naar Netlify ─────────────────────────────────────────────────
   document.getElementById('fb-save').addEventListener('click', function () {
+    var zien = document.getElementById('fb-zien').value.trim();
     var text = document.getElementById('fb-text').value.trim();
     if (!text) { document.getElementById('fb-text').focus(); return; }
 
@@ -229,7 +233,8 @@
     fd.append('bot-field',  '');
     fd.append('pagina',     page);
     fd.append('naam',       sessionStorage.getItem('naam') || '');
-    fd.append('opmerking',  text);
+    fd.append('wat-zie-ik', zien);
+    fd.append('wat-wens-ik', text);
     var prioEl = document.querySelector('input[name="fb-prio"]:checked');
     fd.append('prioriteit', prioEl ? prioEl.value : '');
     selectedFiles.forEach(function (f) { fd.append('afbeelding', f, f.name); });
@@ -240,6 +245,7 @@
       if (res.ok) {
         msg.textContent = '✓ Bedankt! Je feedback is ontvangen.';
         msg.className = 'ok';
+        document.getElementById('fb-zien').value = '';
         document.getElementById('fb-text').value = '';
         selectedFiles = [];
         renderPreviews();
