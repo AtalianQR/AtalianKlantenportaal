@@ -21,13 +21,13 @@
       { label: 'Keuringen & inspecties', href: 'audits.html',        icon: 'clipboard-check' },
     ]},
     { type: 'section', label: 'Exploitatie', icon: 'layers', children: [
-      { label: 'Uitvoeringsbonnen',    href: 'uitvoeringsbonnen.html', icon: 'clipboard-list' },
       { label: 'Schoonmaak',           href: 'projectfiches.html',     icon: 'sparkles', subchildren: [
         { label: 'Glaswas',            href: 'glaswas.html',           icon: 'droplets' },
       ]},
+      { label: 'Catering',             href: 'catering.html',          icon: 'coffee' },
       { label: 'Technisch onderhoud',  href: 'technisch.html',         icon: 'wrench' },
       { label: 'Groenonderhoud',       href: 'groen.html',             icon: 'leaf' },
-      { label: 'Catering',             href: 'catering.html',          icon: 'coffee' },
+      { label: 'Uitvoeringsbonnen',    href: 'uitvoeringsbonnen.html', icon: 'clipboard-list' },
       { label: 'Bestellingen',         href: 'bestelportaal.html',     icon: 'shopping-cart' },
     ]},
     { type: 'section', label: 'Financieel', icon: 'euro', children: [
