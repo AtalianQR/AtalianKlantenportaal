@@ -44,6 +44,9 @@
     </label>
     <div id="fb-previews"></div>
 
+    <div id="fb-lb-note">
+      📄 Houd je feedback binnen het kader van het <a href="lastenboek.pdf" target="_blank">lastenboek</a>.
+    </div>
     <button id="fb-save">Verstuur feedback</button>
     <div id="fb-msg" style="display:none"></div>
   </div>
@@ -130,6 +133,13 @@
   font-size:10px; line-height:16px; text-align:center;
   cursor:pointer; padding:0;
 }
+
+#fb-lb-note {
+  margin-top:12px; padding:8px 10px;
+  background:#f9fafb; border:1px solid #e2e6ea; border-radius:5px;
+  font-size:11px; color:#555; line-height:1.4;
+}
+#fb-lb-note a { color:#74AE25; font-weight:600; text-decoration:underline; }
 
 #fb-save {
   display:block; width:100%; margin-top:14px;

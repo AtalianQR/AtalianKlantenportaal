@@ -76,6 +76,30 @@
     .prio-nice { background:#fff8e0; color:#a06000; border:2px solid #F4A300; }
     .prio-note { font-size:13px; color:#6E7A81; }
 
+    /* ── Lastenboek banner ── */
+    .lb-banner {
+      background:#fff; border-radius:4px;
+      box-shadow:0 2px 16px rgba(0,0,0,.10);
+      padding:16px 28px;
+      display:flex; align-items:center; justify-content:space-between;
+      gap:20px; margin-bottom:16px;
+      border-left:4px solid #EC732C;
+    }
+    .lb-text { font-size:14px; color:#333; line-height:1.5; }
+    .lb-text strong { color:#141414; }
+    .lb-text em { font-style:normal; color:#6E7A81; font-size:13px; }
+    .lb-btn {
+      flex-shrink:0;
+      display:flex; align-items:center; gap:8px;
+      padding:9px 18px; border-radius:4px;
+      background:#141414; color:#fff;
+      font-family:'Oswald',Arial,sans-serif;
+      font-size:13px; font-weight:600; letter-spacing:.05em;
+      text-decoration:none; white-space:nowrap;
+      transition:background .15s;
+    }
+    .lb-btn:hover { background:#EC732C; }
+
     /* ── Start knop ── */
     .start-btn {
       display:block; width:100%; padding:14px;
@@ -102,6 +126,18 @@
       </div>
     </div>
 
+    <!-- Lastenboek banner -->
+    <div class="lb-banner">
+      <div class="lb-text">
+        <strong>Dit portaal is opgebouwd op basis van het lastenboek dat gevalideerd werd door de werkgroep.</strong><br>
+        <em>Geef je feedback bij voorkeur binnen het kader van dit document — zo blijven de opmerkingen relevant en vergelijkbaar.</em>
+      </div>
+      <a href="lastenboek.pdf" target="_blank" class="lb-btn">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Lastenboek downloaden
+      </a>
+    </div>
+
     <div class="card">
       <div class="grid-3">
 
@@ -117,7 +153,7 @@
           </ul>
         </div>
 
-        <!-- Kolom 2: Wat beoordeelt u NIET? -->
+        <!-- Kolom 2: Wat beoordeel je niet? -->
         <div>
           <div class="section-title">Wat beoordeel je niet?</div>
           <ul class="dont-list">
