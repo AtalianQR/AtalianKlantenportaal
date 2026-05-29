@@ -212,6 +212,48 @@
           </div>
         </div>
 
+        <!-- 4. Tevredenheidsmeting -->
+        <div class="card" style="margin-top:16px">
+          <div class="section-title">Tevredenheidsmeting</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+
+            <!-- Historiek scores -->
+            <div>
+              <p style="font-size:12px;color:var(--color-text-2);margin-bottom:12px">Gemiddelde score per maand (schaal 1–5)</p>
+              <table style="width:100%;border-collapse:collapse;font-size:13px">
+                <thead>
+                  <tr style="border-bottom:2px solid var(--color-border)">
+                    <th style="text-align:left;padding:6px 10px;font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:.06em;color:var(--color-text-2)">Maand</th>
+                    <th style="text-align:center;padding:6px 10px;font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:.06em;color:var(--color-text-2)">Score</th>
+                    <th style="text-align:left;padding:6px 10px;font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:.06em;color:var(--color-text-2)">Beoordeling</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr style="border-bottom:1px solid var(--color-border)"><td style="padding:7px 10px">Maart 2026</td><td style="text-align:center;padding:7px 10px;font-weight:700">4,2 / 5</td><td style="padding:7px 10px">⭐⭐⭐⭐</td></tr>
+                  <tr style="border-bottom:1px solid var(--color-border)"><td style="padding:7px 10px">April 2026</td><td style="text-align:center;padding:7px 10px;font-weight:700">4,5 / 5</td><td style="padding:7px 10px">⭐⭐⭐⭐⭐</td></tr>
+                  <tr><td style="padding:7px 10px">Mei 2026</td><td style="text-align:center;padding:7px 10px;font-weight:700">3,8 / 5</td><td style="padding:7px 10px">⭐⭐⭐⭐</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Nieuwe beoordeling -->
+            <div style="background:var(--color-bg);border-radius:var(--radius);padding:16px">
+              <p style="font-size:13px;font-weight:600;margin-bottom:12px">Geef uw beoordeling — week 23</p>
+              <div style="display:flex;gap:8px;margin-bottom:14px" id="star-row">
+                <span class="star" data-v="1" style="font-size:28px;cursor:pointer;opacity:.4">⭐</span>
+                <span class="star" data-v="2" style="font-size:28px;cursor:pointer;opacity:.4">⭐</span>
+                <span class="star" data-v="3" style="font-size:28px;cursor:pointer;opacity:.4">⭐</span>
+                <span class="star" data-v="4" style="font-size:28px;cursor:pointer;opacity:.4">⭐</span>
+                <span class="star" data-v="5" style="font-size:28px;cursor:pointer;opacity:.4">⭐</span>
+              </div>
+              <textarea id="rating-comment" placeholder="Optionele opmerking…" style="width:100%;height:70px;border:1px solid var(--color-border);border-radius:4px;padding:8px;font-family:inherit;font-size:12px;resize:none"></textarea>
+              <button id="rating-submit" class="btn btn-primary" style="margin-top:10px;width:100%" disabled>Beoordeling indienen</button>
+              <p id="rating-thanks" style="display:none;color:var(--color-success);font-size:12px;font-weight:600;margin-top:8px;text-align:center">✓ Bedankt voor uw feedback!</p>
+            </div>
+
+          </div>
+        </div>
+
       </div><!-- /active-content -->
 
     </main>
@@ -220,6 +262,34 @@
   <script src="nav.js"></script>
   <script src="feedback.js"></script>
   <script>
+    // ── Sterren-rating ────────────────────────────────────────
+    var stars   = Array.from(document.querySelectorAll('.star'));
+    var submit  = document.getElementById('rating-submit');
+    var thanks  = document.getElementById('rating-thanks');
+    var selected = 0;
+
+    stars.forEach(function(s) {
+      s.addEventListener('mouseenter', function() {
+        var v = parseInt(s.dataset.v);
+        stars.forEach(function(x){ x.style.opacity = parseInt(x.dataset.v) <= v ? '1' : '.4'; });
+      });
+      s.addEventListener('mouseleave', function() {
+        stars.forEach(function(x){ x.style.opacity = parseInt(x.dataset.v) <= selected ? '1' : '.4'; });
+      });
+      s.addEventListener('click', function() {
+        selected = parseInt(s.dataset.v);
+        submit.disabled = false;
+      });
+    });
+
+    submit.addEventListener('click', function() {
+      submit.style.display = 'none';
+      document.getElementById('rating-comment').style.display = 'none';
+      document.getElementById('star-row').style.pointerEvents = 'none';
+      thanks.style.display = '';
+    });
+
+    // ── Site-tabs ─────────────────────────────────────────────
     document.querySelectorAll('.tab').forEach(function(tab) {
       tab.addEventListener('click', function() {
         document.querySelectorAll('.tab').forEach(function(t){ t.classList.remove('active'); });
