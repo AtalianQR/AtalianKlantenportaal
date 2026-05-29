@@ -488,7 +488,7 @@
     document.getElementById('btnOrder').addEventListener('click', function () {
       if (Object.keys(cart).length === 0) return;
       var site = fSite.value || 'alle sites';
-      alert('Bestelling ingediend voor ' + site + '.\n\nIn een live omgeving wordt deze bestelling doorgestuurd naar het ERP-systeem en, indien van toepassing, ter goedkeuring aangeboden aan uw KAM.');
+      alert('Bestelling ingediend voor ' + site + '.\n\nIn een live omgeving wordt deze bestelling doorgestuurd naar het ERP-systeem en, indien van toepassing, ter goedkeuring aangeboden.');
       cart = {};
       document.querySelectorAll('.in-cart').forEach(function (r) { r.classList.remove('in-cart'); });
       renderCart();
