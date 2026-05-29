@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ATALIAN Klantenportaal — Reviewinstructies</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      background:#F2F2F2;
+      display:flex; align-items:flex-start; justify-content:center;
+      min-height:100vh; padding:40px 24px;
+      border-top:4px solid #EC732C;
+    }
+    .wrap { width:100%; max-width:680px; }
+
+    .logo-row {
+      display:flex; align-items:center; justify-content:center;
+      margin-bottom:32px;
+    }
+
+    .card {
+      background:#fff; border-radius:4px;
+      box-shadow:0 2px 16px rgba(0,0,0,.10);
+      padding:40px 40px 32px;
+    }
+
+    .greeting {
+      font-family:'Oswald',Arial,sans-serif;
+      font-size:22px; font-weight:600; letter-spacing:.5px;
+      text-transform:uppercase; color:#141414;
+      margin:0 0 6px;
+    }
+    .intro {
+      font-size:14px; color:#6E7A81; margin:0 0 32px;
+      line-height:1.6;
+    }
+
+    .section-title {
+      font-family:'Oswald',Arial,sans-serif;
+      font-size:11px; font-weight:600; letter-spacing:.1em;
+      text-transform:uppercase; color:#EC732C;
+      margin:0 0 12px;
+    }
+
+    .do-list, .dont-list {
+      list-style:none; padding:0; margin:0 0 28px;
+    }
+    .do-list li, .dont-list li {
+      font-size:13px; color:#333; line-height:1.6;
+      padding:7px 0 7px 28px; position:relative;
+      border-bottom:1px solid #f0f0f0;
+    }
+    .do-list li:last-child, .dont-list li:last-child { border-bottom:none; }
+    .do-list li::before   { content:'✓'; position:absolute; left:0; color:#2DC653; font-weight:700; }
+    .dont-list li::before { content:'✗'; position:absolute; left:0; color:#D93025; font-weight:700; }
+
+    .feedback-explain {
+      background:#f9fafb; border:1px solid #e2e6ea;
+      border-radius:4px; padding:16px 20px; margin-bottom:28px;
+      font-size:13px; line-height:1.7; color:#333;
+    }
+    .feedback-explain strong { color:#141414; }
+
+    .prio-row {
+      display:flex; gap:12px; margin:10px 0 4px;
+    }
+    .prio-pill {
+      padding:5px 14px; border-radius:20px; font-size:12px; font-weight:700;
+    }
+    .prio-must { background:#fdecea; color:#c0392b; border:2px solid #D93025; }
+    .prio-nice { background:#fff8e0; color:#a06000; border:2px solid #F4A300; }
+
+    .start-btn {
+      display:block; width:100%; padding:14px;
+      font-family:'Oswald',Arial,sans-serif;
+      font-size:15px; font-weight:600; letter-spacing:.08em;
+      text-transform:uppercase; text-align:center;
+      background:#EC732C; color:#fff; border:none;
+      border-radius:4px; cursor:pointer;
+      margin-top:8px; transition:background .15s;
+      text-decoration:none;
+    }
+    .start-btn:hover { background:#d05e1a; }
+
+    .note {
+      font-size:12px; color:#6E7A81; text-align:center;
+      margin-top:14px; line-height:1.5;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="logo-row">
+      <img src="atalian-logo.png" alt="ATALIAN Global Services" style="height:60px;">
+    </div>
+    <div class="card">
+      <h2 class="greeting" id="greeting">Welkom</h2>
+      <p class="intro">
+        U heeft toegang tot een klikbaar prototype van het ATALIAN klantenportaal.
+        Lees de onderstaande instructies aandachtig voor u begint.
+      </p>
+
+      <div class="section-title">Wat beoordeelt u?</div>
+      <ul class="do-list">
+        <li><strong>Volledigheid</strong> — staat alles wat u als klant verwacht te zien op deze pagina?</li>
+        <li><strong>Begrijpelijkheid</strong> — zijn titels, labels en statussen duidelijk zonder uitleg?</li>
+        <li><strong>Volgorde en prioriteit</strong> — staat het belangrijkste bovenaan?</li>
+        <li><strong>Naamgeving</strong> — spreken de menunamen en paginatitels u aan als klant?</li>
+        <li><strong>Wat ontbreekt</strong> — noteer alles wat u mist, ook als u niet weet hoe het technisch moet werken.</li>
+      </ul>
+
+      <div class="section-title">Wat beoordeelt u NIET?</div>
+      <ul class="dont-list">
+        <li>De echtheid van de data — alles is fictief</li>
+        <li>Technische werking van knoppen of integraties</li>
+        <li>Lay-out, kleuren of typografie</li>
+        <li>Meertaligheid — nog niet uitgewerkt</li>
+      </ul>
+
+      <div class="section-title">Hoe geeft u feedback?</div>
+      <div class="feedback-explain">
+        Klik op de <strong>groene Feedback-knop</strong> rechts onderaan elke pagina.<br>
+        Het formulier vraagt u:
+        <ul style="margin:8px 0 0 16px;padding:0">
+          <li style="margin-bottom:4px">Een korte <strong>opmerking</strong> — wat u ziet, verwacht of mist</li>
+          <li>De <strong>prioriteit</strong> van uw opmerking:</li>
+        </ul>
+        <div class="prio-row">
+          <span class="prio-pill prio-must">🔴 Must-have</span>
+          <span class="prio-pill prio-nice">🟡 Nice-to-have</span>
+        </div>
+        Geef <strong>één opmerking per keer</strong> — meerdere opmerkingen op dezelfde pagina zijn perfect, dien ze afzonderlijk in.
+      </div>
+
+      <div class="section-title">Startpunt</div>
+      <p style="font-size:13px;color:#333;margin:0 0 20px;line-height:1.6">
+        Doorloop het menu van boven naar beneden en geef per pagina uw feedback via de groene knop.
+        U kunt het portaal vrij verkennen — er is geen vaste volgorde verplicht.
+      </p>
+
+      <a href="home.html" class="start-btn">Start review →</a>
+      <p class="note">Wachtwoord voor opnieuw aanmelden: <strong>TryMe</strong></p>
+    </div>
+  </div>
+  <script src="auth.js"></script>
+  <script>
+    var naam = sessionStorage.getItem('naam') || '';
+    if (naam) {
+      document.getElementById('greeting').textContent = 'Welkom, ' + naam;
+    }
+  </script>
+</body>
+</html>

@@ -1,8 +1,6 @@
 // feedback.js — per-pagina feedbackwidget → Netlify Forms
 (function () {
   var page = document.title.replace('ATALIAN — ', '') || window.location.pathname.split('/').pop();
-  var rating = 0;
-
   // ── HTML injecteren ────────────────────────────────────────────────────────
   var el = document.createElement('div');
   el.id = 'fb-root';
@@ -21,6 +19,20 @@
     <label class="fb-label">Opmerking</label>
     <textarea id="fb-text" placeholder="Wat valt je op, wat ontbreekt, wat werkt goed…" rows="4"></textarea>
 
+    <div id="fb-priority-row" style="margin-top:10px">
+      <label class="fb-label">Prioriteit</label>
+      <div id="fb-priority-btns">
+        <label class="fb-prio-btn" data-v="must-have">
+          <input type="radio" name="fb-prio" value="must-have" style="display:none">
+          🔴 Must-have
+        </label>
+        <label class="fb-prio-btn" data-v="nice-to-have">
+          <input type="radio" name="fb-prio" value="nice-to-have" style="display:none">
+          🟡 Nice-to-have
+        </label>
+      </div>
+    </div>
+
     <label class="fb-label" style="margin-top:10px">Printscreen(s) — optioneel</label>
     <label id="fb-file-label">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
@@ -28,17 +40,6 @@
       <input id="fb-file" type="file" accept="image/*" multiple style="display:none">
     </label>
     <div id="fb-previews"></div>
-
-    <div id="fb-rating-row">
-      <span class="fb-label">Beoordeling pagina</span>
-      <div id="fb-stars">
-        <span class="fb-star" data-v="1">★</span>
-        <span class="fb-star" data-v="2">★</span>
-        <span class="fb-star" data-v="3">★</span>
-        <span class="fb-star" data-v="4">★</span>
-        <span class="fb-star" data-v="5">★</span>
-      </div>
-    </div>
 
     <button id="fb-save">Verstuur feedback</button>
     <div id="fb-msg" style="display:none"></div>
@@ -127,14 +128,6 @@
   cursor:pointer; padding:0;
 }
 
-#fb-rating-row {
-  display:flex; align-items:center; justify-content:space-between;
-  margin-top:10px;
-}
-#fb-stars { display:flex; gap:3px; }
-.fb-star { font-size:22px; color:#D5D9DD; cursor:pointer; transition:color .1s; user-select:none; }
-.fb-star.on { color:#F4A300; }
-
 #fb-save {
   display:block; width:100%; margin-top:14px;
   padding:9px; background:#74AE25; color:#fff;
@@ -143,6 +136,19 @@
 }
 #fb-save:hover { background:#5f9620; }
 #fb-save:disabled { background:#aaa; cursor:not-allowed; }
+
+#fb-priority-btns {
+  display:flex; gap:8px; margin-top:4px;
+}
+.fb-prio-btn {
+  flex:1; padding:7px 10px; border-radius:5px; text-align:center;
+  border:2px solid #D5D9DD; font-size:12px; font-weight:600;
+  cursor:pointer; transition:all .15s; user-select:none;
+  background:#f9fafb; color:#4B555C;
+}
+.fb-prio-btn:hover { border-color:#aaa; background:#f0f0f0; }
+.fb-prio-btn.selected[data-v="must-have"]    { border-color:#D93025; background:#fdecea; color:#c0392b; }
+.fb-prio-btn.selected[data-v="nice-to-have"] { border-color:#F4A300; background:#fff8e0; color:#a06000; }
 
 #fb-msg {
   margin-top:10px; padding:8px 10px; border-radius:5px;
@@ -192,18 +198,12 @@
     addFiles(e.dataTransfer.files);
   });
 
-  // ── Sterren ────────────────────────────────────────────────────────────────
-  document.querySelectorAll('.fb-star').forEach(function (s) {
-    s.addEventListener('mouseover', function () {
-      document.querySelectorAll('.fb-star').forEach(function (x) {
-        x.classList.toggle('on', +x.dataset.v <= +s.dataset.v);
-      });
-    });
-    s.addEventListener('click', function () { rating = +s.dataset.v; });
-  });
-  document.getElementById('fb-stars').addEventListener('mouseleave', function () {
-    document.querySelectorAll('.fb-star').forEach(function (x) {
-      x.classList.toggle('on', +x.dataset.v <= rating);
+  // ── Prioriteit knoppen ────────────────────────────────────────────────────
+  document.querySelectorAll('.fb-prio-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      document.querySelectorAll('.fb-prio-btn').forEach(function (b) { b.classList.remove('selected'); });
+      btn.classList.add('selected');
+      btn.querySelector('input').checked = true;
     });
   });
 
@@ -230,7 +230,8 @@
     fd.append('pagina',     page);
     fd.append('naam',       sessionStorage.getItem('naam') || '');
     fd.append('opmerking',  text);
-    fd.append('beoordeling', rating || '');
+    var prioEl = document.querySelector('input[name="fb-prio"]:checked');
+    fd.append('prioriteit', prioEl ? prioEl.value : '');
     selectedFiles.forEach(function (f) { fd.append('afbeelding', f, f.name); });
 
     fetch('/', { method: 'POST', body: fd })
@@ -242,8 +243,8 @@
         document.getElementById('fb-text').value = '';
         selectedFiles = [];
         renderPreviews();
-        rating = 0;
-        document.querySelectorAll('.fb-star').forEach(function (s) { s.classList.remove('on'); });
+        document.querySelectorAll('.fb-prio-btn').forEach(function (b) { b.classList.remove('selected'); });
+        document.querySelectorAll('input[name="fb-prio"]').forEach(function (r) { r.checked = false; });
       } else {
         msg.textContent = '✗ Er ging iets mis. Probeer opnieuw.';
         msg.className = 'err';
