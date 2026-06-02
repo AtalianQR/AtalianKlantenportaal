@@ -213,7 +213,8 @@
 
   // ── Prioriteit knoppen ────────────────────────────────────────────────────
   document.querySelectorAll('.fb-prio-btn').forEach(function (btn) {
-    btn.addEventListener('click', function () {
+    btn.addEventListener('click', function (e) {
+      if (e.target.tagName === 'INPUT') return;
       document.querySelectorAll('.fb-prio-btn').forEach(function (b) { b.classList.remove('selected'); });
       btn.classList.add('selected');
       btn.querySelector('input').checked = true;
