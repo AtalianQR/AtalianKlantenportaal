@@ -224,6 +224,9 @@
   // ── Open / sluit ───────────────────────────────────────────────────────────
   document.getElementById('fb-btn').addEventListener('click', function () {
     document.getElementById('fb-panel').classList.toggle('open');
+    var msg = document.getElementById('fb-msg');
+    msg.style.display = 'none';
+    msg.className = '';
   });
   document.getElementById('fb-close').addEventListener('click', function () {
     document.getElementById('fb-panel').classList.remove('open');
@@ -248,7 +251,7 @@
     fd.append('wat-wens-ik', text);
     var prioEl = document.querySelector('input[name="fb-prio"]:checked');
     fd.append('prioriteit', prioEl ? prioEl.value : '');
-    selectedFiles.forEach(function (f) { fd.append('afbeelding', f, f.name); });
+    selectedFiles.forEach(function (f, i) { fd.append('afbeelding-' + (i + 1), f, f.name); });
 
     fetch('/', { method: 'POST', body: fd })
     .then(function (res) {
