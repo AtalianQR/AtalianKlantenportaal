@@ -29,6 +29,7 @@
     .huidig-col { background:#fffbeb !important; }
 
     .freq-badge { display:inline-block; font-size:10px; font-weight:600; padding:2px 8px; border-radius:10px; margin-left:8px; vertical-align:middle; }
+    .freq-monthly { background:#e8f5d6; color:#3a7010; }
     .freq-annual  { background:#e8f0fb; color:#2a5da8; }
     .freq-biennial{ background:#fef3cd; color:#7D5A00; }
 
@@ -72,7 +73,7 @@
       </div>
 
       <h2 class="section-title" data-i18n="technical.planning.title">Onderhoudsplanning kritieke installaties</h2>
-      <p class="section-desc" data-i18n="technical.planning.subtitle">Jaarplanning preventief onderhoud en wettelijke keuringen voor liften, verwarmingsketels en automatische deuren — per site, lopend jaar 2026.</p>
+      <p class="section-desc" data-i18n="technical.planning.subtitle">Jaarplanning preventief onderhoud en wettelijke keuringen voor liften, verwarmingsketels, automatische deuren en elektrische borden — per site, lopend jaar 2026.</p>
 
       <div class="card" style="padding:0;overflow-x:auto">
         <table class="asset-table" id="asset-table">
@@ -87,8 +88,8 @@
           <span><div class="dot dot-done" style="font-size:14px">✓</div><span data-i18n="green.legend.done">Uitgevoerd</span></span>
           <span><div class="dot dot-plan" style="font-size:14px">●</div><span data-i18n="green.legend.planned">Gepland</span></span>
           <span><span style="font-size:20px;color:#ccc;line-height:1">—</span><span data-i18n="green.legend.none">Geen beurt</span></span>
+          <span><span class="freq-badge freq-monthly" data-i18n="technical.freq.monthly">maandelijks</span><span data-i18n="technical.freq.monthlyDesc">1× per maand</span></span>
           <span><span class="freq-badge freq-annual" data-i18n="technical.freq.annual">jaarlijks</span><span data-i18n="technical.freq.annualDesc">1× per jaar</span></span>
-          <span><span class="freq-badge freq-biennial" data-i18n="technical.freq.biennial">tweejaarlijks</span><span data-i18n="technical.freq.biennialDesc">1× per 2 jaar</span></span>
           <span style="margin-left:auto;background:#fffbeb;padding:3px 10px;border-radius:4px;font-size:11px;font-weight:600;color:#92400e" data-i18n="green.legend.currentMonth">Huidige maand gemarkeerd</span>
         </div>
       </div>
@@ -214,6 +215,8 @@
       lifts:  { nl: 'Liften',                fr: 'Ascenseurs',            en: 'Lifts' },
       boilers:{ nl: 'Verwarmingsketels',     fr: 'Chaudières',            en: 'Boilers' },
       doors:  { nl: 'Automatische deuren',   fr: 'Portes automatiques',   en: 'Automatic doors' },
+      panels: { nl: 'Elektrische borden',    fr: 'Tableaux électriques',  en: 'Electrical panels' },
+      monthly:  { nl: 'maandelijks',         fr: 'mensuel',               en: 'monthly' },
       annual:   { nl: 'jaarlijks',           fr: 'annuel',                en: 'annual' },
       biennial: { nl: 'tweejaarlijks',       fr: 'bisannuel',             en: 'biennial' }
     };
@@ -225,25 +228,28 @@
       {
         naam: 'Gent — Dok-Noord',
         rows: [
-          { type: 'lifts',   freq: 'annual',   data: [0,0,0,'D',0,0,0,0,0,0,0,0] },
+          { type: 'lifts',   freq: 'monthly',  data: ['D','D','D','D','D','D','P','P','P','P','P','P'] },
           { type: 'boilers', freq: 'annual',   data: [0,0,0,0,0,0,0,0,'P',0,0,0] },
-          { type: 'doors',   freq: 'biennial', data: ['D',0,0,0,0,0,0,0,0,0,0,0] }
+          { type: 'doors',   freq: 'annual',   data: [0,0,0,'D',0,0,0,0,0,0,0,0] },
+          { type: 'panels',  freq: 'annual',   data: [0,0,0,0,0,'D',0,0,0,0,0,0] }
         ]
       },
       {
         naam: 'Antwerpen — Haven',
         rows: [
-          { type: 'lifts',   freq: 'annual',   data: [0,0,'D',0,0,0,0,0,0,0,0,0] },
+          { type: 'lifts',   freq: 'monthly',  data: ['D','D','D','D','D','D','P','P','P','P','P','P'] },
           { type: 'boilers', freq: 'annual',   data: [0,0,0,0,0,0,0,0,0,'P',0,0] },
-          { type: 'doors',   freq: 'biennial', data: [0,0,0,0,0,0,0,0,0,0,0,0] }
+          { type: 'doors',   freq: 'annual',   data: [0,0,'D',0,0,0,0,0,0,0,0,0] },
+          { type: 'panels',  freq: 'annual',   data: [0,0,0,0,0,0,0,'P',0,0,0,0] }
         ]
       },
       {
         naam: 'Brussel — Evere',
         rows: [
-          { type: 'lifts',   freq: 'annual',   data: [0,'D',0,0,0,0,0,0,0,0,0,0] },
+          { type: 'lifts',   freq: 'monthly',  data: ['D','D','D','D','D','D','P','P','P','P','P','P'] },
           { type: 'boilers', freq: 'annual',   data: [0,0,0,0,0,0,0,0,0,0,'P',0] },
-          { type: 'doors',   freq: 'biennial', data: [0,0,0,0,'D',0,0,0,0,0,0,0] }
+          { type: 'doors',   freq: 'annual',   data: [0,'D',0,0,0,0,0,0,0,0,0,0] },
+          { type: 'panels',  freq: 'annual',   data: [0,0,0,0,0,0,0,0,'P',0,0,0] }
         ]
       }
     ];
@@ -277,7 +283,7 @@
         tbody.appendChild(siteRow);
 
         site.rows.forEach(function(row) {
-          var freqClass = row.freq === 'annual' ? 'freq-annual' : 'freq-biennial';
+          var freqClass = 'freq-' + row.freq;
           var freqLabel = '<span class="freq-badge ' + freqClass + '">' + ASSET_LABELS[row.freq][lang] + '</span>';
           var tr = document.createElement('tr');
           tr.className = 'type-row';
