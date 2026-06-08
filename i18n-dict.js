@@ -340,6 +340,12 @@ window.I18N_DICT = {
   'technical.legend.done':        { nl: 'Uitgevoerd', fr: 'Réalisé', en: 'Completed' },
   'technical.legend.notDone':     { nl: 'Niet uitgevoerd', fr: 'Non réalisé', en: 'Not completed' },
   'technical.legend.planned':     { nl: 'Gepland (toekomst)', fr: 'Planifié (à venir)', en: 'Planned (future)' },
+  'technical.planning.title':     { nl: 'Onderhoudsplanning kritieke installaties', fr: 'Planning de maintenance des installations critiques', en: 'Maintenance planning for critical assets' },
+  'technical.planning.subtitle':  { nl: 'Jaarplanning preventief onderhoud en wettelijke keuringen voor liften, verwarmingsketels en automatische deuren — per site, lopend jaar 2026.', fr: 'Planning annuel de maintenance préventive et de contrôles légaux pour ascenseurs, chaudières et portes automatiques — par site, année en cours 2026.', en: 'Annual planning of preventive maintenance and statutory inspections for lifts, boilers and automatic doors — per site, current year 2026.' },
+  'technical.freq.annual':        { nl: 'jaarlijks', fr: 'annuel', en: 'annual' },
+  'technical.freq.annualDesc':    { nl: '1× per jaar', fr: '1× par an', en: '1× per year' },
+  'technical.freq.biennial':      { nl: 'tweejaarlijks', fr: 'bisannuel', en: 'biennial' },
+  'technical.freq.biennialDesc':  { nl: '1× per 2 jaar', fr: '1× tous les 2 ans', en: '1× every 2 years' },
 
   // ── Werkdossiers (projectfiches.html) ────────────────────────────────────────
   'workFiles.title':              { nl: 'Werkdossiers', fr: 'Dossiers de travail', en: 'Work files' },
