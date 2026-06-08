@@ -20,10 +20,9 @@
       { label: 'Installaties',           href: 'assets.html',       icon: 'cpu' },
       { label: 'Keuringen & inspecties', href: 'audits.html',        icon: 'clipboard-check' },
     ]},
-    { type: 'section', label: 'Exploitatie', icon: 'layers', children: [
-      { label: 'Schoonmaak',           href: 'projectfiches.html',     icon: 'sparkles', subchildren: [
-        { label: 'Glaswas',            href: 'glaswas.html',           icon: 'droplets' },
-      ]},
+    { type: 'section', label: 'Diensten', icon: 'layers', children: [
+      { label: 'Schoonmaak',           href: 'projectfiches.html',     icon: 'sparkles' },
+      { label: 'Glaswas',              href: 'glaswas.html',           icon: 'droplets' },
       { label: 'Catering',             href: 'catering.html',          icon: 'coffee' },
       { label: 'Technisch onderhoud',  href: 'technisch.html',         icon: 'wrench' },
       { label: 'Groenonderhoud',       href: 'groen.html',             icon: 'leaf' },

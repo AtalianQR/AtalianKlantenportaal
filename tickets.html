@@ -16,7 +16,7 @@
     <main class="main-content">
       <div class="page-header">
         <h1 class="page-title">Mijn meldingen</h1>
-        <p class="page-desc">Alle meldingen (interventies, klachten, vragen) — gesynchroniseerd met Ultimo Work Orders.</p>
+        <p class="page-desc">Alle meldingen (interventies, klachten, vragen).</p>
       </div>
       <div class="filter-bar">
         <a href="tickets-nieuw.html" class="btn btn-primary">+ Nieuwe melding</a>
@@ -29,7 +29,7 @@
         <table class="data-table">
           <thead>
             <tr>
-              <th>Nr</th><th>Type</th><th>Dienst</th><th>Omschrijving</th><th>Site</th><th>Status</th><th>Datum</th><th>WO</th>
+              <th>Nr</th><th>Type</th><th>Dienst</th><th>Omschrijving</th><th>Site</th><th>Status</th><th>Datum</th><th>WO</th><th></th>
             </tr>
           </thead>
           <tbody>
@@ -42,6 +42,7 @@
               <td><span class="badge badge-open">Open</span></td>
               <td>24/05/2026</td>
               <td style="color:var(--color-text-2);font-size:12px">WO-8821</td>
+              <td><button class="btn btn-secondary btn-icon" style="padding:6px 10px" title="Melding bewerken"><i data-lucide="pencil" style="width:14px;height:14px"></i></button></td>
             </tr>
             <tr>
               <td><strong>#1041</strong></td>
@@ -52,6 +53,7 @@
               <td><span class="badge badge-progress">In uitvoering</span></td>
               <td>20/05/2026</td>
               <td style="color:var(--color-text-2);font-size:12px">WO-8819</td>
+              <td><button class="btn btn-secondary btn-icon" style="padding:6px 10px" title="Melding bewerken"><i data-lucide="pencil" style="width:14px;height:14px"></i></button></td>
             </tr>
             <tr>
               <td><strong>#1038</strong></td>
@@ -62,6 +64,7 @@
               <td><span class="badge badge-progress">In uitvoering</span></td>
               <td>18/05/2026</td>
               <td style="color:var(--color-text-2);font-size:12px">WO-8810</td>
+              <td><button class="btn btn-secondary btn-icon" style="padding:6px 10px" title="Melding bewerken"><i data-lucide="pencil" style="width:14px;height:14px"></i></button></td>
             </tr>
             <tr>
               <td><strong>#1031</strong></td>
@@ -72,6 +75,7 @@
               <td><span class="badge badge-done">Afgehandeld</span></td>
               <td>02/05/2026</td>
               <td style="color:var(--color-text-2);font-size:12px">WO-8798</td>
+              <td><button class="btn btn-secondary btn-icon" style="padding:6px 10px" title="Melding bewerken"><i data-lucide="pencil" style="width:14px;height:14px"></i></button></td>
             </tr>
           </tbody>
         </table>
@@ -81,5 +85,6 @@
   <script src="auth.js"></script>
   <script src="nav.js"></script>
   <script src="feedback.js"></script>
+  <script>if(window.lucide)lucide.createIcons();</script>
 </body>
 </html>
