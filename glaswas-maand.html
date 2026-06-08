@@ -21,86 +21,88 @@
     <header class="topbar">
       <span class="logo">ATALIAN.</span>
       <span class="client-selector">Vlaeminck Logistics ▾</span>
-      <div class="topbar-actions"><span>NL</span><span>🔔</span><span>DS ▾</span></div>
+      <div class="topbar-actions"><span>🔔</span><span>DS ▾</span></div>
     </header>
     <nav class="sidebar" id="sidebar"></nav>
     <main class="main-content">
       <div class="page-header">
-        <h1 class="page-title">Glaswas — per maand</h1>
-        <p class="page-desc">Maandelijkse glaswasplanning per site — uitvoeringsdatum, ploeg en verslag.</p>
+        <h1 class="page-title" data-i18n="glassMonth.title">Glaswas — per maand</h1>
+        <p class="page-desc" data-i18n="glassMonth.subtitle">Maandelijkse glaswasplanning per site — uitvoeringsdatum, ploeg en verslag.</p>
       </div>
 
       <div class="filter-bar">
-        <input type="text" id="global-search" placeholder="Zoeken op site, ploeg, maand…">
-        <button id="clear-filters" class="btn btn-secondary" style="white-space:nowrap">✕ Wis filters</button>
+        <input type="text" id="global-search" data-i18n-placeholder="glassMonth.search" placeholder="Zoeken op site, ploeg, maand…">
+        <button id="clear-filters" class="btn btn-secondary" style="white-space:nowrap" data-i18n="services.clearFilters">✕ Wis filters</button>
       </div>
 
       <div class="card" style="padding:0;overflow-x:auto">
         <table class="data-table" id="gw-table">
           <thead>
             <tr>
-              <th>Maand<br>
+              <th><span data-i18n="glassMonth.col.month">Maand</span><br>
                 <select class="col-filter" data-col="0">
-                  <option value="">Alle</option>
-                  <option>Januari</option><option>Februari</option><option>Maart</option>
-                  <option>April</option><option>Mei</option><option>Juni</option>
-                  <option>Juli</option><option>Augustus</option><option>September</option>
-                  <option>Oktober</option><option>November</option><option>December</option>
+                  <option value="" data-i18n="filter.all">Alle</option>
+                  <option data-i18n="month.january">Januari</option><option data-i18n="month.february">Februari</option><option data-i18n="month.march">Maart</option>
+                  <option data-i18n="month.april">April</option><option data-i18n="month.may">Mei</option><option data-i18n="month.june">Juni</option>
+                  <option data-i18n="month.july">Juli</option><option data-i18n="month.august">Augustus</option><option data-i18n="month.september">September</option>
+                  <option data-i18n="month.october">Oktober</option><option data-i18n="month.november">November</option><option data-i18n="month.december">December</option>
                 </select>
               </th>
-              <th>Datum<br><input class="col-filter" data-col="1" placeholder="filter…"></th>
-              <th>Site<br>
+              <th><span data-i18n="table.date">Datum</span><br><input class="col-filter" data-col="1" data-i18n-placeholder="services.filterPlaceholder" placeholder="filter…"></th>
+              <th><span data-i18n="table.site">Site</span><br>
                 <select class="col-filter" data-col="2">
-                  <option value="">Alle</option>
+                  <option value="" data-i18n="filter.all">Alle</option>
                   <option>Gent</option><option>Brussel</option>
                 </select>
               </th>
-              <th>Ploeg<br><input class="col-filter" data-col="3" placeholder="filter…"></th>
-              <th>Status<br>
+              <th><span data-i18n="glassMonth.col.team">Ploeg</span><br><input class="col-filter" data-col="3" data-i18n-placeholder="services.filterPlaceholder" placeholder="filter…"></th>
+              <th><span data-i18n="table.status">Status</span><br>
                 <select class="col-filter" data-col="4">
-                  <option value="">Alle</option>
-                  <option>Uitgevoerd</option><option>Gepland</option><option>Uitgesteld</option>
+                  <option value="" data-i18n="filter.all">Alle</option>
+                  <option data-i18n="glassMonth.status.done">Uitgevoerd</option><option data-i18n="glassMonth.status.planned">Gepland</option><option data-i18n="glassMonth.status.postponed">Uitgesteld</option>
                 </select>
               </th>
-              <th>Verslag</th>
+              <th data-i18n="glassMonth.col.report">Verslag</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>Mei</td><td>05/05/2026</td><td>Gent</td><td>Ploeg Gent-A</td>
-              <td><span class="badge badge-done">Uitgevoerd</span></td>
-              <td><a href="#" style="color:var(--color-accent);font-weight:600">PDF ↓</a></td>
+              <td data-i18n="month.may">Mei</td><td>05/05/2026</td><td>Gent</td><td data-i18n="glassMonth.team.gentA">Ploeg Gent-A</td>
+              <td><span class="badge badge-done" data-i18n="glassMonth.status.done">Uitgevoerd</span></td>
+              <td><a href="#" style="color:var(--color-accent);font-weight:600" data-i18n="action.downloadPdf">PDF ↓</a></td>
             </tr>
             <tr>
-              <td>Mei</td><td>12/05/2026</td><td>Brussel</td><td>Ploeg BXL-C</td>
-              <td><span class="badge badge-done">Uitgevoerd</span></td>
-              <td><a href="#" style="color:var(--color-accent);font-weight:600">PDF ↓</a></td>
+              <td data-i18n="month.may">Mei</td><td>12/05/2026</td><td>Brussel</td><td data-i18n="glassMonth.team.bxlC">Ploeg BXL-C</td>
+              <td><span class="badge badge-done" data-i18n="glassMonth.status.done">Uitgevoerd</span></td>
+              <td><a href="#" style="color:var(--color-accent);font-weight:600" data-i18n="action.downloadPdf">PDF ↓</a></td>
             </tr>
             <tr>
-              <td>Juni</td><td>02/06/2026</td><td>Gent</td><td>Ploeg Gent-A</td>
-              <td><span class="badge badge-progress">Gepland</span></td>
+              <td data-i18n="month.june">Juni</td><td>02/06/2026</td><td>Gent</td><td data-i18n="glassMonth.team.gentA">Ploeg Gent-A</td>
+              <td><span class="badge badge-progress" data-i18n="glassMonth.status.planned">Gepland</span></td>
               <td style="color:var(--color-text-2);font-size:12px">—</td>
             </tr>
             <tr>
-              <td>Juni</td><td>09/06/2026</td><td>Brussel</td><td>Ploeg BXL-C</td>
-              <td><span class="badge badge-progress">Gepland</span></td>
+              <td data-i18n="month.june">Juni</td><td>09/06/2026</td><td>Brussel</td><td data-i18n="glassMonth.team.bxlC">Ploeg BXL-C</td>
+              <td><span class="badge badge-progress" data-i18n="glassMonth.status.planned">Gepland</span></td>
               <td style="color:var(--color-text-2);font-size:12px">—</td>
             </tr>
             <tr>
-              <td>April</td><td>07/04/2026</td><td>Gent</td><td>Ploeg Gent-A</td>
-              <td><span class="badge badge-done">Uitgevoerd</span></td>
-              <td><a href="#" style="color:var(--color-accent);font-weight:600">PDF ↓</a></td>
+              <td data-i18n="month.april">April</td><td>07/04/2026</td><td>Gent</td><td data-i18n="glassMonth.team.gentA">Ploeg Gent-A</td>
+              <td><span class="badge badge-done" data-i18n="glassMonth.status.done">Uitgevoerd</span></td>
+              <td><a href="#" style="color:var(--color-accent);font-weight:600" data-i18n="action.downloadPdf">PDF ↓</a></td>
             </tr>
             <tr>
-              <td>April</td><td>22/04/2026</td><td>Brussel</td><td>Ploeg BXL-C</td>
-              <td><span class="badge badge-alert">Uitgesteld</span></td>
-              <td style="color:var(--color-text-2);font-size:12px">Herplanning mei</td>
+              <td data-i18n="month.april">April</td><td>22/04/2026</td><td>Brussel</td><td data-i18n="glassMonth.team.bxlC">Ploeg BXL-C</td>
+              <td><span class="badge badge-alert" data-i18n="glassMonth.status.postponed">Uitgesteld</span></td>
+              <td style="color:var(--color-text-2);font-size:12px" data-i18n="glassMonth.rescheduleMay">Herplanning mei</td>
             </tr>
           </tbody>
         </table>
       </div>
     </main>
   </div>
+  <script src="i18n-dict.js"></script>
+  <script src="i18n.js"></script>
   <script src="auth.js"></script>
   <script src="nav.js"></script>
   <script src="feedback.js"></script>

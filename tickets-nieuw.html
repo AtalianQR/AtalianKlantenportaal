@@ -10,67 +10,69 @@
     <header class="topbar">
       <span class="logo">ATALIAN.</span>
       <span class="client-selector">Vlaeminck Logistics ▾</span>
-      <div class="topbar-actions"><span>NL</span><span>🔔</span><span>DS ▾</span></div>
+      <div class="topbar-actions"><span>🔔</span><span>DS ▾</span></div>
     </header>
     <nav class="sidebar" id="sidebar"></nav>
     <main class="main-content">
       <div class="page-header">
-        <h1 class="page-title">Nieuwe melding</h1>
-        <p class="page-desc">Registreer een melding, klacht of vraag. Na indiening wordt automatisch een Work Order aangemaakt.</p>
+        <h1 class="page-title" data-i18n="ticketsNew.title">Nieuwe melding</h1>
+        <p class="page-desc" data-i18n="ticketsNew.subtitle">Registreer een melding, klacht of vraag. Na indiening wordt automatisch een Work Order aangemaakt.</p>
       </div>
       <div class="card" style="max-width:640px">
         <div class="form-group">
-          <label>Dienst *</label>
+          <label data-i18n="ticketsNew.service">Dienst *</label>
           <select>
-            <option value="">— Selecteer dienst —</option>
-            <option>Schoonmaak</option>
-            <option>Glaswas</option>
-            <option>Hard Services</option>
+            <option value="" data-i18n="ticketsNew.selectService">— Selecteer dienst —</option>
+            <option data-i18n="service.cleaning">Schoonmaak</option>
+            <option data-i18n="service.windowCleaning">Glaswas</option>
+            <option data-i18n="service.hardServices">Hard Services</option>
           </select>
-          <div class="form-note">Gefilterd op uw gecontracteerde diensten.</div>
+          <div class="form-note" data-i18n="ticketsNew.serviceNote">Gefilterd op uw gecontracteerde diensten.</div>
         </div>
         <div class="form-group">
-          <label>Type *</label>
+          <label data-i18n="ticketsNew.type">Type *</label>
           <select>
-            <option>Melding</option>
-            <option>Klacht</option>
-            <option>Vraag</option>
-            <option>Preventief</option>
+            <option data-i18n="type.report">Melding</option>
+            <option data-i18n="type.complaint">Klacht</option>
+            <option data-i18n="type.question">Vraag</option>
+            <option data-i18n="type.preventive">Preventief</option>
           </select>
         </div>
         <div class="form-group">
-          <label>Site *</label>
+          <label data-i18n="ticketsNew.site">Site *</label>
           <select>
-            <option value="">— Selecteer site —</option>
+            <option value="" data-i18n="ticketsNew.selectSite">— Selecteer site —</option>
             <option>Gent — Dok-Noord</option>
             <option>Antwerpen — Haven</option>
             <option>Brussel — Evere</option>
           </select>
         </div>
         <div class="form-group">
-          <label>Locatie / zone</label>
-          <input type="text" placeholder="Bijv. Bureau 3e verdieping, Hal B…">
+          <label data-i18n="ticketsNew.location">Locatie / zone</label>
+          <input type="text" data-i18n-placeholder="ticketsNew.location.placeholder" placeholder="Bijv. Bureau 3e verdieping, Hal B…">
         </div>
         <div class="form-group">
-          <label>Omschrijving *</label>
-          <textarea placeholder="Beschrijf het probleem of de vraag zo concreet mogelijk…"></textarea>
+          <label data-i18n="ticketsNew.description">Omschrijving *</label>
+          <textarea data-i18n-placeholder="ticketsNew.description.placeholder" placeholder="Beschrijf het probleem of de vraag zo concreet mogelijk…"></textarea>
         </div>
         <div class="form-group">
-          <label>Foto of bijlage</label>
+          <label data-i18n="ticketsNew.attachment">Foto of bijlage</label>
           <input type="file">
-          <div class="form-note">Max. 10 MB · JPG, PNG, PDF</div>
+          <div class="form-note" data-i18n="ticketsNew.attachment.note">Max. 10 MB · JPG, PNG, PDF</div>
         </div>
         <div style="display:flex;gap:12px;margin-top:8px">
-          <button class="btn btn-primary">Melding indienen</button>
-          <a href="tickets.html" class="btn btn-secondary">Annuleren</a>
+          <button class="btn btn-primary" data-i18n="ticketsNew.submit">Melding indienen</button>
+          <a href="tickets.html" class="btn btn-secondary" data-i18n="action.cancel">Annuleren</a>
         </div>
       </div>
       <div class="placeholder" style="max-width:640px;margin-top:16px">
-        <strong>[QR-code koppeling]</strong>
-        Via QR-scan worden site, zone en asset automatisch ingevuld.
+        <strong data-i18n="ticketsNew.qr.title">[QR-code koppeling]</strong>
+        <span data-i18n="ticketsNew.qr.desc">Via QR-scan worden site, zone en asset automatisch ingevuld.</span>
       </div>
     </main>
   </div>
+  <script src="i18n-dict.js"></script>
+  <script src="i18n.js"></script>
   <script src="auth.js"></script>
   <script src="nav.js"></script>
   <script src="feedback.js"></script>

@@ -25,29 +25,29 @@
     <header class="topbar">
       <span class="logo"></span>
       <span class="client-selector">Vlaeminck Logistics ▾</span>
-      <div class="topbar-actions"><span>NL</span><span>🔔</span><span>DS ▾</span></div>
+      <div class="topbar-actions"><span>🔔</span><span>DS ▾</span></div>
     </header>
     <nav class="sidebar" id="sidebar"></nav>
     <main class="main-content">
       <div class="page-header">
         <h1 class="page-title" id="greeting"></h1>
-        <p class="page-desc">Overzicht van Vlaeminck Logistics — 3 sites</p>
+        <p class="page-desc" data-i18n="home.subtitle">Overzicht van Vlaeminck Logistics — 3 sites</p>
       </div>
 
       <!-- KPI rij -->
       <div class="kpi-row">
         <div class="kpi-card">
-          <div class="kpi-label-top">OPEN TICKETS</div>
+          <div class="kpi-label-top" data-i18n="home.kpi.openTickets">OPEN TICKETS</div>
           <div class="kpi-value">14</div>
-          <div class="kpi-trend trend-down">▼ -3 vs. vorige week</div>
+          <div class="kpi-trend trend-down" data-i18n="home.kpi.openTickets.trend">▼ -3 vs. vorige week</div>
         </div>
 
         <div class="kpi-card kpi-success">
           <div class="kpi-top">
             <div>
-              <div class="kpi-label-top">SLA-NALEVING</div>
+              <div class="kpi-label-top" data-i18n="home.kpi.sla">SLA-NALEVING</div>
               <div class="kpi-value">97,2%</div>
-              <div class="kpi-trend trend-up">▲ +1,4pt deze maand</div>
+              <div class="kpi-trend trend-up" data-i18n="home.kpi.sla.trend">▲ +1,4pt deze maand</div>
             </div>
             <!-- Gauge: rood <85% · oranje 85-95% · groen 95-100% · wijzer @ 97,2% -->
             <svg class="gauge-dial" viewBox="0 0 90 52">
@@ -62,17 +62,17 @@
         </div>
 
         <div class="kpi-card kpi-warning">
-          <div class="kpi-label-top">OPENSTAAND SALDO</div>
+          <div class="kpi-label-top" data-i18n="home.kpi.balance">OPENSTAAND SALDO</div>
           <div class="kpi-value">€ 40 384</div>
-          <div class="kpi-trend trend-neutral">3 facturen · 1 vervallen</div>
+          <div class="kpi-trend trend-neutral" data-i18n="home.kpi.balance.trend">3 facturen · 1 vervallen</div>
         </div>
 
         <div class="kpi-card kpi-danger" style="cursor:pointer" onclick="location.href='actions.html'">
-          <div class="kpi-label-top">ACTIES VOOR JOU</div>
+          <div class="kpi-label-top" data-i18n="home.kpi.actions">ACTIES VOOR JOU</div>
           <div class="kpi-value">2</div>
           <div class="kpi-trend trend-alert" style="display:flex;flex-direction:column;gap:2px">
-            <span><strong style="color:var(--color-danger)">✍ 2 vereisen handtekening</strong></span>
-            <span style="color:var(--color-text-2);font-weight:400">vervalt vrijdag</span>
+            <span><strong style="color:var(--color-danger)" data-i18n="home.kpi.actions.sign">✍ 2 vereisen handtekening</strong></span>
+            <span style="color:var(--color-text-2);font-weight:400" data-i18n="home.kpi.actions.due">vervalt vrijdag</span>
           </div>
         </div>
       </div>
@@ -80,27 +80,27 @@
       <div class="grid-2">
         <!-- Recente activiteit -->
         <div class="card">
-          <div class="card-title">Recente activiteit</div>
+          <div class="card-title" data-i18n="home.recentActivity.title">Recente activiteit</div>
           <table class="data-table">
             <tbody>
               <tr>
-                <td><span class="badge badge-open">Open</span></td>
-                <td>Melding #1042 — Lekkage sanitair Gent</td>
+                <td><span class="badge badge-open" data-i18n="status.open">Open</span></td>
+                <td data-i18n="home.activity.1">Melding #1042 — Lekkage sanitair Gent</td>
                 <td style="color:var(--color-text-2);font-size:12px">24/05</td>
               </tr>
               <tr>
-                <td><span class="badge badge-progress">In uitvoering</span></td>
-                <td>Melding #1038 — Verlichting hal B</td>
+                <td><span class="badge badge-progress" data-i18n="status.inProgress">In uitvoering</span></td>
+                <td data-i18n="home.activity.2">Melding #1038 — Verlichting hal B</td>
                 <td style="color:var(--color-text-2);font-size:12px">18/05</td>
               </tr>
               <tr>
-                <td><span class="badge badge-done">Afgehandeld</span></td>
-                <td>Keuring lift — Antwerpen</td>
+                <td><span class="badge badge-done" data-i18n="status.done">Afgehandeld</span></td>
+                <td data-i18n="home.activity.3">Keuring lift — Antwerpen</td>
                 <td style="color:var(--color-text-2);font-size:12px">14/05</td>
               </tr>
               <tr>
-                <td><span class="badge badge-sign">Te tekenen</span></td>
-                <td>Offerte meerwerk dakgoot — Brussel</td>
+                <td><span class="badge badge-sign" data-i18n="status.toSign">Te tekenen</span></td>
+                <td data-i18n="home.activity.4">Offerte meerwerk dakgoot — Brussel</td>
                 <td style="color:var(--color-text-2);font-size:12px">10/05</td>
               </tr>
             </tbody>
@@ -110,7 +110,7 @@
         <!-- Ons team -->
         <div>
           <div class="card">
-            <div class="card-title">Ons team</div>
+            <div class="card-title" data-i18n="home.team.title">Ons team</div>
             <table class="data-table">
               <tbody>
                 <tr>
@@ -145,10 +145,10 @@
           <div class="card" style="border-left:4px solid var(--color-warning);padding:16px 20px">
             <div style="display:flex;align-items:center;justify-content:space-between">
               <div>
-                <div style="font-weight:600;font-size:14px">⚠ 2 items wachten op uw handtekening</div>
-                <div style="font-size:12px;color:var(--color-text-2);margin-top:2px">1 offerte · 1 actie · 1 vervalt vrijdag</div>
+                <div style="font-weight:600;font-size:14px" data-i18n="home.signBanner.title">⚠ 2 items wachten op uw handtekening</div>
+                <div style="font-size:12px;color:var(--color-text-2);margin-top:2px" data-i18n="home.signBanner.detail">1 offerte · 1 actie · 1 vervalt vrijdag</div>
               </div>
-              <a href="actions.html" class="btn btn-primary">Bekijken</a>
+              <a href="actions.html" class="btn btn-primary" data-i18n="action.view">Bekijken</a>
             </div>
           </div>
         </div>
@@ -156,14 +156,26 @@
 
     </main>
   </div>
+  <script src="i18n-dict.js"></script>
+  <script src="i18n.js"></script>
   <script src="auth.js"></script>
   <script src="nav.js"></script>
   <script src="feedback.js"></script>
   <script>
-    const h = new Date().getHours();
-    const groet = h < 12 ? 'Goedemorgen' : h < 18 ? 'Goedemiddag' : 'Goedenavond';
-    const naam = sessionStorage.getItem('naam') || 'Dirk';
-    document.getElementById('greeting').textContent = groet + ', ' + naam;
+    function renderGreeting() {
+      var lang = ['nl','fr','en'].indexOf(localStorage.getItem('lang')) !== -1 ? localStorage.getItem('lang') : 'nl';
+      var h = new Date().getHours();
+      var part = h < 12 ? 'morning' : h < 18 ? 'afternoon' : 'evening';
+      var greetings = {
+        morning:   { nl: 'Goedemorgen',  fr: 'Bonjour',     en: 'Good morning' },
+        afternoon: { nl: 'Goedemiddag',  fr: 'Bonjour',     en: 'Good afternoon' },
+        evening:   { nl: 'Goedenavond',  fr: 'Bonsoir',     en: 'Good evening' }
+      };
+      var naam = sessionStorage.getItem('naam') || 'Dirk';
+      document.getElementById('greeting').textContent = greetings[part][lang] + ', ' + naam;
+    }
+    renderGreeting();
+    document.addEventListener('langchange', renderGreeting);
     lucide.createIcons();
   </script>
 </body>

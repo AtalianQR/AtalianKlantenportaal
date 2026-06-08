@@ -10,33 +10,35 @@
     <header class="topbar">
       <span class="logo">ATALIAN.</span>
       <span class="client-selector">Vlaeminck Logistics ▾</span>
-      <div class="topbar-actions"><span>NL</span><span>🔔</span><span>DS ▾</span></div>
+      <div class="topbar-actions"><span>🔔</span><span>DS ▾</span></div>
     </header>
     <nav class="sidebar" id="sidebar"></nav>
     <main class="main-content">
       <div class="page-header">
-        <h1 class="page-title">Facturen</h1>
-        <p class="page-desc">Alle facturen filterbaar per site — ontsloten vanuit Peppol/Nymus, gekoppeld aan uitvoeringsbonnen en Work Orders.</p>
+        <h1 class="page-title" data-i18n="invoices.title">Facturen</h1>
+        <p class="page-desc" data-i18n="invoices.subtitle">Alle facturen filterbaar per site — ontsloten vanuit Peppol/Nymus, gekoppeld aan uitvoeringsbonnen en Work Orders.</p>
       </div>
       <div class="filter-bar">
-        <input type="text" placeholder="Zoeken op factuurnummer, bedrag…">
-        <select><option>Alle sites</option><option>Gent</option><option>Antwerpen</option><option>Brussel</option></select>
-        <select><option>Alle statussen</option><option>Betaald</option><option>Openstaand</option><option>Vervallen</option></select>
-        <select><option>Alle periodes</option><option>2026</option><option>2025</option></select>
-        <a href="openstaand.html" class="btn btn-secondary" style="margin-left:auto">Openstaande bedragen</a>
+        <input type="text" data-i18n-placeholder="invoices.search" placeholder="Zoeken op factuurnummer, bedrag…">
+        <select><option data-i18n="filter.allSites">Alle sites</option><option>Gent</option><option>Antwerpen</option><option>Brussel</option></select>
+        <select><option data-i18n="invoices.filter.allStatuses">Alle statussen</option><option data-i18n="status.paid">Betaald</option><option data-i18n="status.outstanding">Openstaand</option><option data-i18n="status.expired">Vervallen</option></select>
+        <select><option data-i18n="invoices.filter.allPeriods">Alle periodes</option><option>2026</option><option>2025</option></select>
+        <a href="openstaand.html" class="btn btn-secondary" style="margin-left:auto" data-i18n="nav.outstanding">Openstaande bedragen</a>
       </div>
       <div class="card" style="padding:0">
         <table class="data-table">
-          <thead><tr><th>Factuurnr</th><th>Datum</th><th>Site</th><th>Dienst</th><th>Bedrag (excl. BTW)</th><th>Status</th><th>Actie</th></tr></thead>
+          <thead><tr><th data-i18n="invoices.table.number">Factuurnr</th><th data-i18n="table.date">Datum</th><th data-i18n="table.site">Site</th><th data-i18n="workSlips.table.service">Dienst</th><th data-i18n="invoices.table.amount">Bedrag (excl. BTW)</th><th data-i18n="table.status">Status</th><th data-i18n="table.action">Actie</th></tr></thead>
           <tbody>
-            <tr><td><strong>2026-0412</strong></td><td>01/05/2026</td><td>Gent</td><td>Schoonmaak</td><td>€ 8.240</td><td><span class="badge badge-done">Betaald</span></td><td><a href="#" style="color:var(--color-accent)">PDF</a></td></tr>
-            <tr><td><strong>2026-0389</strong></td><td>01/04/2026</td><td>Antwerpen</td><td>Hard Services</td><td>€ 3.150</td><td><span class="badge badge-open">Openstaand</span></td><td><a href="#" style="color:var(--color-accent)">PDF</a> · <a href="#" style="color:var(--color-accent)">Betalen</a></td></tr>
-            <tr><td><strong>2026-0361</strong></td><td>01/03/2026</td><td>Brussel</td><td>Glaswas</td><td>€ 1.820</td><td><span class="badge badge-alert">Vervallen</span></td><td><a href="#" style="color:var(--color-accent)">PDF</a> · <a href="#" style="color:var(--color-accent)">Betalen</a></td></tr>
+            <tr><td><strong>2026-0412</strong></td><td>01/05/2026</td><td>Gent</td><td data-i18n="service.cleaning">Schoonmaak</td><td>€ 8.240</td><td><span class="badge badge-done" data-i18n="status.paid">Betaald</span></td><td><a href="#" style="color:var(--color-accent)" data-i18n="invoices.pdf">PDF</a></td></tr>
+            <tr><td><strong>2026-0389</strong></td><td>01/04/2026</td><td>Antwerpen</td><td data-i18n="service.hardServices">Hard Services</td><td>€ 3.150</td><td><span class="badge badge-open" data-i18n="status.outstanding">Openstaand</span></td><td><a href="#" style="color:var(--color-accent)" data-i18n="invoices.pdf">PDF</a> · <a href="#" style="color:var(--color-accent)" data-i18n="invoices.pay">Betalen</a></td></tr>
+            <tr><td><strong>2026-0361</strong></td><td>01/03/2026</td><td>Brussel</td><td data-i18n="service.windowCleaning">Glaswas</td><td>€ 1.820</td><td><span class="badge badge-alert" data-i18n="status.expired">Vervallen</span></td><td><a href="#" style="color:var(--color-accent)" data-i18n="invoices.pdf">PDF</a> · <a href="#" style="color:var(--color-accent)" data-i18n="invoices.pay">Betalen</a></td></tr>
           </tbody>
         </table>
       </div>
     </main>
   </div>
+  <script src="i18n-dict.js"></script>
+  <script src="i18n.js"></script>
   <script src="auth.js"></script>
   <script src="nav.js"></script>
   <script src="feedback.js"></script>

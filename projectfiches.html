@@ -10,54 +10,56 @@
     <header class="topbar">
       <span class="logo">ATALIAN.</span>
       <span class="client-selector">Vlaeminck Logistics ▾</span>
-      <div class="topbar-actions"><span>NL</span><span>🔔</span><span>DS ▾</span></div>
+      <div class="topbar-actions"><span>🔔</span><span>DS ▾</span></div>
     </header>
     <nav class="sidebar" id="sidebar"></nav>
     <main class="main-content">
       <div class="page-header">
-        <h1 class="page-title">Werkdossiers</h1>
-        <p class="page-desc">Operationele afspraken per site — werktijden, producten, MSDS-fiches, werkprogramma's en safetyprocedures.</p>
+        <h1 class="page-title" data-i18n="workFiles.title">Werkdossiers</h1>
+        <p class="page-desc" data-i18n="workFiles.subtitle">Operationele afspraken per site — werktijden, producten, MSDS-fiches, werkprogramma's en safetyprocedures.</p>
       </div>
       <div class="filter-bar">
-        <select><option>Alle sites</option><option>Gent</option><option>Antwerpen</option><option>Brussel</option></select>
+        <select><option data-i18n="filter.allSites">Alle sites</option><option>Gent</option><option>Antwerpen</option><option>Brussel</option></select>
       </div>
       <div class="grid-3">
         <div class="card" style="border-top:3px solid var(--color-accent)">
           <div class="card-title">Gent — Dok-Noord</div>
           <table class="data-table"><tbody>
-            <tr><td style="color:var(--color-text-2);font-size:12px">Werktijden</td><td>Ma–Vr 06:00–18:00</td></tr>
-            <tr><td style="color:var(--color-text-2);font-size:12px">Diensten</td><td>Schoonmaak · Glaswas · HS</td></tr>
+            <tr><td style="color:var(--color-text-2);font-size:12px" data-i18n="workFiles.hours">Werktijden</td><td>Ma–Vr 06:00–18:00</td></tr>
+            <tr><td style="color:var(--color-text-2);font-size:12px" data-i18n="workFiles.services">Diensten</td><td data-i18n="workFiles.gent.services">Schoonmaak · Glaswas · HS</td></tr>
           </tbody></table>
           <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
-            <a href="#" class="btn btn-secondary" style="font-size:12px">Werkprogramma</a>
-            <a href="#" class="btn btn-secondary" style="font-size:12px">MSDS-fiches</a>
+            <a href="#" class="btn btn-secondary" style="font-size:12px" data-i18n="workFiles.workProgram">Werkprogramma</a>
+            <a href="#" class="btn btn-secondary" style="font-size:12px" data-i18n="workFiles.msds">MSDS-fiches</a>
           </div>
         </div>
         <div class="card" style="border-top:3px solid var(--color-accent)">
           <div class="card-title">Antwerpen — Haven</div>
           <table class="data-table"><tbody>
-            <tr><td style="color:var(--color-text-2);font-size:12px">Werktijden</td><td>Ma–Za 07:00–17:00</td></tr>
-            <tr><td style="color:var(--color-text-2);font-size:12px">Diensten</td><td>Schoonmaak · Hard Services</td></tr>
+            <tr><td style="color:var(--color-text-2);font-size:12px" data-i18n="workFiles.hours">Werktijden</td><td>Ma–Za 07:00–17:00</td></tr>
+            <tr><td style="color:var(--color-text-2);font-size:12px" data-i18n="workFiles.services">Diensten</td><td data-i18n="workFiles.antwerp.services">Schoonmaak · Hard Services</td></tr>
           </tbody></table>
           <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
-            <a href="#" class="btn btn-secondary" style="font-size:12px">Werkprogramma</a>
-            <a href="#" class="btn btn-secondary" style="font-size:12px">MSDS-fiches</a>
+            <a href="#" class="btn btn-secondary" style="font-size:12px" data-i18n="workFiles.workProgram">Werkprogramma</a>
+            <a href="#" class="btn btn-secondary" style="font-size:12px" data-i18n="workFiles.msds">MSDS-fiches</a>
           </div>
         </div>
         <div class="card" style="border-top:3px solid var(--color-accent)">
           <div class="card-title">Brussel — Evere</div>
           <table class="data-table"><tbody>
-            <tr><td style="color:var(--color-text-2);font-size:12px">Werktijden</td><td>Ma–Vr 06:30–16:30</td></tr>
-            <tr><td style="color:var(--color-text-2);font-size:12px">Diensten</td><td>Schoonmaak · Glaswas</td></tr>
+            <tr><td style="color:var(--color-text-2);font-size:12px" data-i18n="workFiles.hours">Werktijden</td><td>Ma–Vr 06:30–16:30</td></tr>
+            <tr><td style="color:var(--color-text-2);font-size:12px" data-i18n="workFiles.services">Diensten</td><td data-i18n="workFiles.brussels.services">Schoonmaak · Glaswas</td></tr>
           </tbody></table>
           <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
-            <a href="#" class="btn btn-secondary" style="font-size:12px">Werkprogramma</a>
-            <a href="#" class="btn btn-secondary" style="font-size:12px">MSDS-fiches</a>
+            <a href="#" class="btn btn-secondary" style="font-size:12px" data-i18n="workFiles.workProgram">Werkprogramma</a>
+            <a href="#" class="btn btn-secondary" style="font-size:12px" data-i18n="workFiles.msds">MSDS-fiches</a>
           </div>
         </div>
       </div>
     </main>
   </div>
+  <script src="i18n-dict.js"></script>
+  <script src="i18n.js"></script>
   <script src="auth.js"></script>
   <script src="nav.js"></script>
   <script src="feedback.js"></script>

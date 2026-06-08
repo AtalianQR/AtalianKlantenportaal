@@ -3,43 +3,41 @@
   var current = window.location.pathname.split('/').pop() || 'index.html';
 
   var NAV = [
-    { type: 'link', label: 'Dashboard', href: 'home.html', icon: 'layout-dashboard' },
+    { type: 'link', label: 'Dashboard', key: 'nav.dashboard', href: 'home.html', icon: 'layout-dashboard' },
     { type: 'divider' },
-    { type: 'section', label: 'Mijn Contract', icon: 'file-text', children: [
-      { label: 'Contractdetails', href: 'contract.html',       icon: 'file-text' },
-      { label: 'Ons team',        href: 'contactpersonen.html',icon: 'users' },
-      { label: 'Diensten',        href: 'services.html',       icon: 'settings-2' },
+    { type: 'section', label: 'Mijn Contract', key: 'nav.myContract', icon: 'file-text', children: [
+      { label: 'Contractdetails', key: 'nav.contractDetails', href: 'contract.html',       icon: 'file-text' },
+      { label: 'Ons team',        key: 'nav.ourTeam',         href: 'contactpersonen.html',icon: 'users' },
+      { label: 'Diensten',        key: 'nav.services',        href: 'services.html',       icon: 'settings-2' },
     ]},
-    { type: 'section', label: 'Meldingen & Opvolging', icon: 'bell', children: [
-      { label: 'Nieuwe melding',  href: 'tickets-nieuw.html', icon: 'plus-circle', accent: true },
-      { label: 'Mijn meldingen',  href: 'tickets.html',       icon: 'message-circle' },
-      { label: 'Planning',        href: 'planning.html',       icon: 'calendar' },
-      { label: 'Te ondertekenen', href: 'actions.html',        icon: 'pen-line', badge: 2 },
+    { type: 'section', label: 'Meldingen & Opvolging', key: 'nav.reportsFollowup', icon: 'bell', children: [
+      { label: 'Nieuwe melding',  key: 'nav.newReport',  href: 'tickets-nieuw.html', icon: 'plus-circle', accent: true },
+      { label: 'Mijn meldingen',  key: 'nav.myReports',  href: 'tickets.html',       icon: 'message-circle' },
+      { label: 'Planning',        key: 'nav.planning',   href: 'planning.html',       icon: 'calendar' },
+      { label: 'Te ondertekenen', key: 'nav.toSign',     href: 'actions.html',        icon: 'pen-line', badge: 2 },
     ]},
-    { type: 'section', label: 'Installaties & Keuringen', icon: 'wrench', children: [
-      { label: 'Installaties',           href: 'assets.html',       icon: 'cpu' },
-      { label: 'Keuringen & inspecties', href: 'audits.html',        icon: 'clipboard-check' },
+    { type: 'section', label: 'Installaties & Keuringen', key: 'nav.assetsInspections', icon: 'wrench', children: [
+      { label: 'Installaties',           key: 'nav.assets',       href: 'assets.html',       icon: 'cpu' },
+      { label: 'Keuringen & inspecties', key: 'nav.inspections',  href: 'audits.html',        icon: 'clipboard-check' },
     ]},
-    { type: 'section', label: 'Diensten', icon: 'layers', children: [
-      { label: 'Schoonmaak',           href: 'projectfiches.html',     icon: 'sparkles' },
-      { label: 'Glaswas',              href: 'glaswas.html',           icon: 'droplets' },
-      { label: 'Catering',             href: 'catering.html',          icon: 'coffee' },
-      { label: 'Technisch onderhoud',  href: 'technisch.html',         icon: 'wrench' },
-      { label: 'Groenonderhoud',       href: 'groen.html',             icon: 'leaf' },
-      { label: 'Uitvoeringsbonnen',    href: 'uitvoeringsbonnen.html', icon: 'clipboard-list' },
-      { label: 'Bestellingen',         href: 'bestelportaal.html',     icon: 'shopping-cart' },
+    { type: 'section', label: 'Diensten', key: 'nav.servicesSection', icon: 'layers', children: [
+      { label: 'Schoonmaak',           key: 'nav.cleaning',          href: 'projectfiches.html',     icon: 'sparkles' },
+      { label: 'Glaswas',              key: 'nav.windowCleaning',    href: 'glaswas.html',           icon: 'droplets' },
+      { label: 'Catering',             key: 'nav.catering',          href: 'catering.html',          icon: 'coffee' },
+      { label: 'Technisch onderhoud',  key: 'nav.technicalMaint',    href: 'technisch.html',         icon: 'wrench' },
+      { label: 'Groenonderhoud',       key: 'nav.greenMaint',        href: 'groen.html',             icon: 'leaf' },
+      { label: 'Uitvoeringsbonnen',    key: 'nav.workSlips',         href: 'uitvoeringsbonnen.html', icon: 'clipboard-list' },
+      { label: 'Bestellingen',         key: 'nav.orders',            href: 'bestelportaal.html',     icon: 'shopping-cart' },
     ]},
-    { type: 'section', label: 'Financieel', icon: 'euro', children: [
-      { label: 'Facturen',             href: 'invoices.html',  icon: 'receipt' },
-      { label: 'Openstaande bedragen', href: 'openstaand.html',icon: 'alert-circle' },
+    { type: 'section', label: 'Financieel', key: 'nav.financial', icon: 'euro', children: [
+      { label: 'Facturen',             key: 'nav.invoices',     href: 'invoices.html',  icon: 'receipt' },
+      { label: 'Openstaande bedragen', key: 'nav.outstanding',  href: 'openstaand.html',icon: 'alert-circle' },
     ]},
-    { type: 'section', label: 'Documenten', icon: 'files', children: [
-      { label: 'Alle documenten',   href: 'documenten.html', icon: 'files' },
+    { type: 'section', label: 'Documenten', key: 'nav.documents', icon: 'files', children: [
+      { label: 'Alle documenten',   key: 'nav.allDocuments',  href: 'documenten.html', icon: 'files' },
     ]},
     { type: 'divider' },
-    { type: 'section', label: 'Nieuws & Updates', icon: 'megaphone', children: [
-      { label: 'Updates & aankondigingen', href: 'communicatie.html', icon: 'megaphone' },
-    ]},
+    { type: 'link', label: 'Nieuws & Updates', key: 'nav.newsUpdates', href: 'communicatie.html', icon: 'megaphone', badge: 1 },
   ];
 
   function icon(name, size) {
@@ -52,8 +50,9 @@
       if (item.type === 'divider') return '<hr class="nav-divider">';
       if (item.type === 'link') {
         var active = current === item.href ? ' active' : '';
+        var badge  = item.badge ? '<span class="nav-badge">' + item.badge + '</span>' : '';
         return '<a href="' + item.href + '" class="nav-item' + active + '">' +
-          icon(item.icon) + '<span>' + item.label + '</span></a>';
+          icon(item.icon) + '<span data-i18n="' + item.key + '">' + item.label + '</span>' + badge + '</a>';
       }
       if (item.type === 'section') {
         var isOpen = item.children.some(function (c) {
@@ -68,11 +67,11 @@
             var grandchildren = c.subchildren.map(function (s) {
               var sa = current === s.href ? ' active' : '';
               return '<a href="' + s.href + '" class="nav-grandchild' + sa + '">' +
-                icon(s.icon, 12) + '<span>' + s.label + '</span></a>';
+                icon(s.icon, 12) + '<span data-i18n="' + s.key + '">' + s.label + '</span></a>';
             }).join('');
             return '<div class="nav-subsection' + (subOpen ? ' open' : '') + '">' +
               '<a href="' + c.href + '" class="nav-child nav-child-toggle' + (current === c.href ? ' active' : '') + '"' + accentStyle + '>' +
-                icon(c.icon, 14) + '<span>' + c.label + '</span>' +
+                icon(c.icon, 14) + '<span data-i18n="' + c.key + '">' + c.label + '</span>' +
                 '<span class="nav-sub-chevron" onclick="event.preventDefault();this.closest(\'.nav-subsection\').classList.toggle(\'open\')">▾</span>' +
               '</a>' +
               '<div class="nav-grandchildren">' + grandchildren + '</div>' +
@@ -80,12 +79,12 @@
           }
           var active = current === c.href ? ' active' : '';
           return '<a href="' + c.href + '" class="nav-child' + active + '"' + accentStyle + '>' +
-            icon(c.icon, 14) + '<span>' + c.label + '</span>' + badge + '</a>';
+            icon(c.icon, 14) + '<span data-i18n="' + c.key + '">' + c.label + '</span>' + badge + '</a>';
         }).join('');
         return (
           '<div class="nav-section' + (isOpen ? ' open' : '') + '">' +
             '<div class="nav-section-header" onclick="this.parentElement.classList.toggle(\'open\')">' +
-              '<span class="nav-section-label">' + icon(item.icon, 13) + item.label + '</span>' +
+              '<span class="nav-section-label">' + icon(item.icon, 13) + '<span data-i18n="' + item.key + '">' + item.label + '</span></span>' +
               '<span class="nav-chevron">▾</span>' +
             '</div>' +
             '<div class="nav-section-children">' + children + '</div>' +

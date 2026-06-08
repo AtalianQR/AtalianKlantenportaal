@@ -1,5 +1,8 @@
 // feedback.js — per-pagina feedbackwidget → Netlify Forms
 (function () {
+  var FEEDBACK_ACTIVE = false; // tijdelijk uitgeschakeld
+  if (!FEEDBACK_ACTIVE) return;
+
   var page = document.title.replace('ATALIAN — ', '') || window.location.pathname.split('/').pop();
   // ── HTML injecteren ────────────────────────────────────────────────────────
   var el = document.createElement('div');

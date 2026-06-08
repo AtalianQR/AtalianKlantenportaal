@@ -98,22 +98,24 @@
       <img src="atalian-logo.png" alt="ATALIAN Global Services" style="height:80px;">
     </div>
     <div class="login-card">
-      <h2>Welkom terug</h2>
-      <p>Meld u aan om uw klantenportaal te openen.</p>
+      <h2 data-i18n="login.title">Welkom terug</h2>
+      <p data-i18n="login.subtitle">Meld u aan om uw klantenportaal te openen.</p>
       <form id="login-form" autocomplete="off">
         <div class="login-field">
-          <label for="voornaam">Voornaam</label>
-          <input type="text" id="voornaam" name="voornaam" placeholder="Uw voornaam" autocomplete="given-name" required>
+          <label for="voornaam" data-i18n="login.firstName">Voornaam</label>
+          <input type="text" id="voornaam" name="voornaam" data-i18n-placeholder="login.firstNamePlaceholder" placeholder="Uw voornaam" autocomplete="given-name" required>
         </div>
         <div class="login-field">
-          <label for="wachtwoord">Wachtwoord</label>
+          <label for="wachtwoord" data-i18n="login.password">Wachtwoord</label>
           <input type="password" id="wachtwoord" name="wachtwoord" placeholder="••••••••" required>
         </div>
-        <button type="submit" class="login-btn">Aanmelden</button>
-        <div class="login-error" id="login-error">Wachtwoord onjuist. Probeer opnieuw.</div>
+        <button type="submit" class="login-btn" data-i18n="login.submit">Aanmelden</button>
+        <div class="login-error" id="login-error" data-i18n="login.error">Wachtwoord onjuist. Probeer opnieuw.</div>
       </form>
     </div>
   </div>
+  <script src="i18n-dict.js"></script>
+  <script src="i18n.js"></script>
   <script>
     document.getElementById('login-form').addEventListener('submit', function (e) {
       e.preventDefault();
@@ -121,7 +123,7 @@
       var ww   = document.getElementById('wachtwoord').value;
       if (ww === 'TryMe' && naam) {
         sessionStorage.setItem('naam', naam);
-        window.location.href = 'instructies.html';
+        window.location.href = 'home.html';
       } else {
         document.getElementById('login-error').style.display = 'block';
       }

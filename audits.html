@@ -16,46 +16,48 @@
     <header class="topbar">
       <span class="logo">ATALIAN.</span>
       <span class="client-selector">Vlaeminck Logistics ▾</span>
-      <div class="topbar-actions"><span>NL</span><span>🔔</span><span>DS ▾</span></div>
+      <div class="topbar-actions"><span>🔔</span><span>DS ▾</span></div>
     </header>
     <nav class="sidebar" id="sidebar"></nav>
     <main class="main-content">
       <div class="page-header">
-        <h1 class="page-title">Keuringen & inspecties</h1>
-        <p class="page-desc">Compliance-overzicht per asset en site — wettelijke keuringen, frequenties en rapportageverplichtingen.</p>
+        <h1 class="page-title" data-i18n="audits.title">Keuringen & inspecties</h1>
+        <p class="page-desc" data-i18n="audits.subtitle">Compliance-overzicht per asset en site — wettelijke keuringen, frequenties en rapportageverplichtingen.</p>
       </div>
       <div class="kpi-row">
-        <div class="kpi-card"><div class="kpi-label-top">IN ORDE</div><div class="kpi-value">14</div></div>
-        <div class="kpi-card kpi-warning"><div class="kpi-label-top">VERVALT BINNENKORT</div><div class="kpi-value">3</div></div>
-        <div class="kpi-card kpi-danger"><div class="kpi-label-top">VERVALLEN</div><div class="kpi-value">1</div></div>
+        <div class="kpi-card"><div class="kpi-label-top" data-i18n="audits.kpi.ok">IN ORDE</div><div class="kpi-value">14</div></div>
+        <div class="kpi-card kpi-warning"><div class="kpi-label-top" data-i18n="audits.kpi.dueSoon">VERVALT BINNENKORT</div><div class="kpi-value">3</div></div>
+        <div class="kpi-card kpi-danger"><div class="kpi-label-top" data-i18n="audits.kpi.expired">VERVALLEN</div><div class="kpi-value">1</div></div>
       </div>
       <div class="filter-bar">
-        <input type="text" id="global-search" placeholder="Zoeken op keuring, asset, site…">
-        <button id="clear-filters" class="btn btn-secondary" style="white-space:nowrap">✕ Wis filters</button>
+        <input type="text" id="global-search" data-i18n-placeholder="audits.search" placeholder="Zoeken op keuring, asset, site…">
+        <button id="clear-filters" class="btn btn-secondary" style="white-space:nowrap" data-i18n="filter.clear">✕ Wis filters</button>
       </div>
       <div class="card" style="padding:0;overflow-x:auto">
         <table class="data-table" id="main-table">
           <thead>
             <tr>
-              <th>Keuring<br>        <input class="col-filter" data-col="0" placeholder="filter…"></th>
-              <th>Asset<br>          <input class="col-filter" data-col="1" placeholder="filter…"></th>
-              <th>Site<br>           <select class="col-filter" data-col="2"><option value="">Alle</option><option>Gent</option><option>Antwerpen</option><option>Brussel</option></select></th>
-              <th>Laatste keuring<br><input class="col-filter" data-col="3" placeholder="filter…"></th>
-              <th>Volgende<br>       <input class="col-filter" data-col="4" placeholder="filter…"></th>
-              <th>Rapport</th>
-              <th>Status<br>         <select class="col-filter" data-col="6"><option value="">Alle</option><option>In orde</option><option>Gepland</option><option>Vervallen</option></select></th>
+              <th><span data-i18n="audits.table.inspection">Keuring</span><br>        <input class="col-filter" data-col="0" data-i18n-placeholder="filter.placeholder" placeholder="filter…"></th>
+              <th><span data-i18n="assets.table.id">Asset</span><br>          <input class="col-filter" data-col="1" data-i18n-placeholder="filter.placeholder" placeholder="filter…"></th>
+              <th><span data-i18n="table.site">Site</span><br>           <select class="col-filter" data-col="2"><option value="" data-i18n="filter.all">Alle</option><option>Gent</option><option>Antwerpen</option><option>Brussel</option></select></th>
+              <th><span data-i18n="audits.table.lastInspection">Laatste keuring</span><br><input class="col-filter" data-col="3" data-i18n-placeholder="filter.placeholder" placeholder="filter…"></th>
+              <th><span data-i18n="audits.table.next">Volgende</span><br>       <input class="col-filter" data-col="4" data-i18n-placeholder="filter.placeholder" placeholder="filter…"></th>
+              <th data-i18n="audits.table.report">Rapport</th>
+              <th><span data-i18n="table.status">Status</span><br>         <select class="col-filter" data-col="6"><option value="" data-i18n="filter.all">Alle</option><option data-i18n="status.ok2">In orde</option><option data-i18n="status.scheduled">Gepland</option><option data-i18n="status.expired">Vervallen</option></select></th>
             </tr>
           </thead>
           <tbody>
-            <tr><td>Jaarlijkse liftkeuring</td><td>AST-0441</td><td>Gent</td><td>15/07/2025</td><td>15/07/2026</td><td><a href="#" style="color:var(--color-accent);font-weight:600">PDF ↓</a></td><td><span class="badge badge-done">In orde</span></td></tr>
-            <tr><td>HVAC-controle</td><td>AST-0501</td><td>Antwerpen</td><td>01/06/2025</td><td>01/06/2026</td><td><a href="#" style="color:var(--color-accent);font-weight:600">PDF ↓</a></td><td><span class="badge badge-open">Gepland</span></td></tr>
-            <tr><td>Brandcentrale inspectie</td><td>AST-0612</td><td>Brussel</td><td>10/05/2025</td><td>10/05/2026</td><td>—</td><td><span class="badge badge-alert">Vervallen</span></td></tr>
+            <tr><td data-i18n="audits.row1.name">Jaarlijkse liftkeuring</td><td>AST-0441</td><td>Gent</td><td>15/07/2025</td><td>15/07/2026</td><td><a href="#" style="color:var(--color-accent);font-weight:600" data-i18n="action.downloadPdf">PDF ↓</a></td><td><span class="badge badge-done" data-i18n="status.ok2">In orde</span></td></tr>
+            <tr><td data-i18n="audits.row2.name">HVAC-controle</td><td>AST-0501</td><td>Antwerpen</td><td>01/06/2025</td><td>01/06/2026</td><td><a href="#" style="color:var(--color-accent);font-weight:600" data-i18n="action.downloadPdf">PDF ↓</a></td><td><span class="badge badge-open" data-i18n="status.scheduled">Gepland</span></td></tr>
+            <tr><td data-i18n="audits.row3.name">Brandcentrale inspectie</td><td>AST-0612</td><td>Brussel</td><td>10/05/2025</td><td>10/05/2026</td><td>—</td><td><span class="badge badge-alert" data-i18n="status.expired">Vervallen</span></td></tr>
           </tbody>
         </table>
       </div>
-      <div class="placeholder" style="margin-top:16px"><strong>[Compliance dashboard — Power BI]</strong>Geaggregeerde compliance-score per site, type keuring en wettelijke verplichting.</div>
+      <div class="placeholder" style="margin-top:16px"><strong data-i18n="audits.placeholder.title">[Compliance dashboard — Power BI]</strong><span data-i18n="audits.placeholder.desc">Geaggregeerde compliance-score per site, type keuring en wettelijke verplichting.</span></div>
     </main>
   </div>
+  <script src="i18n-dict.js"></script>
+  <script src="i18n.js"></script>
   <script src="auth.js"></script>
   <script src="nav.js"></script>
   <script src="feedback.js"></script>

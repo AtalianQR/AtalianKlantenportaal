@@ -10,32 +10,34 @@
     <header class="topbar">
       <span class="logo">ATALIAN.</span>
       <span class="client-selector">Vlaeminck Logistics ▾</span>
-      <div class="topbar-actions"><span>NL</span><span>🔔</span><span>DS ▾</span></div>
+      <div class="topbar-actions"><span>🔔</span><span>DS ▾</span></div>
     </header>
     <nav class="sidebar" id="sidebar"></nav>
     <main class="main-content">
       <div class="page-header">
-        <h1 class="page-title">Openstaande bedragen</h1>
-        <p class="page-desc">Overzicht van openstaande en vervallen facturen met online betaalmogelijkheid.</p>
+        <h1 class="page-title" data-i18n="outstanding.title">Openstaande bedragen</h1>
+        <p class="page-desc" data-i18n="outstanding.subtitle">Overzicht van openstaande en vervallen facturen met online betaalmogelijkheid.</p>
       </div>
       <div class="kpi-row">
-        <div class="kpi-card warning"><div class="kpi-value">€ 4.970</div><div class="kpi-label">Openstaand</div></div>
-        <div class="kpi-card danger"><div class="kpi-value">€ 1.820</div><div class="kpi-label">Vervallen</div></div>
-        <div class="kpi-card"><div class="kpi-value">€ 6.790</div><div class="kpi-label">Totaal te betalen</div></div>
+        <div class="kpi-card warning"><div class="kpi-value">€ 4.970</div><div class="kpi-label" data-i18n="status.outstanding">Openstaand</div></div>
+        <div class="kpi-card danger"><div class="kpi-value">€ 1.820</div><div class="kpi-label" data-i18n="status.expired">Vervallen</div></div>
+        <div class="kpi-card"><div class="kpi-value">€ 6.790</div><div class="kpi-label" data-i18n="outstanding.kpi.total">Totaal te betalen</div></div>
       </div>
       <div class="card">
-        <div class="card-title">Openstaande facturen</div>
+        <div class="card-title" data-i18n="outstanding.list.title">Openstaande facturen</div>
         <table class="data-table">
-          <thead><tr><th>Factuurnr</th><th>Vervaldag</th><th>Bedrag</th><th>Status</th><th>Actie</th></tr></thead>
+          <thead><tr><th data-i18n="invoices.table.number">Factuurnr</th><th data-i18n="outstanding.table.dueDate">Vervaldag</th><th data-i18n="actions.table.amount">Bedrag</th><th data-i18n="table.status">Status</th><th data-i18n="table.action">Actie</th></tr></thead>
           <tbody>
-            <tr><td>2026-0389</td><td>31/05/2026</td><td>€ 3.150</td><td><span class="badge badge-open">Openstaand</span></td><td><button class="btn btn-primary" style="font-size:12px;padding:6px 12px">Online betalen</button></td></tr>
-            <tr><td>2026-0361</td><td>31/03/2026</td><td>€ 1.820</td><td><span class="badge badge-alert">Vervallen</span></td><td><button class="btn btn-primary" style="font-size:12px;padding:6px 12px">Online betalen</button></td></tr>
+            <tr><td>2026-0389</td><td>31/05/2026</td><td>€ 3.150</td><td><span class="badge badge-open" data-i18n="status.outstanding">Openstaand</span></td><td><button class="btn btn-primary" style="font-size:12px;padding:6px 12px" data-i18n="outstanding.payOnline">Online betalen</button></td></tr>
+            <tr><td>2026-0361</td><td>31/03/2026</td><td>€ 1.820</td><td><span class="badge badge-alert" data-i18n="status.expired">Vervallen</span></td><td><button class="btn btn-primary" style="font-size:12px;padding:6px 12px" data-i18n="outstanding.payOnline">Online betalen</button></td></tr>
           </tbody>
         </table>
       </div>
-      <div class="placeholder"><strong>[Online betalingsmodule — Peppol/Nymus integratie]</strong>Betaling verloopt via de geconfigureerde betaalgateway.</div>
+      <div class="placeholder"><strong data-i18n="outstanding.placeholder.title">[Online betalingsmodule — Peppol/Nymus integratie]</strong><span data-i18n="outstanding.placeholder.desc">Betaling verloopt via de geconfigureerde betaalgateway.</span></div>
     </main>
   </div>
+  <script src="i18n-dict.js"></script>
+  <script src="i18n.js"></script>
   <script src="auth.js"></script>
   <script src="nav.js"></script>
   <script src="feedback.js"></script>

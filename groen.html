@@ -31,30 +31,30 @@
     <header class="topbar">
       <span class="logo"></span>
       <span class="client-selector">Vlaeminck Logistics ▾</span>
-      <div class="topbar-actions"><span>NL</span><span>🔔</span><span>DS ▾</span></div>
+      <div class="topbar-actions"><span>🔔</span><span>DS ▾</span></div>
     </header>
     <nav class="sidebar" id="sidebar"></nav>
     <main class="main-content">
       <div class="page-header">
-        <h1 class="page-title">Groenonderhoud</h1>
-        <p class="page-desc">Seizoensplanning maai- en snoeibeurten per site — lopend jaar 2026.</p>
+        <h1 class="page-title" data-i18n="green.title">Groenonderhoud</h1>
+        <p class="page-desc" data-i18n="green.subtitle">Seizoensplanning maai- en snoeibeurten per site — lopend jaar 2026.</p>
       </div>
 
       <div class="kpi-row">
         <div class="kpi-card kpi-success">
-          <div class="kpi-label-top">UITGEVOERD</div>
+          <div class="kpi-label-top" data-i18n="green.kpi.done">UITGEVOERD</div>
           <div class="kpi-value">18</div>
-          <div class="kpi-trend trend-up">beurten t.e.m. mei</div>
+          <div class="kpi-trend trend-up" data-i18n="green.kpi.done.trend">beurten t.e.m. mei</div>
         </div>
         <div class="kpi-card">
-          <div class="kpi-label-top">GEPLAND RESTEREND</div>
+          <div class="kpi-label-top" data-i18n="green.kpi.remaining">GEPLAND RESTEREND</div>
           <div class="kpi-value">31</div>
-          <div class="kpi-trend trend-neutral">jun – dec 2026</div>
+          <div class="kpi-trend trend-neutral" data-i18n="green.kpi.remaining.trend">jun – dec 2026</div>
         </div>
         <div class="kpi-card kpi-warning">
-          <div class="kpi-label-top">EERSTVOLGENDE BEURT</div>
+          <div class="kpi-label-top" data-i18n="green.kpi.next">EERSTVOLGENDE BEURT</div>
           <div class="kpi-value" style="font-size:18px">02/06</div>
-          <div class="kpi-trend trend-neutral">Maaien · Gent</div>
+          <div class="kpi-trend trend-neutral" data-i18n="green.kpi.next.detail">Maaien · Gent</div>
         </div>
       </div>
 
@@ -62,26 +62,36 @@
         <table class="groen-table" id="groen-table">
           <thead>
             <tr id="header-row">
-              <th class="col-site">Site / Type</th>
+              <th class="col-site" data-i18n="green.table.siteType">Site / Type</th>
             </tr>
           </thead>
           <tbody id="groen-body"></tbody>
         </table>
         <div class="legenda" style="padding:14px 16px">
-          <span><div class="dot dot-done" style="font-size:14px">✓</div>Uitgevoerd</span>
-          <span><div class="dot dot-plan" style="font-size:14px">●</div>Gepland</span>
-          <span><span style="font-size:20px;color:#ccc;line-height:1">—</span>Geen beurt</span>
-          <span style="margin-left:auto;background:#fffbeb;padding:3px 10px;border-radius:4px;font-size:11px;font-weight:600;color:#92400e">Huidige maand gemarkeerd</span>
+          <span><div class="dot dot-done" style="font-size:14px">✓</div><span data-i18n="green.legend.done">Uitgevoerd</span></span>
+          <span><div class="dot dot-plan" style="font-size:14px">●</div><span data-i18n="green.legend.planned">Gepland</span></span>
+          <span><span style="font-size:20px;color:#ccc;line-height:1">—</span><span data-i18n="green.legend.none">Geen beurt</span></span>
+          <span style="margin-left:auto;background:#fffbeb;padding:3px 10px;border-radius:4px;font-size:11px;font-weight:600;color:#92400e" data-i18n="green.legend.currentMonth">Huidige maand gemarkeerd</span>
         </div>
       </div>
 
     </main>
   </div>
+  <script src="i18n-dict.js"></script>
+  <script src="i18n.js"></script>
   <script src="auth.js"></script>
   <script src="nav.js"></script>
   <script src="feedback.js"></script>
   <script>
-    var maanden = ['Jan','Feb','Mrt','Apr','Mei','Jun','Jul','Aug','Sep','Okt','Nov','Dec'];
+    var MAANDEN = {
+      nl: ['Jan','Feb','Mrt','Apr','Mei','Jun','Jul','Aug','Sep','Okt','Nov','Dec'],
+      fr: ['Jan','Fév','Mar','Avr','Mai','Juin','Juil','Août','Sep','Oct','Nov','Déc'],
+      en: ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
+    };
+    var LABELS = {
+      mowing:  { nl: 'Maaien',  fr: 'Tonte',  en: 'Mowing' },
+      pruning: { nl: 'Snoeien', fr: 'Taille', en: 'Pruning' }
+    };
     var huidigeMaand = new Date().getMonth();
 
     // 0=geen, 'D'=done, 'P'=planned
@@ -110,35 +120,47 @@
       return '<td class="' + klasse + '"><span class="dot dot-none">—</span></td>';
     }
 
-    // Header
-    var headerRow = document.getElementById('header-row');
-    maanden.forEach(function(m, i) {
-      var th = document.createElement('th');
-      th.textContent = m;
-      if (i === huidigeMaand) th.style.background = '#fffbeb';
-      headerRow.appendChild(th);
-    });
+    function getLang() {
+      var l = localStorage.getItem('lang');
+      return ['nl','fr','en'].indexOf(l) !== -1 ? l : 'nl';
+    }
 
-    // Rijen
-    var tbody = document.getElementById('groen-body');
-    SITES.forEach(function(site) {
-      // Siteheader
-      var siteRow = document.createElement('tr');
-      siteRow.innerHTML = '<td class="col-site" colspan="13" style="background:#f4f6f8;font-size:12px;font-weight:700;color:var(--color-dark);padding:8px 12px;border-top:2px solid var(--color-border)">' + site.naam + '</td>';
-      tbody.appendChild(siteRow);
+    function render() {
+      var lang = getLang();
+      var maanden = MAANDEN[lang];
 
-      // Maaien
-      var mRow = document.createElement('tr');
-      mRow.className = 'type-row';
-      mRow.innerHTML = '<td class="col-site">Maaien</td>' + site.maaien.map(function(v,i){ return dotHtml(v,i); }).join('');
-      tbody.appendChild(mRow);
+      var headerRow = document.getElementById('header-row');
+      headerRow.innerHTML = '<th class="col-site" data-i18n="green.table.siteType">Site / Type</th>';
+      maanden.forEach(function(m, i) {
+        var th = document.createElement('th');
+        th.textContent = m;
+        if (i === huidigeMaand) th.style.background = '#fffbeb';
+        headerRow.appendChild(th);
+      });
 
-      // Snoeien
-      var sRow = document.createElement('tr');
-      sRow.className = 'type-row';
-      sRow.innerHTML = '<td class="col-site">Snoeien</td>' + site.snoeien.map(function(v,i){ return dotHtml(v,i); }).join('');
-      tbody.appendChild(sRow);
-    });
+      var tbody = document.getElementById('groen-body');
+      tbody.innerHTML = '';
+      SITES.forEach(function(site) {
+        var siteRow = document.createElement('tr');
+        siteRow.innerHTML = '<td class="col-site" colspan="13" style="background:#f4f6f8;font-size:12px;font-weight:700;color:var(--color-dark);padding:8px 12px;border-top:2px solid var(--color-border)">' + site.naam + '</td>';
+        tbody.appendChild(siteRow);
+
+        var mRow = document.createElement('tr');
+        mRow.className = 'type-row';
+        mRow.innerHTML = '<td class="col-site">' + LABELS.mowing[lang] + '</td>' + site.maaien.map(function(v,i){ return dotHtml(v,i); }).join('');
+        tbody.appendChild(mRow);
+
+        var sRow = document.createElement('tr');
+        sRow.className = 'type-row';
+        sRow.innerHTML = '<td class="col-site">' + LABELS.pruning[lang] + '</td>' + site.snoeien.map(function(v,i){ return dotHtml(v,i); }).join('');
+        tbody.appendChild(sRow);
+      });
+
+      if (window.lucide) window.lucide.createIcons();
+    }
+
+    render();
+    document.addEventListener('langchange', render);
   </script>
 </body>
 </html>

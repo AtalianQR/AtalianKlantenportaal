@@ -134,28 +134,28 @@
     <header class="topbar">
       <span class="logo">ATALIAN.</span>
       <span class="client-selector">Vlaeminck Logistics ▾</span>
-      <div class="topbar-actions"><span>NL</span><span>🔔</span><span>DS ▾</span></div>
+      <div class="topbar-actions"><span>🔔</span><span>DS ▾</span></div>
     </header>
     <nav class="sidebar" id="sidebar"></nav>
     <main class="main-content">
 
       <div class="page-header">
-        <h1 class="page-title">Bestellingen</h1>
-        <p class="page-desc">Verbruiksartikelen, sanitair en cateringproducten — aparte flow van meldingen, met optionele goedkeuringsflow per site.</p>
+        <h1 class="page-title" data-i18n="orders.title">Bestellingen</h1>
+        <p class="page-desc" data-i18n="orders.subtitle">Verbruiksartikelen, sanitair en cateringproducten — aparte flow van meldingen, met optionele goedkeuringsflow per site.</p>
       </div>
 
       <!-- Filter bar -->
       <div class="filter-bar" style="margin-bottom:20px">
-        <input type="text" id="srch" placeholder="Zoeken op productnaam of artikelnummer…">
+        <input type="text" id="srch" data-i18n-placeholder="orders.search" placeholder="Zoeken op productnaam of artikelnummer…">
         <select id="fCat">
-          <option value="">Alle categorieën</option>
+          <option value="" data-i18n="orders.allCategories">Alle categorieën</option>
           <option>Schoonmaakproduct</option>
           <option>Sanitair</option>
           <option>Catering</option>
           <option>Kantoor</option>
         </select>
         <select id="fSite">
-          <option value="">Alle sites</option>
+          <option value="" data-i18n="filter.allSites">Alle sites</option>
           <option>Gent — Dok-Noord</option>
           <option>Antwerpen — Haven</option>
           <option>Brussel — Evere</option>
@@ -170,11 +170,11 @@
             <thead>
               <tr>
                 <th style="width:52px"></th>
-                <th>Product</th>
-                <th>Eenheid</th>
-                <th>Categorie</th>
-                <th style="text-align:right">Prijs</th>
-                <th style="width:160px;text-align:center">Aantal &amp; actie</th>
+                <th data-i18n="orders.col.product">Product</th>
+                <th data-i18n="orders.col.unit">Eenheid</th>
+                <th data-i18n="orders.col.category">Categorie</th>
+                <th style="text-align:right" data-i18n="orders.col.price">Prijs</th>
+                <th style="width:160px;text-align:center" data-i18n="orders.col.qtyAction">Aantal &amp; actie</th>
               </tr>
             </thead>
             <tbody id="prodBody">
@@ -185,7 +185,7 @@
                 <td><span class="p-unit">STK</span></td>
                 <td><span class="p-cat">Schoonmaakproduct</span></td>
                 <td style="text-align:right"><span class="p-price">€ 43,90</span></td>
-                <td style="text-align:center"><div class="qty-wrap" style="justify-content:center"><button class="qty-btn" data-dir="-1">−</button><input class="qty-input" type="number" value="1" min="1"><button class="qty-btn" data-dir="1">+</button><button class="btn-add">+ Voeg toe</button></div></td>
+                <td style="text-align:center"><div class="qty-wrap" style="justify-content:center"><button class="qty-btn" data-dir="-1">−</button><input class="qty-input" type="number" value="1" min="1"><button class="qty-btn" data-dir="1">+</button><button class="btn-add" data-i18n="orders.addToCart">+ Voeg toe</button></div></td>
               </tr>
               <tr data-cat="Schoonmaakproduct" data-name="Admire afval-papierbak 23 l - ZWART" data-art="776916" data-price="45.20">
                 <td><div class="p-thumb">🗑️</div></td>
@@ -193,7 +193,7 @@
                 <td><span class="p-unit">STK</span></td>
                 <td><span class="p-cat">Schoonmaakproduct</span></td>
                 <td style="text-align:right"><span class="p-price">€ 45,20</span></td>
-                <td style="text-align:center"><div class="qty-wrap" style="justify-content:center"><button class="qty-btn" data-dir="-1">−</button><input class="qty-input" type="number" value="1" min="1"><button class="qty-btn" data-dir="1">+</button><button class="btn-add">+ Voeg toe</button></div></td>
+                <td style="text-align:center"><div class="qty-wrap" style="justify-content:center"><button class="qty-btn" data-dir="-1">−</button><input class="qty-input" type="number" value="1" min="1"><button class="qty-btn" data-dir="1">+</button><button class="btn-add" data-i18n="orders.addToCart">+ Voeg toe</button></div></td>
               </tr>
               <tr data-cat="Schoonmaakproduct" data-name="Admire afval-papierbak 43 l - RVS" data-art="775906" data-price="355.00">
                 <td><div class="p-thumb">🗑️</div></td>
@@ -201,7 +201,7 @@
                 <td><span class="p-unit">STK</span></td>
                 <td><span class="p-cat">Schoonmaakproduct</span></td>
                 <td style="text-align:right"><span class="p-price">€ 355,00</span></td>
-                <td style="text-align:center"><div class="qty-wrap" style="justify-content:center"><button class="qty-btn" data-dir="-1">−</button><input class="qty-input" type="number" value="1" min="1"><button class="qty-btn" data-dir="1">+</button><button class="btn-add">+ Voeg toe</button></div></td>
+                <td style="text-align:center"><div class="qty-wrap" style="justify-content:center"><button class="qty-btn" data-dir="-1">−</button><input class="qty-input" type="number" value="1" min="1"><button class="qty-btn" data-dir="1">+</button><button class="btn-add" data-i18n="orders.addToCart">+ Voeg toe</button></div></td>
               </tr>
               <tr data-cat="Schoonmaakproduct" data-name="Admire afval-papierbak 43 l - WIT" data-art="774906" data-price="34.50">
                 <td><div class="p-thumb">🗑️</div></td>
@@ -209,7 +209,7 @@
                 <td><span class="p-unit">STK</span></td>
                 <td><span class="p-cat">Schoonmaakproduct</span></td>
                 <td style="text-align:right"><span class="p-price">€ 34,50</span></td>
-                <td style="text-align:center"><div class="qty-wrap" style="justify-content:center"><button class="qty-btn" data-dir="-1">−</button><input class="qty-input" type="number" value="1" min="1"><button class="qty-btn" data-dir="1">+</button><button class="btn-add">+ Voeg toe</button></div></td>
+                <td style="text-align:center"><div class="qty-wrap" style="justify-content:center"><button class="qty-btn" data-dir="-1">−</button><input class="qty-input" type="number" value="1" min="1"><button class="qty-btn" data-dir="1">+</button><button class="btn-add" data-i18n="orders.addToCart">+ Voeg toe</button></div></td>
               </tr>
               <tr data-cat="Schoonmaakproduct" data-name="Admire afval-papierbak 43 l - ZWART" data-art="776906" data-price="42.80">
                 <td><div class="p-thumb">🗑️</div></td>
@@ -217,7 +217,7 @@
                 <td><span class="p-unit">STK</span></td>
                 <td><span class="p-cat">Schoonmaakproduct</span></td>
                 <td style="text-align:right"><span class="p-price">€ 42,80</span></td>
-                <td style="text-align:center"><div class="qty-wrap" style="justify-content:center"><button class="qty-btn" data-dir="-1">−</button><input class="qty-input" type="number" value="1" min="1"><button class="qty-btn" data-dir="1">+</button><button class="btn-add">+ Voeg toe</button></div></td>
+                <td style="text-align:center"><div class="qty-wrap" style="justify-content:center"><button class="qty-btn" data-dir="-1">−</button><input class="qty-input" type="number" value="1" min="1"><button class="qty-btn" data-dir="1">+</button><button class="btn-add" data-i18n="orders.addToCart">+ Voeg toe</button></div></td>
               </tr>
               <tr data-cat="Schoonmaakproduct" data-name="Admire Breeze luchtverfrisser dispenser - WIT" data-art="774985" data-price="9.90">
                 <td><div class="p-thumb">🌬️</div></td>
@@ -225,7 +225,7 @@
                 <td><span class="p-unit">STK</span></td>
                 <td><span class="p-cat">Schoonmaakproduct</span></td>
                 <td style="text-align:right"><span class="p-price">€ 9,90</span></td>
-                <td style="text-align:center"><div class="qty-wrap" style="justify-content:center"><button class="qty-btn" data-dir="-1">−</button><input class="qty-input" type="number" value="1" min="1"><button class="qty-btn" data-dir="1">+</button><button class="btn-add">+ Voeg toe</button></div></td>
+                <td style="text-align:center"><div class="qty-wrap" style="justify-content:center"><button class="qty-btn" data-dir="-1">−</button><input class="qty-input" type="number" value="1" min="1"><button class="qty-btn" data-dir="1">+</button><button class="btn-add" data-i18n="orders.addToCart">+ Voeg toe</button></div></td>
               </tr>
               <tr data-cat="Schoonmaakproduct" data-name="Admire Breeze luchtverfrisser dispenser - ZWART" data-art="776985" data-price="11.50">
                 <td><div class="p-thumb">🌬️</div></td>
@@ -233,7 +233,7 @@
                 <td><span class="p-unit">STK</span></td>
                 <td><span class="p-cat">Schoonmaakproduct</span></td>
                 <td style="text-align:right"><span class="p-price">€ 11,50</span></td>
-                <td style="text-align:center"><div class="qty-wrap" style="justify-content:center"><button class="qty-btn" data-dir="-1">−</button><input class="qty-input" type="number" value="1" min="1"><button class="qty-btn" data-dir="1">+</button><button class="btn-add">+ Voeg toe</button></div></td>
+                <td style="text-align:center"><div class="qty-wrap" style="justify-content:center"><button class="qty-btn" data-dir="-1">−</button><input class="qty-input" type="number" value="1" min="1"><button class="qty-btn" data-dir="1">+</button><button class="btn-add" data-i18n="orders.addToCart">+ Voeg toe</button></div></td>
               </tr>
               <tr data-cat="Schoonmaakproduct" data-name="Admire Breeze vulling luchtverfrisser mix 3x2 stuks" data-art="774885" data-price="79.50">
                 <td><div class="p-thumb">🌬️</div></td>
@@ -241,7 +241,7 @@
                 <td><span class="p-unit">SET</span></td>
                 <td><span class="p-cat">Schoonmaakproduct</span></td>
                 <td style="text-align:right"><span class="p-price">€ 79,50</span></td>
-                <td style="text-align:center"><div class="qty-wrap" style="justify-content:center"><button class="qty-btn" data-dir="-1">−</button><input class="qty-input" type="number" value="1" min="1"><button class="qty-btn" data-dir="1">+</button><button class="btn-add">+ Voeg toe</button></div></td>
+                <td style="text-align:center"><div class="qty-wrap" style="justify-content:center"><button class="qty-btn" data-dir="-1">−</button><input class="qty-input" type="number" value="1" min="1"><button class="qty-btn" data-dir="1">+</button><button class="btn-add" data-i18n="orders.addToCart">+ Voeg toe</button></div></td>
               </tr>
               <!-- Sanitair -->
               <tr data-cat="Sanitair" data-name="Admire foam soap hygiene 1 l" data-art="774831" data-price="10.50">
@@ -250,7 +250,7 @@
                 <td><span class="p-unit">STK</span></td>
                 <td><span class="p-cat">Sanitair</span></td>
                 <td style="text-align:right"><span class="p-price">€ 10,50</span></td>
-                <td style="text-align:center"><div class="qty-wrap" style="justify-content:center"><button class="qty-btn" data-dir="-1">−</button><input class="qty-input" type="number" value="1" min="1"><button class="qty-btn" data-dir="1">+</button><button class="btn-add">+ Voeg toe</button></div></td>
+                <td style="text-align:center"><div class="qty-wrap" style="justify-content:center"><button class="qty-btn" data-dir="-1">−</button><input class="qty-input" type="number" value="1" min="1"><button class="qty-btn" data-dir="1">+</button><button class="btn-add" data-i18n="orders.addToCart">+ Voeg toe</button></div></td>
               </tr>
               <tr data-cat="Sanitair" data-name="Admire hair & body 350 ml" data-art="774844" data-price="5.50">
                 <td><div class="p-thumb">🧴</div></td>
@@ -258,7 +258,7 @@
                 <td><span class="p-unit">STK</span></td>
                 <td><span class="p-cat">Sanitair</span></td>
                 <td style="text-align:right"><span class="p-price">€ 5,50</span></td>
-                <td style="text-align:center"><div class="qty-wrap" style="justify-content:center"><button class="qty-btn" data-dir="-1">−</button><input class="qty-input" type="number" value="1" min="1"><button class="qty-btn" data-dir="1">+</button><button class="btn-add">+ Voeg toe</button></div></td>
+                <td style="text-align:center"><div class="qty-wrap" style="justify-content:center"><button class="qty-btn" data-dir="-1">−</button><input class="qty-input" type="number" value="1" min="1"><button class="qty-btn" data-dir="1">+</button><button class="btn-add" data-i18n="orders.addToCart">+ Voeg toe</button></div></td>
               </tr>
               <tr data-cat="Sanitair" data-name="Admire toiletpapier 2-laags 400v" data-art="774222" data-price="0.85">
                 <td><div class="p-thumb">🧻</div></td>
@@ -266,7 +266,7 @@
                 <td><span class="p-unit">ROL</span></td>
                 <td><span class="p-cat">Sanitair</span></td>
                 <td style="text-align:right"><span class="p-price">€ 0,85</span></td>
-                <td style="text-align:center"><div class="qty-wrap" style="justify-content:center"><button class="qty-btn" data-dir="-1">−</button><input class="qty-input" type="number" value="1" min="1"><button class="qty-btn" data-dir="1">+</button><button class="btn-add">+ Voeg toe</button></div></td>
+                <td style="text-align:center"><div class="qty-wrap" style="justify-content:center"><button class="qty-btn" data-dir="-1">−</button><input class="qty-input" type="number" value="1" min="1"><button class="qty-btn" data-dir="1">+</button><button class="btn-add" data-i18n="orders.addToCart">+ Voeg toe</button></div></td>
               </tr>
               <tr data-cat="Sanitair" data-name="Admire papieren handdoeken zig-zag" data-art="774120" data-price="4.20">
                 <td><div class="p-thumb">🧻</div></td>
@@ -274,7 +274,7 @@
                 <td><span class="p-unit">PKT</span></td>
                 <td><span class="p-cat">Sanitair</span></td>
                 <td style="text-align:right"><span class="p-price">€ 4,20</span></td>
-                <td style="text-align:center"><div class="qty-wrap" style="justify-content:center"><button class="qty-btn" data-dir="-1">−</button><input class="qty-input" type="number" value="1" min="1"><button class="qty-btn" data-dir="1">+</button><button class="btn-add">+ Voeg toe</button></div></td>
+                <td style="text-align:center"><div class="qty-wrap" style="justify-content:center"><button class="qty-btn" data-dir="-1">−</button><input class="qty-input" type="number" value="1" min="1"><button class="qty-btn" data-dir="1">+</button><button class="btn-add" data-i18n="orders.addToCart">+ Voeg toe</button></div></td>
               </tr>
               <!-- Catering -->
               <tr data-cat="Catering" data-name="Koffiepads Arabica 100 stuks" data-art="780100" data-price="13.50">
@@ -283,7 +283,7 @@
                 <td><span class="p-unit">PAK</span></td>
                 <td><span class="p-cat">Catering</span></td>
                 <td style="text-align:right"><span class="p-price">€ 13,50</span></td>
-                <td style="text-align:center"><div class="qty-wrap" style="justify-content:center"><button class="qty-btn" data-dir="-1">−</button><input class="qty-input" type="number" value="1" min="1"><button class="qty-btn" data-dir="1">+</button><button class="btn-add">+ Voeg toe</button></div></td>
+                <td style="text-align:center"><div class="qty-wrap" style="justify-content:center"><button class="qty-btn" data-dir="-1">−</button><input class="qty-input" type="number" value="1" min="1"><button class="qty-btn" data-dir="1">+</button><button class="btn-add" data-i18n="orders.addToCart">+ Voeg toe</button></div></td>
               </tr>
               <tr data-cat="Catering" data-name="Koffiecups Lungo 50 stuks" data-art="780150" data-price="18.20">
                 <td><div class="p-thumb">☕</div></td>
@@ -291,7 +291,7 @@
                 <td><span class="p-unit">PAK</span></td>
                 <td><span class="p-cat">Catering</span></td>
                 <td style="text-align:right"><span class="p-price">€ 18,20</span></td>
-                <td style="text-align:center"><div class="qty-wrap" style="justify-content:center"><button class="qty-btn" data-dir="-1">−</button><input class="qty-input" type="number" value="1" min="1"><button class="qty-btn" data-dir="1">+</button><button class="btn-add">+ Voeg toe</button></div></td>
+                <td style="text-align:center"><div class="qty-wrap" style="justify-content:center"><button class="qty-btn" data-dir="-1">−</button><input class="qty-input" type="number" value="1" min="1"><button class="qty-btn" data-dir="1">+</button><button class="btn-add" data-i18n="orders.addToCart">+ Voeg toe</button></div></td>
               </tr>
               <tr data-cat="Catering" data-name="Suikersticks 500 stuks" data-art="780210" data-price="9.40">
                 <td><div class="p-thumb">🍬</div></td>
@@ -299,7 +299,7 @@
                 <td><span class="p-unit">DOO</span></td>
                 <td><span class="p-cat">Catering</span></td>
                 <td style="text-align:right"><span class="p-price">€ 9,40</span></td>
-                <td style="text-align:center"><div class="qty-wrap" style="justify-content:center"><button class="qty-btn" data-dir="-1">−</button><input class="qty-input" type="number" value="1" min="1"><button class="qty-btn" data-dir="1">+</button><button class="btn-add">+ Voeg toe</button></div></td>
+                <td style="text-align:center"><div class="qty-wrap" style="justify-content:center"><button class="qty-btn" data-dir="-1">−</button><input class="qty-input" type="number" value="1" min="1"><button class="qty-btn" data-dir="1">+</button><button class="btn-add" data-i18n="orders.addToCart">+ Voeg toe</button></div></td>
               </tr>
               <tr data-cat="Catering" data-name="Melkpads 240 stuks" data-art="780430" data-price="16.80">
                 <td><div class="p-thumb">🥛</div></td>
@@ -307,7 +307,7 @@
                 <td><span class="p-unit">PAK</span></td>
                 <td><span class="p-cat">Catering</span></td>
                 <td style="text-align:right"><span class="p-price">€ 16,80</span></td>
-                <td style="text-align:center"><div class="qty-wrap" style="justify-content:center"><button class="qty-btn" data-dir="-1">−</button><input class="qty-input" type="number" value="1" min="1"><button class="qty-btn" data-dir="1">+</button><button class="btn-add">+ Voeg toe</button></div></td>
+                <td style="text-align:center"><div class="qty-wrap" style="justify-content:center"><button class="qty-btn" data-dir="-1">−</button><input class="qty-input" type="number" value="1" min="1"><button class="qty-btn" data-dir="1">+</button><button class="btn-add" data-i18n="orders.addToCart">+ Voeg toe</button></div></td>
               </tr>
               <tr data-cat="Catering" data-name="Plastic bekers 200 ml 100 stuks" data-art="780320" data-price="6.80">
                 <td><div class="p-thumb">🥤</div></td>
@@ -315,7 +315,7 @@
                 <td><span class="p-unit">VPK</span></td>
                 <td><span class="p-cat">Catering</span></td>
                 <td style="text-align:right"><span class="p-price">€ 6,80</span></td>
-                <td style="text-align:center"><div class="qty-wrap" style="justify-content:center"><button class="qty-btn" data-dir="-1">−</button><input class="qty-input" type="number" value="1" min="1"><button class="qty-btn" data-dir="1">+</button><button class="btn-add">+ Voeg toe</button></div></td>
+                <td style="text-align:center"><div class="qty-wrap" style="justify-content:center"><button class="qty-btn" data-dir="-1">−</button><input class="qty-input" type="number" value="1" min="1"><button class="qty-btn" data-dir="1">+</button><button class="btn-add" data-i18n="orders.addToCart">+ Voeg toe</button></div></td>
               </tr>
               <!-- Kantoor -->
               <tr data-cat="Kantoor" data-name="Kopieerpapier A4 80g 500 vel" data-art="790100" data-price="6.20">
@@ -324,7 +324,7 @@
                 <td><span class="p-unit">RIE</span></td>
                 <td><span class="p-cat">Kantoor</span></td>
                 <td style="text-align:right"><span class="p-price">€ 6,20</span></td>
-                <td style="text-align:center"><div class="qty-wrap" style="justify-content:center"><button class="qty-btn" data-dir="-1">−</button><input class="qty-input" type="number" value="1" min="1"><button class="qty-btn" data-dir="1">+</button><button class="btn-add">+ Voeg toe</button></div></td>
+                <td style="text-align:center"><div class="qty-wrap" style="justify-content:center"><button class="qty-btn" data-dir="-1">−</button><input class="qty-input" type="number" value="1" min="1"><button class="qty-btn" data-dir="1">+</button><button class="btn-add" data-i18n="orders.addToCart">+ Voeg toe</button></div></td>
               </tr>
               <tr data-cat="Kantoor" data-name="Balpennen blauw doos 50 stuks" data-art="790210" data-price="13.50">
                 <td><div class="p-thumb">✏️</div></td>
@@ -332,7 +332,7 @@
                 <td><span class="p-unit">DOO</span></td>
                 <td><span class="p-cat">Kantoor</span></td>
                 <td style="text-align:right"><span class="p-price">€ 13,50</span></td>
-                <td style="text-align:center"><div class="qty-wrap" style="justify-content:center"><button class="qty-btn" data-dir="-1">−</button><input class="qty-input" type="number" value="1" min="1"><button class="qty-btn" data-dir="1">+</button><button class="btn-add">+ Voeg toe</button></div></td>
+                <td style="text-align:center"><div class="qty-wrap" style="justify-content:center"><button class="qty-btn" data-dir="-1">−</button><input class="qty-input" type="number" value="1" min="1"><button class="qty-btn" data-dir="1">+</button><button class="btn-add" data-i18n="orders.addToCart">+ Voeg toe</button></div></td>
               </tr>
               <tr data-cat="Kantoor" data-name="Post-it notes 76x76 mm pak 12 stuks" data-art="790310" data-price="9.80">
                 <td><div class="p-thumb">📝</div></td>
@@ -340,11 +340,11 @@
                 <td><span class="p-unit">PAK</span></td>
                 <td><span class="p-cat">Kantoor</span></td>
                 <td style="text-align:right"><span class="p-price">€ 9,80</span></td>
-                <td style="text-align:center"><div class="qty-wrap" style="justify-content:center"><button class="qty-btn" data-dir="-1">−</button><input class="qty-input" type="number" value="1" min="1"><button class="qty-btn" data-dir="1">+</button><button class="btn-add">+ Voeg toe</button></div></td>
+                <td style="text-align:center"><div class="qty-wrap" style="justify-content:center"><button class="qty-btn" data-dir="-1">−</button><input class="qty-input" type="number" value="1" min="1"><button class="qty-btn" data-dir="1">+</button><button class="btn-add" data-i18n="orders.addToCart">+ Voeg toe</button></div></td>
               </tr>
             </tbody>
             <tbody>
-              <tr class="no-results" id="noResults"><td colspan="6">Geen producten gevonden voor uw zoekopdracht.</td></tr>
+              <tr class="no-results" id="noResults"><td colspan="6" data-i18n="orders.noResults">Geen producten gevonden voor uw zoekopdracht.</td></tr>
             </tbody>
           </table>
         </div>
@@ -354,23 +354,23 @@
           <div class="cart-panel">
             <div class="cart-header">
               <i data-lucide="shopping-cart" style="width:16px;height:16px"></i>
-              Mijn bestelling
+              <span data-i18n="orders.myOrder">Mijn bestelling</span>
               <span class="cart-badge" id="cartCount">0</span>
             </div>
-            <p class="cart-empty" id="cartEmpty">Nog geen producten toegevoegd.</p>
+            <p class="cart-empty" id="cartEmpty" data-i18n="orders.cartEmpty">Nog geen producten toegevoegd.</p>
             <ul class="cart-items" id="cartItems"></ul>
             <div class="cart-footer" id="cartFooter" style="display:none">
               <div class="cart-total">
-                <span>Totaal (excl. btw)</span>
+                <span data-i18n="orders.totalExclVat">Totaal (excl. btw)</span>
                 <span id="cartTotal">€ 0,00</span>
               </div>
-              <button class="btn-order" id="btnOrder">Bestelling indienen</button>
-              <p class="cart-note">⚠ Bestellingen voor sites waarvoor een goedkeuringsflow actief is, worden ter goedkeuring doorgestuurd naar uw KAM.</p>
+              <button class="btn-order" id="btnOrder" data-i18n="orders.submitOrder">Bestelling indienen</button>
+              <p class="cart-note" data-i18n="orders.cartNote">⚠ Bestellingen voor sites waarvoor een goedkeuringsflow actief is, worden ter goedkeuring doorgestuurd naar uw KAM.</p>
             </div>
           </div>
           <div class="placeholder" style="margin-top:16px;font-size:11px">
-            <strong>[Productcatalogus — ERP/bestelplatform]</strong>
-            Prijzen en beschikbaarheid worden geladen vanuit het gecontracteerde bestelplatform. SDS-fiches zijn per product downloadbaar.
+            <strong data-i18n="orders.placeholder.title">[Productcatalogus — ERP/bestelplatform]</strong>
+            <span data-i18n="orders.placeholder.desc">Prijzen en beschikbaarheid worden geladen vanuit het gecontracteerde bestelplatform. SDS-fiches zijn per product downloadbaar.</span>
           </div>
         </div>
 
@@ -378,12 +378,30 @@
     </main>
   </div>
 
+  <script src="i18n-dict.js"></script>
+  <script src="i18n.js"></script>
   <script src="auth.js"></script>
   <script src="nav.js"></script>
   <script src="feedback.js"></script>
   <script>
   (function () {
     var cart = {}; // art -> { name, price, qty }
+
+    var TXT = {
+      added:     { nl: '✓ Toegevoegd', fr: '✓ Ajouté',  en: '✓ Added' },
+      addToCart: { nl: '+ Voeg toe',   fr: '+ Ajouter', en: '+ Add' },
+      remove:    { nl: 'Verwijderen',  fr: 'Supprimer', en: 'Remove' },
+      allSites:  { nl: 'alle sites',   fr: 'tous les sites', en: 'all sites' },
+      orderPlaced: {
+        nl: function(site){ return 'Bestelling ingediend voor ' + site + '.\n\nIn een live omgeving wordt deze bestelling doorgestuurd naar het ERP-systeem en, indien van toepassing, ter goedkeuring aangeboden.'; },
+        fr: function(site){ return 'Commande soumise pour ' + site + '.\n\nDans un environnement réel, cette commande est transmise au système ERP et, le cas échéant, soumise pour approbation.'; },
+        en: function(site){ return 'Order submitted for ' + site + '.\n\nIn a live environment, this order is forwarded to the ERP system and, where applicable, submitted for approval.'; }
+      }
+    };
+    function getLang() {
+      var l = localStorage.getItem('lang');
+      return ['nl','fr','en'].indexOf(l) !== -1 ? l : 'nl';
+    }
 
     // ── Filter ────────────────────────────────────────────────
     var srch  = document.getElementById('srch');
@@ -437,11 +455,12 @@
         cart[art] = { name: name, price: price, qty: qty };
       }
 
-      btn.textContent = '✓ Toegevoegd';
+      var lang = getLang();
+      btn.textContent = TXT.added[lang];
       btn.classList.add('added');
       row.classList.add('in-cart');
       setTimeout(function () {
-        btn.textContent = '+ Voeg toe';
+        btn.textContent = TXT.addToCart[lang];
         btn.classList.remove('added');
       }, 1500);
 
@@ -450,6 +469,7 @@
 
     // ── Render cart ───────────────────────────────────────────
     function renderCart() {
+      var lang    = getLang();
       var items   = Object.entries(cart);
       var count   = items.reduce(function (s, e) { return s + e[1].qty; }, 0);
       var total   = items.reduce(function (s, e) { return s + e[1].price * e[1].qty; }, 0);
@@ -466,7 +486,7 @@
         return '<li class="cart-item">' +
           '<div class="cart-item-name">' + item.name + '</div>' +
           '<div class="cart-item-sub"><span>' + sub + '</span>' +
-          '<span class="cart-item-del" data-art="' + art + '">Verwijderen</span></div>' +
+          '<span class="cart-item-del" data-art="' + art + '">' + TXT.remove[lang] + '</span></div>' +
           '</li>';
       }).join('');
 
@@ -487,8 +507,9 @@
     // ── Place order ───────────────────────────────────────────
     document.getElementById('btnOrder').addEventListener('click', function () {
       if (Object.keys(cart).length === 0) return;
-      var site = fSite.value || 'alle sites';
-      alert('Bestelling ingediend voor ' + site + '.\n\nIn een live omgeving wordt deze bestelling doorgestuurd naar het ERP-systeem en, indien van toepassing, ter goedkeuring aangeboden.');
+      var lang = getLang();
+      var site = fSite.value || TXT.allSites[lang];
+      alert(TXT.orderPlaced[lang](site));
       cart = {};
       document.querySelectorAll('.in-cart').forEach(function (r) { r.classList.remove('in-cart'); });
       renderCart();

@@ -10,50 +10,50 @@
     <header class="topbar">
       <span class="logo">ATALIAN.</span>
       <span class="client-selector">Vlaeminck Logistics ▾</span>
-      <div class="topbar-actions"><span>NL</span><span>🔔</span><span>DS ▾</span></div>
+      <div class="topbar-actions"><span>🔔</span><span>DS ▾</span></div>
     </header>
     <nav class="sidebar" id="sidebar"></nav>
     <main class="main-content">
       <div class="page-header">
-        <h1 class="page-title">Te ondertekenen</h1>
-        <p class="page-desc">Offertes voor meerwerken en acties die uw goedkeuring vereisen — gekoppeld aan Work Orders en facturatie.</p>
+        <h1 class="page-title" data-i18n="actions.title">Te ondertekenen</h1>
+        <p class="page-desc" data-i18n="actions.subtitle">Offertes voor meerwerken en acties die uw goedkeuring vereisen — gekoppeld aan Work Orders en facturatie.</p>
       </div>
       <div class="card" style="border-left:4px solid var(--color-warning);margin-bottom:24px;padding:14px 20px">
-        <div style="font-weight:700;font-size:14px">⚠ 2 items vereisen uw handtekening</div>
-        <div style="font-size:12px;color:var(--color-text-2);margin-top:3px">1 offerte · 1 document — vervalt vrijdag 30/05</div>
+        <div style="font-weight:700;font-size:14px" data-i18n="actions.banner.title">⚠ 2 items vereisen uw handtekening</div>
+        <div style="font-size:12px;color:var(--color-text-2);margin-top:3px" data-i18n="actions.banner.detail">1 offerte · 1 document — vervalt vrijdag 30/05</div>
       </div>
 
       <!-- TE ONDERTEKENEN -->
       <div class="card">
         <div class="card-title" style="display:flex;align-items:center;gap:8px">
-          ✍ Te ondertekenen
-          <span style="font-size:11px;background:#FEF3CD;color:#7D5A00;padding:2px 8px;border-radius:10px;font-weight:600">2 open</span>
+          <span data-i18n="actions.list.title">✍ Te ondertekenen</span>
+          <span style="font-size:11px;background:#FEF3CD;color:#7D5A00;padding:2px 8px;border-radius:10px;font-weight:600" data-i18n="actions.list.open">2 open</span>
         </div>
         <table class="data-table">
-          <thead><tr><th>Nr / Document</th><th>Omschrijving</th><th>Bedrag</th><th>Site</th><th>Deadline</th><th>Actie</th></tr></thead>
+          <thead><tr><th data-i18n="actions.table.number">Nr / Document</th><th data-i18n="table.description">Omschrijving</th><th data-i18n="actions.table.amount">Bedrag</th><th data-i18n="table.site">Site</th><th data-i18n="actions.table.deadline">Deadline</th><th data-i18n="table.action">Actie</th></tr></thead>
           <tbody>
             <tr>
-              <td><strong>OFF-2026-089</strong><br><span style="font-size:11px;color:var(--color-text-2)">Offerte</span></td>
-              <td>Herstelling dakgoot — Noord gevel</td>
+              <td><strong>OFF-2026-089</strong><br><span style="font-size:11px;color:var(--color-text-2)" data-i18n="actions.type.quote">Offerte</span></td>
+              <td data-i18n="actions.row1.desc">Herstelling dakgoot — Noord gevel</td>
               <td><strong>€ 3.450</strong></td>
               <td>Brussel</td>
               <td style="color:var(--color-danger);font-weight:700">30/05/2026</td>
               <td>
-                <button class="btn btn-primary" style="font-size:12px;padding:6px 12px">✓ Goedkeuren</button>
-                <button class="btn btn-secondary" style="font-size:12px;padding:6px 12px;margin-left:4px">✗ Weigeren</button>
-                <button class="btn btn-secondary btn-icon" style="padding:6px 10px;margin-left:8px" title="Document lezen"><i data-lucide="file-text" style="width:14px;height:14px"></i></button>
+                <button class="btn btn-primary" style="font-size:12px;padding:6px 12px" data-i18n="actions.approve">✓ Goedkeuren</button>
+                <button class="btn btn-secondary" style="font-size:12px;padding:6px 12px;margin-left:4px" data-i18n="actions.reject">✗ Weigeren</button>
+                <button class="btn btn-secondary btn-icon" style="padding:6px 10px;margin-left:8px" data-i18n-title="actions.readDocument" title="Document lezen"><i data-lucide="file-text" style="width:14px;height:14px"></i></button>
               </td>
             </tr>
             <tr>
-              <td><strong>ADD-2026-003</strong><br><span style="font-size:11px;color:var(--color-text-2)">Addendum</span></td>
-              <td>Ondertekening addendum extra schoonmaakbeurt</td>
+              <td><strong>ADD-2026-003</strong><br><span style="font-size:11px;color:var(--color-text-2)" data-i18n="actions.type.addendum">Addendum</span></td>
+              <td data-i18n="actions.row2.desc">Ondertekening addendum extra schoonmaakbeurt</td>
               <td>—</td>
               <td>Gent</td>
               <td style="color:var(--color-warning);font-weight:700">01/06/2026</td>
               <td>
-                <button class="btn btn-primary" style="font-size:12px;padding:6px 12px">✓ Ondertekenen</button>
-                <button class="btn btn-secondary" style="font-size:12px;padding:6px 12px;margin-left:4px">✗ Weigeren</button>
-                <button class="btn btn-secondary btn-icon" style="padding:6px 10px;margin-left:8px" title="Document lezen"><i data-lucide="file-text" style="width:14px;height:14px"></i></button>
+                <button class="btn btn-primary" style="font-size:12px;padding:6px 12px" data-i18n="actions.sign">✓ Ondertekenen</button>
+                <button class="btn btn-secondary" style="font-size:12px;padding:6px 12px;margin-left:4px" data-i18n="actions.reject">✗ Weigeren</button>
+                <button class="btn btn-secondary btn-icon" style="padding:6px 10px;margin-left:8px" data-i18n-title="actions.readDocument" title="Document lezen"><i data-lucide="file-text" style="width:14px;height:14px"></i></button>
               </td>
             </tr>
           </tbody>
@@ -61,6 +61,8 @@
       </div>
     </main>
   </div>
+  <script src="i18n-dict.js"></script>
+  <script src="i18n.js"></script>
   <script src="auth.js"></script>
   <script src="nav.js"></script>
   <script src="feedback.js"></script>

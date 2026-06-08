@@ -26,19 +26,19 @@
     <header class="topbar">
       <span class="logo">ATALIAN.</span>
       <span class="client-selector">Vlaeminck Logistics ▾</span>
-      <div class="topbar-actions"><span>NL</span><span>🔔</span><span>DS ▾</span></div>
+      <div class="topbar-actions"><span>🔔</span><span>DS ▾</span></div>
     </header>
     <nav class="sidebar" id="sidebar"></nav>
     <main class="main-content">
       <div class="page-header">
-        <h1 class="page-title">Diensten per gebouw</h1>
-        <p class="page-desc">Overzicht van alle gecontracteerde diensten per site — filterbaar op gebouw, diensttype en status.</p>
+        <h1 class="page-title" data-i18n="services.title">Diensten per gebouw</h1>
+        <p class="page-desc" data-i18n="services.subtitle">Overzicht van alle gecontracteerde diensten per site — filterbaar op gebouw, diensttype en status.</p>
       </div>
 
       <!-- Globale zoekbalk -->
       <div class="filter-bar">
-        <input type="text" id="global-search" placeholder="Zoeken op gebouw, dienst, frequentie…">
-        <button id="clear-filters" class="btn btn-secondary" style="white-space:nowrap">✕ Wis filters</button>
+        <input type="text" id="global-search" data-i18n-placeholder="services.search" placeholder="Zoeken op gebouw, dienst, frequentie…">
+        <button id="clear-filters" class="btn btn-secondary" style="white-space:nowrap" data-i18n="services.clearFilters">✕ Wis filters</button>
       </div>
 
       <!-- Tabel met kolomfilters -->
@@ -46,46 +46,46 @@
         <table class="data-table" id="svc-table">
           <thead>
             <tr>
-              <th>Gebouw / Site<br>
+              <th><span data-i18n="services.col.building">Gebouw / Site</span><br>
                 <select class="col-filter" data-col="0">
-                  <option value="">Alle</option>
+                  <option value="" data-i18n="filter.all">Alle</option>
                   <option>Gent</option>
                   <option>Antwerpen</option>
                   <option>Brussel</option>
                 </select>
               </th>
-              <th>Dienst<br>
+              <th><span data-i18n="services.col.service">Dienst</span><br>
                 <select class="col-filter" data-col="1">
-                  <option value="">Alle</option>
-                  <option>Schoonmaak</option>
-                  <option>Glaswas</option>
-                  <option>Hard Services</option>
-                  <option>Groenonderhoud</option>
-                  <option>Catering</option>
+                  <option value="" data-i18n="filter.all">Alle</option>
+                  <option data-i18n="service.cleaning">Schoonmaak</option>
+                  <option data-i18n="service.windowCleaning">Glaswas</option>
+                  <option data-i18n="service.hardServices">Hard Services</option>
+                  <option data-i18n="services.greenMaintenance">Groenonderhoud</option>
+                  <option data-i18n="nav.catering">Catering</option>
                 </select>
               </th>
-              <th>Frequentie<br>
+              <th><span data-i18n="services.col.frequency">Frequentie</span><br>
                 <select class="col-filter" data-col="2">
-                  <option value="">Alle</option>
-                  <option>Dagelijks</option>
-                  <option>Wekelijks</option>
-                  <option>Maandelijks</option>
-                  <option>Kwartaal</option>
-                  <option>Op afroep</option>
+                  <option value="" data-i18n="filter.all">Alle</option>
+                  <option data-i18n="services.freq.daily">Dagelijks</option>
+                  <option data-i18n="services.freq.weekly">Wekelijks</option>
+                  <option data-i18n="services.freq.monthly">Maandelijks</option>
+                  <option data-i18n="services.freq.quarterly">Kwartaal</option>
+                  <option data-i18n="services.freq.onCall">Op afroep</option>
                 </select>
               </th>
-              <th>Uren / week<br>
-                <input class="col-filter" data-col="3" placeholder="filter…">
+              <th><span data-i18n="services.col.hoursPerWeek">Uren / week</span><br>
+                <input class="col-filter" data-col="3" data-i18n-placeholder="services.filterPlaceholder" placeholder="filter…">
               </th>
-              <th>Status<br>
+              <th><span data-i18n="table.status">Status</span><br>
                 <select class="col-filter" data-col="4">
-                  <option value="">Alle</option>
-                  <option>Actief</option>
-                  <option>Niet actief</option>
+                  <option value="" data-i18n="filter.all">Alle</option>
+                  <option data-i18n="services.status.active">Actief</option>
+                  <option data-i18n="services.status.inactive">Niet actief</option>
                 </select>
               </th>
-              <th>Opmerking<br>
-                <input class="col-filter" data-col="5" placeholder="filter…">
+              <th><span data-i18n="services.col.remark">Opmerking</span><br>
+                <input class="col-filter" data-col="5" data-i18n-placeholder="services.filterPlaceholder" placeholder="filter…">
               </th>
             </tr>
           </thead>
@@ -93,123 +93,125 @@
             <!-- Gent -->
             <tr>
               <td><strong>Gent</strong></td>
-              <td>Schoonmaak</td>
-              <td>Dagelijks</td>
+              <td data-i18n="service.cleaning">Schoonmaak</td>
+              <td data-i18n="services.freq.daily">Dagelijks</td>
               <td>32 u</td>
-              <td><span class="badge badge-done">Actief</span></td>
-              <td style="font-size:12px;color:var(--color-text-2)">Ma–vr, ploeg Gent-A</td>
+              <td><span class="badge badge-done" data-i18n="services.status.active">Actief</span></td>
+              <td style="font-size:12px;color:var(--color-text-2)" data-i18n="services.remark.gentCleaning">Ma–vr, ploeg Gent-A</td>
             </tr>
             <tr>
               <td><strong>Gent</strong></td>
-              <td>Glaswas</td>
-              <td>Maandelijks</td>
+              <td data-i18n="service.windowCleaning">Glaswas</td>
+              <td data-i18n="services.freq.monthly">Maandelijks</td>
               <td>4 u</td>
-              <td><span class="badge badge-done">Actief</span></td>
-              <td style="font-size:12px;color:var(--color-text-2)">Eerste maandag van de maand</td>
+              <td><span class="badge badge-done" data-i18n="services.status.active">Actief</span></td>
+              <td style="font-size:12px;color:var(--color-text-2)" data-i18n="services.remark.firstMonday">Eerste maandag van de maand</td>
             </tr>
             <tr>
               <td><strong>Gent</strong></td>
-              <td>Hard Services</td>
-              <td>Op afroep</td>
+              <td data-i18n="service.hardServices">Hard Services</td>
+              <td data-i18n="services.freq.onCall">Op afroep</td>
               <td>—</td>
-              <td><span class="badge badge-done">Actief</span></td>
-              <td style="font-size:12px;color:var(--color-text-2)">Preventief + curatief</td>
+              <td><span class="badge badge-done" data-i18n="services.status.active">Actief</span></td>
+              <td style="font-size:12px;color:var(--color-text-2)" data-i18n="services.remark.preventiveCurative">Preventief + curatief</td>
             </tr>
             <tr>
               <td><strong>Gent</strong></td>
-              <td>Groenonderhoud</td>
-              <td>Wekelijks</td>
+              <td data-i18n="services.greenMaintenance">Groenonderhoud</td>
+              <td data-i18n="services.freq.weekly">Wekelijks</td>
               <td>3 u</td>
-              <td><span class="badge badge-done">Actief</span></td>
-              <td style="font-size:12px;color:var(--color-text-2)">Buiten: gras & hagen</td>
+              <td><span class="badge badge-done" data-i18n="services.status.active">Actief</span></td>
+              <td style="font-size:12px;color:var(--color-text-2)" data-i18n="services.remark.outdoorGrassHedges">Buiten: gras &amp; hagen</td>
             </tr>
             <tr>
               <td><strong>Gent</strong></td>
-              <td>Catering</td>
+              <td data-i18n="nav.catering">Catering</td>
               <td>—</td>
               <td>—</td>
-              <td><span class="badge badge-open">Niet actief</span></td>
-              <td style="font-size:12px;color:var(--color-text-2)">Beschikbaar — contacteer uw KAM</td>
+              <td><span class="badge badge-open" data-i18n="services.status.inactive">Niet actief</span></td>
+              <td style="font-size:12px;color:var(--color-text-2)" data-i18n="services.remark.contactKam">Beschikbaar — contacteer uw KAM</td>
             </tr>
             <!-- Antwerpen -->
             <tr>
               <td><strong>Antwerpen</strong></td>
-              <td>Schoonmaak</td>
-              <td>Dagelijks</td>
+              <td data-i18n="service.cleaning">Schoonmaak</td>
+              <td data-i18n="services.freq.daily">Dagelijks</td>
               <td>24 u</td>
-              <td><span class="badge badge-done">Actief</span></td>
-              <td style="font-size:12px;color:var(--color-text-2)">Ma–vr, ploeg ANT-B</td>
+              <td><span class="badge badge-done" data-i18n="services.status.active">Actief</span></td>
+              <td style="font-size:12px;color:var(--color-text-2)" data-i18n="services.remark.antCleaning">Ma–vr, ploeg ANT-B</td>
             </tr>
             <tr>
               <td><strong>Antwerpen</strong></td>
-              <td>Hard Services</td>
-              <td>Kwartaal</td>
+              <td data-i18n="service.hardServices">Hard Services</td>
+              <td data-i18n="services.freq.quarterly">Kwartaal</td>
               <td>8 u</td>
-              <td><span class="badge badge-done">Actief</span></td>
-              <td style="font-size:12px;color:var(--color-text-2)">Preventief onderhoud HVAC</td>
+              <td><span class="badge badge-done" data-i18n="services.status.active">Actief</span></td>
+              <td style="font-size:12px;color:var(--color-text-2)" data-i18n="services.remark.hvacMaintenance">Preventief onderhoud HVAC</td>
             </tr>
             <tr>
               <td><strong>Antwerpen</strong></td>
-              <td>Glaswas</td>
+              <td data-i18n="service.windowCleaning">Glaswas</td>
               <td>—</td>
               <td>—</td>
-              <td><span class="badge badge-open">Niet actief</span></td>
-              <td style="font-size:12px;color:var(--color-text-2)">Beschikbaar — contacteer uw KAM</td>
+              <td><span class="badge badge-open" data-i18n="services.status.inactive">Niet actief</span></td>
+              <td style="font-size:12px;color:var(--color-text-2)" data-i18n="services.remark.contactKam">Beschikbaar — contacteer uw KAM</td>
             </tr>
             <tr>
               <td><strong>Antwerpen</strong></td>
-              <td>Groenonderhoud</td>
+              <td data-i18n="services.greenMaintenance">Groenonderhoud</td>
               <td>—</td>
               <td>—</td>
-              <td><span class="badge badge-open">Niet actief</span></td>
-              <td style="font-size:12px;color:var(--color-text-2)">Beschikbaar — contacteer uw KAM</td>
+              <td><span class="badge badge-open" data-i18n="services.status.inactive">Niet actief</span></td>
+              <td style="font-size:12px;color:var(--color-text-2)" data-i18n="services.remark.contactKam">Beschikbaar — contacteer uw KAM</td>
             </tr>
             <!-- Brussel -->
             <tr>
               <td><strong>Brussel</strong></td>
-              <td>Schoonmaak</td>
-              <td>Dagelijks</td>
+              <td data-i18n="service.cleaning">Schoonmaak</td>
+              <td data-i18n="services.freq.daily">Dagelijks</td>
               <td>40 u</td>
-              <td><span class="badge badge-done">Actief</span></td>
-              <td style="font-size:12px;color:var(--color-text-2)">Ma–za, ploeg BXL-C</td>
+              <td><span class="badge badge-done" data-i18n="services.status.active">Actief</span></td>
+              <td style="font-size:12px;color:var(--color-text-2)" data-i18n="services.remark.bxlCleaning">Ma–za, ploeg BXL-C</td>
             </tr>
             <tr>
               <td><strong>Brussel</strong></td>
-              <td>Glaswas</td>
-              <td>Maandelijks</td>
+              <td data-i18n="service.windowCleaning">Glaswas</td>
+              <td data-i18n="services.freq.monthly">Maandelijks</td>
               <td>6 u</td>
-              <td><span class="badge badge-done">Actief</span></td>
-              <td style="font-size:12px;color:var(--color-text-2)">Binnen- & buitenglas</td>
+              <td><span class="badge badge-done" data-i18n="services.status.active">Actief</span></td>
+              <td style="font-size:12px;color:var(--color-text-2)" data-i18n="services.remark.insideOutsideGlass">Binnen- &amp; buitenglas</td>
             </tr>
             <tr>
               <td><strong>Brussel</strong></td>
-              <td>Hard Services</td>
-              <td>Op afroep</td>
+              <td data-i18n="service.hardServices">Hard Services</td>
+              <td data-i18n="services.freq.onCall">Op afroep</td>
               <td>—</td>
-              <td><span class="badge badge-done">Actief</span></td>
-              <td style="font-size:12px;color:var(--color-text-2)">Curatief onderhoud</td>
+              <td><span class="badge badge-done" data-i18n="services.status.active">Actief</span></td>
+              <td style="font-size:12px;color:var(--color-text-2)" data-i18n="services.remark.curativeMaintenance">Curatief onderhoud</td>
             </tr>
             <tr>
               <td><strong>Brussel</strong></td>
-              <td>Catering</td>
-              <td>Dagelijks</td>
+              <td data-i18n="nav.catering">Catering</td>
+              <td data-i18n="services.freq.daily">Dagelijks</td>
               <td>16 u</td>
-              <td><span class="badge badge-done">Actief</span></td>
-              <td style="font-size:12px;color:var(--color-text-2)">Koffiepauze & lunch</td>
+              <td><span class="badge badge-done" data-i18n="services.status.active">Actief</span></td>
+              <td style="font-size:12px;color:var(--color-text-2)" data-i18n="services.remark.coffeeBreakLunch">Koffiepauze &amp; lunch</td>
             </tr>
             <tr>
               <td><strong>Brussel</strong></td>
-              <td>Groenonderhoud</td>
+              <td data-i18n="services.greenMaintenance">Groenonderhoud</td>
               <td>—</td>
               <td>—</td>
-              <td><span class="badge badge-open">Niet actief</span></td>
-              <td style="font-size:12px;color:var(--color-text-2)">Beschikbaar — contacteer uw KAM</td>
+              <td><span class="badge badge-open" data-i18n="services.status.inactive">Niet actief</span></td>
+              <td style="font-size:12px;color:var(--color-text-2)" data-i18n="services.remark.contactKam">Beschikbaar — contacteer uw KAM</td>
             </tr>
           </tbody>
         </table>
       </div>
     </main>
   </div>
+  <script src="i18n-dict.js"></script>
+  <script src="i18n.js"></script>
   <script src="auth.js"></script>
   <script src="nav.js"></script>
   <script src="feedback.js"></script>
